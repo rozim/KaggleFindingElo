@@ -1,0 +1,13 @@
+#!/usr/bin/python
+#
+# Resample with replacement from stdin.
+#
+
+import sys
+import random
+
+all = sys.stdin.readlines()
+print ''.join((random.choice(all) for _ in range(len(all)))),
+
+
+

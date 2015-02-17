@@ -1,0 +1,10 @@
+#!/usr/bin/python                                                                                                                                     #                                    
+# Shuffle stdin
+
+import sys
+import random
+
+all = sys.stdin.readlines()
+random.shuffle(all)
+print ''.join(all), # avoid extra \n                                                                                                                                                      
+
