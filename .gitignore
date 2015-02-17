@@ -52,3 +52,12 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# Emacs
+*~
+#*#
+
+# Random junk
+shh
+err
+out
