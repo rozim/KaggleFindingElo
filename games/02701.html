@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script
+    	type='text/javascript'
+    	language='javascript'
+       src='../jspgnviewer/jsPgnViewer.js'>
+    </script>
+      <title>02701</title>
+  </head>
+
+  <body>
+  <div id='area_board'></div>
+  <div id='area' style='visibility: hidden;display:none'>
+[Event "2701"]
+[Site "kaggle.com"]
+[Date "??"]
+[Round "??"]
+[White "??"]
+[Black "??"]
+[Result "0-1"]
+[WhiteElo "1953"]
+[BlackElo "1726"]
+
+1. d4 e6 2. c4 Bb4+ 3. Nc3 b6 4. f3 Bb7 5. Nh3 f5 6. Nf2 Nf6 7. Qd3 O-O 8. e4 fxe4 
+9. fxe4 d5 10. e5 Ne4 11. Be3 Qh4 12. Qc2 c5 13. a3 cxd4 14. Bxd4 Nc6 15. Be3 Bxc3+ 
+16. bxc3 Nxe5 17. g3 Nf3+ 18. Kd1 Nxf2+ 19. Bxf2 Qh6 20. Qc1 Qg6 21. Qe3 Rad8 22. Kc1 
+d4 23. cxd4 Nxd4 24. Bd3 Nb3+ 25. Kc2 Rxd3 0-1
+
+
+</div>
+<script>
+	var brd = new Board('area', {'showMovesPane':true,
+	                              'imagePrefix': '../jspgnviewer/img/zurich/',
+	                              'buttonPrefix': '../jspgnviewer/img/zurich/buttons/',
+	                              'blackSqColor': 'url("../jspgnviewer/img/zurich/board/darksquare.gif")',
+	                              'lightSqColor': 'url("../jspgnviewer/img/zurich/board/lightquare.gif")'
+        });
+	brd.init();
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59927101-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</body>
+</html>
+

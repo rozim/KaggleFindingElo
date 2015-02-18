@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script
+    	type='text/javascript'
+    	language='javascript'
+       src='../jspgnviewer/jsPgnViewer.js'>
+    </script>
+      <title>01109</title>
+  </head>
+
+  <body>
+  <div id='area_board'></div>
+  <div id='area' style='visibility: hidden;display:none'>
+[Event "1109"]
+[Site "kaggle.com"]
+[Date "??"]
+[Round "??"]
+[White "??"]
+[Black "??"]
+[Result "1-0"]
+[WhiteElo "2068"]
+[BlackElo "1964"]
+
+1. e4 e6 2. d4 d5 3. Nd2 a6 4. c3 Nd7 5. Bd3 dxe4 6. Nxe4 Ngf6 7. Nf3 Be7 8. O-O 
+Nxe4 9. Bxe4 Nf6 10. Bc2 O-O 11. Qd3 b6 12. Bg5 g6 13. Rfe1 Bb7 14. h3 Nd7 15. Qe3 
+Bxg5 16. Nxg5 Kg7 17. Qg3 Rc8 18. Rxe6 f6 19. Nxh7 Kf7 20. Nxf8 Nxf8 21. Re3 c5 
+22. Rae1 cxd4 23. Re7+ Qxe7 24. Rxe7+ Kxe7 25. Bxg6 dxc3 26. bxc3 Nxg6 27. Qxg6 
+Bd5 28. Qg7+ Bf7 29. Qg3 Rc6 30. a3 a5 31. h4 Ke6 32. Qd3 Rd6 33. Qe4+ Kd7 34. h5 
+Re6 35. Qb7+ Ke8 36. Qb8+ Ke7 37. h6 1-0
+
+
+</div>
+<script>
+	var brd = new Board('area', {'showMovesPane':true,
+	                              'imagePrefix': '../jspgnviewer/img/zurich/',
+	                              'buttonPrefix': '../jspgnviewer/img/zurich/buttons/',
+	                              'blackSqColor': 'url("../jspgnviewer/img/zurich/board/darksquare.gif")',
+	                              'lightSqColor': 'url("../jspgnviewer/img/zurich/board/lightquare.gif")'
+        });
+	brd.init();
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59927101-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</body>
+</html>
+
