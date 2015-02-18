@@ -62,3 +62,5 @@ shh
 err
 out
 stderr.txt
+*.shh
+*.err
