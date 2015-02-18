@@ -5,7 +5,11 @@ import sys
 
 # Map game# to a colon-separated of positions in FEN.
 
-print "#Event,Fen"
+BoolToInt = {
+    True: 1,
+    False: 0}
+
+print "#Event,Fens,Sans,Mated"
 for fn in sys.argv[1:]:
     f = file(fn)
     while True:
@@ -17,9 +21,17 @@ for fn in sys.argv[1:]:
         node = game.variation(0)
         ply = 1
         fens = []
+        sans = []
         while node.variations:
-            fens.append(node.board().fen())            
+            board = node.board()
+            sans.append(node.san())
+            fens.append(board.fen())            
             node = node.variations[0]
             ply += 1
-        fens.append(node.board().fen()) # final position
-        print "%s,%s" % (headers['Event'], ':'.join(fens))
+        board = node.board()
+        sans.append(node.san()) # final move
+        fens.append(board.fen()) # final position
+        print "%s,%s,%s,%d" % (headers['Event'],
+                            ':'.join(fens),
+                            ':'.join(sans),
+                            BoolToInt[board.is_checkmate()])
