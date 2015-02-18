@@ -62,6 +62,7 @@ def ParseLine(ar):
            'time': int(After(ar, 'time')),
            'nodes': int(After(ar, 'nodes')),
            'score': ParseScore(ar),
+            'multipv': int(After(ar, 'multipv')),
            'pv': ar[ar.index('pv') + 1:]}
 
 def SearchDepth(p, depth):
@@ -69,7 +70,7 @@ def SearchDepth(p, depth):
     lines = SendCommandAndWaitFor(p, 'go depth %d' % depth, 'bestmove')
     nodes = []
     for line in lines:
-
+        print "LINE: ", line
         ar = line.split()
         if (ar[0] != 'info' or
             ar[1] != 'depth' or
@@ -80,7 +81,7 @@ def SearchDepth(p, depth):
             not 'time' in ar or
             not 'pv' in ar):
             continue
-        
+
         nodes.append(ParseLine(ar))
     return nodes
 
