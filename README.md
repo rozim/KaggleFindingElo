@@ -7,4 +7,6 @@ http://www.kaggle.com/c/finding-elo.
 * https://pypi.python.org/pypi/python-chess
 * https://github.com/tqchen/xgboost
 * https://code.google.com/p/py-leveldb/
+* https://pypi.python.org/pypi/python-cjson
+
 
