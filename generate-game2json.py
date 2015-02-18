@@ -54,6 +54,7 @@ for fn in sys.argv[1:]:
         n += 1
         if n % mod == 0:
             print "%6d %.1f" % (n, time.time() - t0)
+            sys.stdout.flush()
             mod *= 2
 
 
