@@ -1,0 +1,20 @@
+[Event "11557"]
+[Site "kaggle.com"]
+[Date "??"]
+[Round "??"]
+[White "??"]
+[Black "??"]
+[Result "1/2-1/2"]
+[WhiteElo "2303"]
+[BlackElo "2123"]
+
+1. e4 g6 2. d4 Bg7 3. c3 d6 4. Nf3 Nf6 5. Bd3 O-O 6. h3 Nc6 7. O-O h6 8. Na3 e5 
+9. dxe5 dxe5 10. Be3 Nh5 11. Bc5 Re8 12. Bc4 a6 13. Qxd8 Nxd8 14. Rfd1 Ne6 15. Be3 
+Nhf4 16. Bf1 Ng5 17. Nxg5 hxg5 18. Rd2 f5 19. Bc4+ Be6 20. exf5 gxf5 21. Bxf4 exf4 
+22. Rd7 Bxc4 23. Nxc4 Rad8 24. Rxc7 b5 25. Na5 Re2 26. Nb3 g4 27. Kf1 Rde8 28. Rc5 
+g3 29. fxg3 fxg3 30. Rxf5 Rxb2 31. Rg5 Rf2+ 32. Kg1 Rxa2 33. Rf1 Ra3 34. Nd4 Rxc3 
+35. Nf5 Rc7 36. Nxg3 Re5 37. Nf5 b4 38. Rf4 b3 39. Rb4 Rb5 40. Rxb5 axb5 41. Nxg7 
+Rc1+ 42. Kh2 b2 43. Rxb5 b1=Q 44. Rxb1 Rxb1 45. Nf5 Rb3 46. h4 Kf7 47. g3 Kf6 48. Nh6 
+Kg6 49. Ng4 Kf5 50. Kh3 Ra3 51. Nf2 Rb3 52. Ng4 Ra3 53. Nh2 Rb3 54. Nf1 Ra3 55. Kg2 
+Kg4 56. Nh2+ Kf5 57. Nf3 Kg4 58. Nh2+ Kf5 59. Kh3 Rb3 1/2-1/2
+

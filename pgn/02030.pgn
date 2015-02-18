@@ -1,0 +1,15 @@
+[Event "2030"]
+[Site "kaggle.com"]
+[Date "??"]
+[Round "??"]
+[White "??"]
+[Black "??"]
+[Result "1-0"]
+[WhiteElo "2170"]
+[BlackElo "2083"]
+
+1. e4 e6 2. Nf3 d5 3. e5 c5 4. b4 cxb4 5. a3 Nc6 6. axb4 Bxb4 7. c3 Bf8 8. d4 f6 
+9. Bd3 fxe5 10. dxe5 Qc7 11. O-O g6 12. Re1 Nh6 13. Na3 Nf7 14. Nb5 Qd8 15. Qc2 
+a6 16. h4 Bd7 17. Nd6+ Nxd6 18. exd6 Bxd6 19. Bxg6+ hxg6 20. Qxg6+ Kf8 21. Ng5 Qe7 
+22. Nxe6+ Bxe6 23. Rxe6 Bh2+ 24. Kf1 Qh7 25. Ba3+ 1-0
+

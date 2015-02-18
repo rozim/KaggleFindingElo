@@ -1,0 +1,36 @@
+[Event "31311"]
+[Site "kaggle.com"]
+[Date "??"]
+[Round "??"]
+[White "??"]
+[Black "??"]
+[Result "0-1"]
+[WhiteElo ""]
+[BlackElo ""]
+
+1. d4 Nf6 2. Nf3 e6 3. e3 c5 4. Nbd2 Nc6 5. c3 b6 6. Bd3 Bb7 7. O-O d6 8. Re1 Be7 
+9. a3 O-O 10. e4 e5 11. d5 Nb8 12. Nf1 Qc8 13. Ng3 g6 14. Bh6 Rd8 15. c4 Qc7 16. Qc1 
+Bc8 17. h3 Bf8 18. Bxf8 Rxf8 19. Qh6 Qe7 20. a4 a5 21. Ra3 Re8 22. Bc2 Qf8 23. Qg5 
+Qg7 24. Nh2 Nbd7 25. Rf3 h6 26. Qd2 Nf8 27. Rb3 Rb8 28. f4 N8d7 29. Rf1 Ba6 30. Rc3 
+Re7 31. Rf2 Nh7 32. f5 Nhf6 33. fxg6 fxg6 34. Nhf1 Rf8 35. Nf5 gxf5 36. Rg3 f4 37. Rxg7+ 
+Rxg7 38. Qd3 Kf7 39. Bd1 Rfg8 40. Bf3 Ke7 41. Nh2 Rg3 42. Kf1 h5 43. Ke1 Kd8 44. Nf1 
+R3g7 45. Rc2 Ke7 46. Qe2 Rh8 47. Qf2 h4 48. Kd1 Kd8 49. Kc1 Kc7 50. Kb1 Nf8 51. Qe1 
+Bc8 52. Ka2 Bd7 53. Ka3 Rg5 54. Rc3 Ng6 55. Qe2 Nh5 56. Bg4 Be8 57. Nh2 Ng3 58. Qc2 
+Nf8 59. Bf3 Nd7 60. Ng4 Rf8 61. Qd3 Nf6 62. Nf2 Bd7 63. Rc1 Rfg8 64. Re1 R5g7 65. Nd1 
+Kd8 66. Qb3 Kc7 67. Nc3 Ne8 68. Nb5+ Kb7 69. Ka2 Rg5 70. Nc3 R8g6 71. Bg4 Rxg4 72. hxg4 
+Rxg4 73. Qc2 Rg7 74. Qf2 Rg6 75. Qg1 Nf6 76. Ka3 Ng4 77. Nb5 Rh6 78. b3 Bxb5 79. axb5 
+Nf6 80. Qh2 Kc7 81. Qh3 Nd7 82. Qg4 Rh5 83. Qg8 h3 84. gxh3 Rxh3 85. Rg1 Rh6 86. Rg2 
+Nxe4 87. Qa8 Nef6 88. Qc6+ Kd8 89. Qxd6 Ng4 90. Qc6 Rxc6 91. bxc6 Ndf6 92. d6 f3 
+93. Rd2 f2 94. d7 Nxd7 95. Rxd7+ Kc8 96. Rf7 e4 97. Ka4 e3 98. Kb5 Ne5 99. Rf5 Nxc6 
+100. Kxc6 Kd8 101. Rd5+ Ke7 102. Re5+ Kf6 103. Rxe3 f1=Q 104. Kxb6 Qf2 105. Rd3 
+Qe2 106. Rd6+ Ke7 107. Rc6 Qe3 108. Rc7+ Kd6 109. Rc6+ Ke5 110. Kxa5 Kd4 111. Rb6 
+Qe7 112. Ka6 Kc3 113. Rb5 Qc7 114. Rb6 Qc8+ 115. Ka7 Qc7+ 116. Ka6 Qh2 117. Rb5 
+Kd4 118. Kb7 Qd6 119. Rb6 Qf8 120. Ka7 Ke5 121. Kb7 Qd8 122. Ka6 Qa8+ 123. Kb5 Kd4 
+124. Ra6 Qb7+ 125. Rb6 Qd7+ 126. Ka6 Qc8+ 127. Ka7 Ke5 128. Rh6 Qc7+ 129. Ka6 Qb8 
+130. Rb6 Qa8+ 131. Kb5 Qa3 132. Kc6 Kd4 133. Kb7 Qa2 134. Rb5 Kc3 135. Kb6 Qf2 136. Ka6 
+Qf6+ 137. Rb6 Qd8 138. Ka7 Kb2 139. Rb5 Qc7+ 140. Ka6 Qd6+ 141. Rb6 Qd7 142. Rb5 
+Qc6+ 143. Ka7 Ka3 144. Rb6 Qf3 145. Rb5 Qxb3 146. Kb6 Qxc4 147. Rxc5 Qd4 148. Kb5 
+Kb3 149. Rc6 Qd7 150. Kb6 Kb4 151. Rc7 Qd5 152. Rc1 Qb5+ 153. Ka7 Qd7+ 154. Kb8 
+Qd6+ 155. Kb7 Qd5+ 156. Ka7 Qd4+ 157. Kb7 Qe4+ 158. Ka6 Qd3+ 159. Kb7 Qf3+ 160. Kc8 
+Kb5 161. Rb1+ Kc6 162. Rc1+ Kd6 163. Kb8 Qb3+ 164. Kc8 Qg8+ 165. Kb7 Qg2+ 0-1
+

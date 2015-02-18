@@ -1,0 +1,14 @@
+[Event "6144"]
+[Site "kaggle.com"]
+[Date "??"]
+[Round "??"]
+[White "??"]
+[Black "??"]
+[Result "0-1"]
+[WhiteElo "1773"]
+[BlackElo "2019"]
+
+1. d4 Nf6 2. c4 c5 3. d5 g6 4. Nc3 Bg7 5. e4 O-O 6. Be2 d6 7. Bg5 h6 8. Be3 e6 9. Qd2 
+exd5 10. cxd5 Kh7 11. h3 Re8 12. Qc2 Qa5 13. Bd2 Qb6 14. Rb1 Na6 15. a3 Qd8 16. Nf3 
+Nxe4 17. O-O Bf5 18. Nxe4 Bxe4 19. Bd3 Bxd5 20. Bc3 Bxf3 21. gxf3 Qh4 0-1
+

@@ -1,0 +1,20 @@
+[Event "2022"]
+[Site "kaggle.com"]
+[Date "??"]
+[Round "??"]
+[White "??"]
+[Black "??"]
+[Result "1-0"]
+[WhiteElo "2499"]
+[BlackElo "2254"]
+
+1. Nf3 d5 2. g3 Bg4 3. Bg2 Nf6 4. c4 c6 5. Ne5 Be6 6. cxd5 Bxd5 7. Nf3 Nbd7 8. d3 
+Ne5 9. Nbd2 Nxf3+ 10. Nxf3 e5 11. e4 Be6 12. O-O Qc7 13. d4 Nxe4 14. Re1 Nf6 15. Ng5 
+O-O-O 16. Nxe6 fxe6 17. Qa4 Rxd4 18. Qxa7 Bb4 19. Be3 Bxe1 20. Bxd4 exd4 21. Rxe1 
+Qd6 22. Qa8+ Qb8 23. Qa3 Re8 24. Qc5 d3 25. Bh3 Qc7 26. Rxe6 Rxe6 27. Qf8+ Qd8 28. Bxe6+ 
+Kc7 29. Qxd8+ Kxd8 30. f3 b5 31. Kf2 c5 32. a4 Ke7 33. Bf5 bxa4 34. Bxd3 h6 35. Bc2 
+Kd6 36. Bxa4 Nd5 37. Bb3 Nb4 38. Ke3 Nc6 39. Ke4 Ne5 40. Bg8 Nd7 41. Kf5 Ne5 42. f4 
+Nf3 43. Bc4 Ke7 44. h3 Nd4+ 45. Ke5 h5 46. h4 g6 47. Bd3 Nc6+ 48. Kd5 Nb4+ 49. Kc4 
+Nxd3 50. Kxd3 Kd6 51. Ke4 Ke6 52. b3 Kd6 53. f5 gxf5+ 54. Kxf5 Kd5 55. g4 hxg4 56. Kxg4 
+Kd4 57. h5 Kc3 58. h6 Kxb3 59. h7 c4 60. h8=Q c3 61. Kf3 1-0
+

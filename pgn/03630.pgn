@@ -1,0 +1,15 @@
+[Event "3630"]
+[Site "kaggle.com"]
+[Date "??"]
+[Round "??"]
+[White "??"]
+[Black "??"]
+[Result "1/2-1/2"]
+[WhiteElo "2020"]
+[BlackElo "1850"]
+
+1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. e4 d6 5. f4 O-O 6. Be2 c5 7. d5 e6 8. Nf3 exd5 
+9. cxd5 Re8 10. O-O a6 11. a4 Nxe4 12. Nxe4 Rxe4 13. Bd3 Re8 14. f5 Nd7 15. Ng5 
+Ne5 16. Bc2 Rb8 17. a5 b6 18. axb6 Rxb6 19. Ra3 Rb4 20. Ra4 Qb6 21. Rxb4 cxb4+ 22. Kh1 
+a5 23. fxg6 hxg6 24. Nxf7 Ng4 25. Qf3 Re1 26. Rxe1 Nf2+ 1/2-1/2
+

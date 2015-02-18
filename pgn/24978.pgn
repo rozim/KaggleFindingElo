@@ -1,0 +1,14 @@
+[Event "24978"]
+[Site "kaggle.com"]
+[Date "??"]
+[Round "??"]
+[White "??"]
+[Black "??"]
+[Result "1/2-1/2"]
+[WhiteElo "2412"]
+[BlackElo "2369"]
+
+1. e4 Nf6 2. Nc3 d5 3. e5 d4 4. exf6 dxc3 5. fxg7 cxd2+ 6. Qxd2 Qxd2+ 7. Bxd2 Bxg7 
+8. O-O-O Nc6 9. Bb5 Bd7 10. Ne2 O-O-O 11. Bc3 Bxc3 12. Nxc3 a6 13. Bxc6 Bxc6 14. Rxd8+ 
+Rxd8 15. Re1 e6 1/2-1/2
+

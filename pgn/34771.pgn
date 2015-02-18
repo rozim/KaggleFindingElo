@@ -1,0 +1,21 @@
+[Event "34771"]
+[Site "kaggle.com"]
+[Date "??"]
+[Round "??"]
+[White "??"]
+[Black "??"]
+[Result "0-1"]
+[WhiteElo ""]
+[BlackElo ""]
+
+1. e4 e6 2. d4 d5 3. Nc3 Bb4 4. e5 c5 5. a3 Bxc3+ 6. bxc3 Ne7 7. Qg4 Qc7 8. Qxg7 
+Rg8 9. Qxh7 cxd4 10. Ne2 Nbc6 11. f4 Bd7 12. Qd3 dxc3 13. Rb1 Nf5 14. Nxc3 a6 15. g3 
+Ncd4 16. Bd2 Rc8 17. Bh3 b5 18. Kd1 Qc4 19. Rb4 Qxd3 20. cxd3 Rh8 21. Bg2 a5 22. Rb2 
+a4 23. Ne2 Nb3 24. Rc2 Nc5 25. Nc1 f6 26. exf6 Kf7 27. g4 Nd4 28. Rb2 Ndb3 29. Ke2 
+Kxf6 30. Nxb3 Nxb3 31. Bb4 d4 32. Bd6 Rh4 33. Be5+ Kf7 34. h3 Nc1+ 35. Kd2 Nb3+ 
+36. Ke2 Nc1+ 37. Kd2 Nb3+ 38. Ke1 Rc1+ 39. Kf2 Rxh1 40. Bxh1 Rxh3 41. Be4 Rh2+ 42. Bg2 
+Bc6 43. Kg3 Rxg2+ 44. Rxg2 Bxg2 45. Kxg2 Ke7 46. g5 b4 47. g6 bxa3 48. Bd6+ Kf6 
+49. Bxa3 Na1 50. Kf3 Nc2 51. Bc1 a3 52. Bxa3 Nxa3 53. Ke4 Nc2 54. g7 Kxg7 55. Ke5 
+Kf7 56. f5 exf5 57. Kxf5 Kg7 58. Kg5 Kh7 59. Kf5 Kh6 60. Kf6 Kh5 61. Kf5 Kh4 62. Kf4 
+Kh3 63. Kf3 Kh2 64. Kf2 Kh1 0-1
+

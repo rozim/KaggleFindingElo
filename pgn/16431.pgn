@@ -1,0 +1,17 @@
+[Event "16431"]
+[Site "kaggle.com"]
+[Date "??"]
+[Round "??"]
+[White "??"]
+[Black "??"]
+[Result "0-1"]
+[WhiteElo "2160"]
+[BlackElo "2308"]
+
+1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. Bxc6 dxc6 6. d3 Nd7 7. b3 Be7 8. Bb2 
+f6 9. O-O O-O 10. a4 Re8 11. Nbd2 Nc5 12. Nc4 Bg4 13. Ne3 Bh5 14. h3 Ne6 15. g4 
+Bf7 16. Ng2 Bf8 17. Re1 Qd7 18. d4 exd4 19. Nxd4 Ng5 20. Qd3 c5 21. f4 Nxh3+ 22. Qxh3 
+cxd4 23. Rad1 c5 24. f5 Qc6 25. Qf3 b5 26. a5 Bd6 27. Nf4 Bc7 28. Ra1 Rad8 29. Re2 
+c4 30. b4 Qd6 31. Rf2 Qxb4 32. c3 dxc3 33. Bxc3 Qc5 34. Kg2 b4 35. Bd2 c3 36. Be3 
+Qc4 0-1
+
