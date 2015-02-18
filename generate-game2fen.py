@@ -22,16 +22,21 @@ for fn in sys.argv[1:]:
         ply = 1
         fens = []
         sans = []
+        num_legal_moves = []
         while node.variations:
             board = node.board()
+            num_legal_moves.append('%d' % len(board.legal_moves))
             sans.append(node.san())
             fens.append(board.fen())            
             node = node.variations[0]
             ply += 1
+        
         board = node.board()
+        num_legal_moves.append('%d' % len(board.legal_moves))        
         sans.append(node.san()) # final move
         fens.append(board.fen()) # final position
-        print "%s,%s,%s,%d" % (headers['Event'],
+        print "%s,%s,%s,%s,%d" % (headers['Event'],
                             ':'.join(fens),
                             ':'.join(sans),
-                            BoolToInt[board.is_checkmate()])
+                                  ':'.join(num_legal_moves),
+                                  BoolToInt[board.is_checkmate()])
