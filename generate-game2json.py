@@ -25,13 +25,14 @@ def StudyGame(game):
         if not node.variations:
             break
 
+    last_board = node.board()
     g = {
         'event': headers['Event'],
         'game_ply': ply,
         'result': headers['Result'],
         'positions': positions,
-        'is_mate': board.is_checkmate(),
-        'is_stalemate': board.is_stalemate()
+        'is_mate': last_board.is_checkmate(),
+        'is_stalemate': last_board.is_stalemate()
         }
     if 'WhiteElo' in headers:
         g['white_elo'] = int(headers['WhiteElo'])
