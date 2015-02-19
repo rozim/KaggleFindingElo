@@ -58,7 +58,7 @@ def StartEngine(exe):
     return p
 
 def ParseLine(ar):
-    return {'depth' : After(ar, 'depth'),
+    return {'depth' : int(After(ar, 'depth')),
            'time': int(After(ar, 'time')),
            'nodes': int(After(ar, 'nodes')),
            'score': ParseScore(ar),
