@@ -1,0 +1,1 @@
+{"positions": [{"fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", "num_legal_moves": 20, "move": "g2g4", "san": "g4", "ply": 0}, {"fen": "rnbqkbnr/pppppppp/8/8/6P1/8/PPPPPP1P/RNBQKBNR b KQkq g3 0 1", "num_legal_moves": 20, "move": "c7c5", "san": "c5", "ply": 1}], "is_stalemate": false, "is_mate": false, "result": "0-1", "game_ply": 2, "event": "35920"}

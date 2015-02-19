@@ -1,0 +1,1 @@
+{"positions": [{"fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", "num_legal_moves": 20, "move": "g1f3", "san": "Nf3", "ply": 0}], "black_elo": 1944, "is_stalemate": false, "is_mate": false, "result": "1-0", "white_elo": 1787, "game_ply": 1, "event": "14483"}
