@@ -65,9 +65,13 @@ def ParseLine(ar):
             'multipv': int(After(ar, 'multipv')),
            'pv': ar[ar.index('pv') + 1:]}
 
-def SearchDepth(p, depth):
+def SearchDepth(p, depth, moves=None):
     ClearHash(p)
-    lines = SendCommandAndWaitFor(p, 'go depth %d' % depth, 'bestmove')
+    if moves is None:
+        cmd = 'go depth %d' % depth
+    else:
+        cmd = 'go depth %d searchmoves %s' % (depth, moves)
+    lines = SendCommandAndWaitFor(p, cmd, 'bestmove')
     nodes = []
     for line in lines:
         #print "LINE: ", line
