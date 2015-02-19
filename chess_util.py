@@ -61,7 +61,7 @@ def ParseLine(ar):
     return {'depth' : int(After(ar, 'depth')),
            'time': int(After(ar, 'time')),
            'nodes': int(After(ar, 'nodes')),
-           'score': int(ParseScore(ar)),
+           'score': ParseScore(ar),
             'multipv': int(After(ar, 'multipv')),
            'pv': ar[ar.index('pv') + 1:]}
 
