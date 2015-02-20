@@ -1,5 +1,7 @@
 #!/usr/bin/python
 
+# Run with *.json or dir containing *.json
+
 import cjson
 import sys
 import collections
