@@ -50,10 +50,10 @@ def ClearHash(p):
     SetOption(p, 'Clear Hash', 'on')
 
 def StartEngine(exe):    
-    p = subprocess.Popen('/home/dspencer/Stockfish/src/stockfish',
-                            stderr=file('stderr.txt', 'w'),
-                            stdin=subprocess.PIPE,               
-                            stdout=subprocess.PIPE)
+    p = subprocess.Popen(exe,
+                         stderr=file('stderr.txt', 'w'),
+                         stdin=subprocess.PIPE,               
+                         stdout=subprocess.PIPE)
     SendCommandAndWaitFor(p, 'uci', 'uciok')
     return p
 
