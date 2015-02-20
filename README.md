@@ -9,4 +9,5 @@ http://www.kaggle.com/c/finding-elo.
 * https://code.google.com/p/py-leveldb/
 * https://pypi.python.org/pypi/python-cjson
 * https://code.google.com/p/python-gflags/
+* http://www.gnu.org/software/parallel/
 
