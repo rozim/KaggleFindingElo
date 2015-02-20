@@ -13,7 +13,8 @@ def ProcessFile(fn, m):
     with file(fn) as f:
         obj = cjson.decode(f.read())
         for ply, pos in enumerate(obj['positions']):
-            m[chess_util.SimplifyFen(pos['fen'])].add(pos['move'])    
+            if pos['num_legal_moves'] > 1:
+                m[chess_util.SimplifyFen(pos['fen'])].add(pos['move'])    
 
 for fn in sys.argv[1:]:
     if os.path.isdir(fn):
