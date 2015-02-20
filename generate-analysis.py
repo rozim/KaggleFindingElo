@@ -5,13 +5,15 @@ import time
 import gflags
 import cjson
 import sys
-  
+import os.path
+
 FLAGS = gflags.FLAGS
   
 gflags.DEFINE_integer('depth', 1, 'Depth to search')
 gflags.DEFINE_integer('hash', 128, 'Hash table size')
 gflags.DEFINE_integer('multipv', 1, 'Moves to search')
 gflags.DEFINE_string('output', '', 'Output file')
+gflags.DEFINE_string('done', '', 'Done file')
 gflags.DEFINE_string('engine', '/home/dspencer/Stockfish/src/stockfish', '')
 
 def Analyze(p, fen, moves):
@@ -54,6 +56,10 @@ def main(argv):
     if FLAGS.output == '':
         print 'Need --output'
         sys.exit(2)
+
+    if FLAGS.done != '' and os.path.isfile(FLAGS.done):
+        print 'Already done'
+        sys.exit(0)
         
     p = StartEngine(FLAGS.engine)
 
@@ -76,6 +82,10 @@ def main(argv):
                     print "%d. %.1f" % (positions, time.time() - t1)
                     sys.stdout.flush()
                     out.flush()
+
+    if FLAGS.done != '':
+        with file(FLAGS.done, 'w') as fdone:
+            fdone.write(time.ctime())
 
 if __name__ == '__main__':
     main(sys.argv)
