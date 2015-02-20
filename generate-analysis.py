@@ -50,7 +50,11 @@ def main(argv):
     except gflags.FlagsError, e:
       print '%s\\nUsage: %s ARGS\\n%s' % (e, sys.argv[0], FLAGS)
       sys.exit(1)
-
+      
+    if FLAGS.output == '':
+        print 'Need --output'
+        sys.exit(2)
+        
     p = StartEngine(FLAGS.engine)
 
     SetOption(p, 'Hash', '%d' % FLAGS.hash)
