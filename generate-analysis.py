@@ -11,6 +11,7 @@ FLAGS = gflags.FLAGS
 gflags.DEFINE_integer('depth', 1, 'Depth to search')
 gflags.DEFINE_integer('hash', 128, 'Hash table size')
 gflags.DEFINE_integer('multipv', 1, 'Moves to search')
+gflags.DEFINE_string('output', '', 'Output file')
 
 def Analyze(p, fen, moves):
     t1 = time.time()
@@ -57,17 +58,19 @@ def main(argv):
 
     positions = 0
     t1 = time.time()
+    out = file(FLAGS.output, 'w')
     for fn in argv[1:]:
         print 'OPEN', fn
         with file(fn) as f:
             for line in f.readlines():
                 res = AnalyzeFromLine(p, line.strip())
-                print res
-                print
+                out.write(cjson.encode(res))
+                out.write('\n\n')
                 positions += 1
                 if positions % 100 == 0:
                     print "%d. %.1f" % (positions, time.time() - t1)
                     sys.stdout.flush()
+                    out.flush()
 
 if __name__ == '__main__':
     main(sys.argv)
