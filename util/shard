@@ -1,0 +1,32 @@
+#!/usr/bin/python                                                                                                                                     #                                    
+import sys
+import random
+import gflags
+
+FLAGS = gflags.FLAGS
+  
+gflags.DEFINE_integer('shards', 10000, 'Number of shards')
+
+
+def main(argv):
+    try:
+      argv = FLAGS(argv)  # parse flags
+    except gflags.FlagsError, e:
+      print '%s\\nUsage: %s ARGS\\n%s' % (e, sys.argv[0], FLAGS)
+      sys.exit(1)
+
+    all = sys.stdin.readlines()
+    random.shuffle(all, random.SystemRandom().random)
+    shards = [[] for i in range(FLAGS.shards)]
+
+    for i, line in enumerate(all):
+      shards[i % FLAGS.shards].append(line)
+    for i in range(FLAGS.shards):
+      fn = 'shard_%06d.txt' % i
+      with file(fn, 'w') as f:
+        f.write(''.join(shards[i]))
+
+
+
+if __name__ == '__main__':
+    main(sys.argv)
