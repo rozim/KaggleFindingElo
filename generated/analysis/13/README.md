@@ -1,0 +1,1 @@
+ls generated/positions/shard_*.txt  | util/shuffle | parallel -j+0 --eta  './generate-analysis.py --out=generated/analysis/13/{/.}-res.txt --done=generated/analysis/13/{/.}-done.txt --depth=13 --engine=/usr/local/bin/stockfish  {} > generated/analysis/13/{/.}.out 2> generated/analysis/13/{/.}.err'
