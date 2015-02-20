@@ -9,7 +9,7 @@ FLAGS = gflags.FLAGS
 gflags.DEFINE_integer('depth', 1, 'Depth to search')
 gflags.DEFINE_integer('hash', 128, 'Hash table size')
 gflags.DEFINE_integer('multipv', 1, 'Moves to search')
-
+gflags.DEFINE_string('engine', '/home/dspencer/Stockfish/src/stockfish', '')
 
 def main(argv):
     try:
@@ -18,7 +18,7 @@ def main(argv):
       print '%s\\nUsage: %s ARGS\\n%s' % (e, sys.argv[0], FLAGS)
       sys.exit(1)
 
-    p = StartEngine('/home/dspencer/Stockfish/src/stockfish')
+    p = StartEngine(FLAGS.engine)
 
     SetOption(p, 'Hash', '%d' % FLAGS.hash)
     if FLAGS.multipv > 1:
