@@ -11,3 +11,8 @@ http://www.kaggle.com/c/finding-elo.
 * https://code.google.com/p/python-gflags/
 * http://www.gnu.org/software/parallel/
 
+```
+  O. Tange (2011): GNU Parallel - The Command-Line Power Tool,
+  ;login: The USENIX Magazine, February 2011:42-47.
+```
+
