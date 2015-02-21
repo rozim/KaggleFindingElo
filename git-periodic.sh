@@ -1,0 +1,1 @@
+git pull; git add generated/analysis/13/shard*done*; git commit -m 'd13 in progress'; git push origin master
