@@ -3,7 +3,11 @@
 from chess_util import *
 import time
 import gflags
-import cjson
+try:
+    import cjson as json
+except ImportError:
+  import json
+  
 import sys
 import os.path
 
