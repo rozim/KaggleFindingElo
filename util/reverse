@@ -1,0 +1,7 @@
+#!/usr/bin/python                                                                                                                                     #                                    
+# Shuffle stdin
+
+import sys
+
+print ''.join(reversed(sys.stdin.readlines())), # avoid extra \n                                                                                                                                                      
+
