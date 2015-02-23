@@ -12,9 +12,10 @@ FLAGS = gflags.FLAGS
 gflags.DEFINE_string('in_dir', 'generated/analysis/13', 'Input directory, will look for *res.txt')
 gflags.DEFINE_string('output', 'd13.leveldb', 'Output file')
 
+(skip, accept) = (0, 0)
+
 def ProcessFile(db, fn):
-    skip = 0
-    accept = 0
+    global skip, accept
     ar = os.path.splitext(fn)
     if not os.path.lexists(fn.replace('-res.txt', '-done.txt')):
         print 'Not ready: ', fn
