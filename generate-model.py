@@ -13,7 +13,7 @@ FLAGS = gflags.FLAGS
 gflags.DEFINE_string('analysis', 'd13.leveldb', ("""Analysis database.
                                                 Key = 'simple FEN' """ ))
 
-(xnodes, hit, miss, n_best_move, n_not_best_move) = (0, 0, 0, 0, 0)
+(hit, miss, n_best_move, n_not_best_move) = (0, 0, 0, 0)
 
 class Position(object):
     def __init__(self, mp):
@@ -59,7 +59,6 @@ class Analysis(object):
 
 def ProcessFile(db, fn):
     global hit, miss, n_best_move, n_not_best_move
-    global xnodes
     with file(fn) as f:
         game = Game(f)
         print 'pos', game.event, game.white_elo, game.black_elo, game.game_ply, game.result
@@ -82,10 +81,6 @@ def ProcessFile(db, fn):
                 break
 
             best_pv = best_line.pv
-            if best_line.nodes > xnodes:
-                xnodes = best_line.nodes
-                print xnodes, '!', simple
-                
             best_move = best_pv[0]
             if pos.move == best_move:
                 n_best_move += 1
