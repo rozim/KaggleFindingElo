@@ -1,5 +1,6 @@
 #!/usr/bin/python
 
+import random
 import cjson
 import gflags
 import glob
@@ -14,9 +15,12 @@ FLAGS = gflags.FLAGS
 gflags.DEFINE_string('analysis', 'd13.leveldb', ("""Analysis database.
                                                 Key = 'simple FEN' """ ))
 
-gflags.DEFINE_string('output', 'latest.svm', '')
+gflags.DEFINE_string('train_output', 'latest-train.svm', '')
+gflags.DEFINE_string('test_output', 'latest-test.svm', '')
+gflags.DEFINE_string('model_dir', '.', '')
+gflags.DEFINE_float('holdout', 0.1, '')
 
-(hit, miss, n_best_move, n_not_best_move) = (0, 0, 0, 0)
+(files, hit, miss, n_best_move, n_not_best_move) = (0, 0, 0, 0, 0)
 
 ParseResult = {
     '1-0': 1.0,
@@ -116,9 +120,27 @@ def StudyGame(db, fn):
                                      ParseResultFlip[game.result]])
                                      
 
-files = 0
 
 
+def WriteFeatureMap(dir, pat_map):
+    global last_predefined_index
+    f = file(dir + '/featmap.txt', 'w')
+    tmp = []
+    for a, b in pat_map.iteritems():
+        tmp.append((b, a))
+    tmp.sort()
+    for i, pat in tmp:
+        if i <= last_predefined_index:
+            f.write('%d\t%s\tfloat\n' % (i, pat))
+        else:
+            f.write('%d\t%s\ti\n' % (i, pat))
+                
+pat_map = {'ply': 0,
+           'result': 1,
+           'draw_ply': 2}
+           
+last_predefined_index =  max(pat_map.values())
+next_pat_index = max(pat_map.values()) + 1
 
 def ProcessArgs(db, argv):
     global files
@@ -144,12 +166,23 @@ def main(argv):
         print 'Need *.json or (generated/game2json/#####.json) dir (generated/game2json) arg'
         sys.exit(2)
 
-    out = file(FLAGS.output, 'w')
+    train_out = file(FLAGS.model_dir + '/' + FLAGS.train_output, 'w')
+    test_out = file(FLAGS.model_dir + '/' + FLAGS.test_output, 'w')    
     for gi in ProcessArgs(db, argv[1:]):
+        if random.random() <= FLAGS.holdout:
+            out = test_out
+        else:
+            out = train_out
+        draw_ply = 0
+        if gi.result == 0.0:
+            draw_ply = gi.game_ply
+
         for co in [0, 1]:
-            out.write('%4d: 0:%d 1:%.0f\n' % ( gi.co_elo[co],
-                                            gi.game_ply,
-                                            gi.co_result[co]))
+            out.write('%4d 0:%d 1:%.0f 2:%d\n' % (gi.co_elo[co],
+                                                  gi.game_ply,
+                                                  gi.co_result[co],
+                                                  draw_ply))
+    WriteFeatureMap(FLAGS.model_dir, pat_map)
 
     print
     print "Hit:            ", hit
