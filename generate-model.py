@@ -7,14 +7,29 @@ import leveldb
 import sys
 import os.path
 import chess_util
+from collections import namedtuple
 
 FLAGS = gflags.FLAGS
 
 gflags.DEFINE_string('analysis', 'd13.leveldb', ("""Analysis database.
                                                 Key = 'simple FEN' """ ))
 
+gflags.DEFINE_string('output', 'latest.svm', '')
+
 (hit, miss, n_best_move, n_not_best_move) = (0, 0, 0, 0)
 
+ParseResult = {
+    '1-0': 1.0,
+    '0-1': -1.0,
+    '1/2-1/2': 0.0
+    }
+ParseResultFlip = {
+    '1-0': -1.0,
+    '0-1': 1.0,
+    '1/2-1/2': 0.0
+    }
+
+# tbd: consider namedtuple
 class Position(object):
     def __init__(self, mp):
         self._map = mp
@@ -55,13 +70,17 @@ class Analysis(object):
     score = property(lambda me: me._map['score'])
     pv = property(lambda me: me._map['pv'])
     nodes = property(lambda me: me._map['nodes'])
-    multipv = property(lambda me: me._map['multipv'])    
+    multipv = property(lambda me: me._map['multipv'])
 
-def ProcessFile(db, fn):
+GameInfo = namedtuple('GameInfo', ['game_ply', 'white_elo', 'black_elo', 'result',
+                                   'co_elo',
+                                   'co_result'])    
+
+def StudyGame(db, fn):
     global hit, miss, n_best_move, n_not_best_move
     with file(fn) as f:
         game = Game(f)
-        print 'pos', game.event, game.white_elo, game.black_elo, game.game_ply, game.result
+        #print 'pos', game.event, game.white_elo, game.black_elo, game.game_ply, game.result
 
         for pos in game.positions:
             simple = chess_util.SimplifyFen(pos.fen)
@@ -86,8 +105,31 @@ def ProcessFile(db, fn):
                 n_best_move += 1
             else:
                 n_not_best_move += 1
+        result = ParseResult[game.result]
+        return GameInfo(game_ply = game.game_ply,
+                        white_elo = game.white_elo,
+                        black_elo = game.black_elo,
+                        result = ParseResult[game.result],
+                        co_elo = [game.white_elo,
+                                  game.black_elo],
+                        co_result = [ParseResult[game.result],
+                                     ParseResultFlip[game.result]])
+                                     
+
+files = 0
 
 
+
+def ProcessArgs(db, argv):
+    global files
+    for fn in argv:
+        if os.path.isdir(fn):
+            for fn in glob.glob(fn + '/*.json'):
+                yield StudyGame(db, fn)
+                files += 1
+        else:
+            yield StudyGame(db, fn)
+            files += 1    
 
 def main(argv):
     try:
@@ -97,19 +139,19 @@ def main(argv):
       sys.exit(1)
 
     db = leveldb.LevelDB(FLAGS.analysis)
-    files = 0
+
     if len(argv[1:]) == 0:
         print 'Need *.json or (generated/game2json/#####.json) dir (generated/game2json) arg'
         sys.exit(2)
-        
-    for fn in argv[1:]:
-        if os.path.isdir(fn):
-            for fn in glob.glob(fn + '/*.json'):
-                ProcessFile(db, fn)
-                files += 1
-        else:
-            ProcessFile(db, fn)
-            files += 1
+
+    out = file(FLAGS.output, 'w')
+    for gi in ProcessArgs(db, argv[1:]):
+        for co in [0, 1]:
+            out.write('%4d: 0:%d 1:%.0f\n' % ( gi.co_elo[co],
+                                            gi.game_ply,
+                                            gi.co_result[co]))
+
+    print
     print "Hit:            ", hit
     print "Miss:           ", miss
     print "Best move:      ", n_best_move
