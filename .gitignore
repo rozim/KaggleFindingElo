@@ -64,3 +64,4 @@ out
 stderr.txt
 *.shh
 *.err
+*.leveldb
