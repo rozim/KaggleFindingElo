@@ -10,21 +10,62 @@ import chess_util
 
 FLAGS = gflags.FLAGS
 
-gflags.DEFINE_string('analysis', 'd13.leveldb', 'Analysis file')
+gflags.DEFINE_string('analysis', 'd13.leveldb', ("""Analysis database.
+                                                Key = 'simple FEN' """ ))
 
-(hit, miss, n_best_move, n_not_best_move) = (0, 0, 0, 0)
-xnodes = 0
+(xnodes, hit, miss, n_best_move, n_not_best_move) = (0, 0, 0, 0, 0)
+
+class Position(object):
+    def __init__(self, mp):
+        self._map = mp
+
+    fen = property(lambda me: me._map['fen'])
+    move = property(lambda me: me._map['move'])
+    san = property(lambda me: me._map['san'])
+    ply = property(lambda me: me._map['ply'])
+    num_legal_moves = property(lambda me: me._map['num_legal_moves'])    
+
+class Game(object):
+    def __init__(self, f):
+        self._map = cjson.decode(f.read())
+        
+    positions = property(lambda me: (Position(pos) for pos in me._map['positions']))
+    event = property(lambda me: me._map['event'])    
+    black_elo = property(lambda me: me._map['black_elo'])
+    white_elo = property(lambda me: me._map['white_elo'])
+    game_ply = property(lambda me: me._map['game_ply'])
+    result = property(lambda me: me._map['result'])
+    is_mate = property(lambda me: me._map['is_mate'])
+    is_stalemate = property(lambda me: me._map['is_stalemate'])
+
+class GameAnalysis(object):
+    def __init__(self, mp):
+        self._map = mp
+        
+    depth = property(lambda me: me._map['depth'])
+    moves = property(lambda me: me._map['moves'])
+    analysis = property(lambda me: (Analysis(a) for a in me._map['analysis']))
+    extra = property(lambda me: me._map['extra'])
+
+class Analysis(object):
+    def __init__(self, mp):
+        self._map = mp
+        
+    depth = property(lambda me: me._map['depth'])
+    score = property(lambda me: me._map['score'])
+    pv = property(lambda me: me._map['pv'])
+    nodes = property(lambda me: me._map['nodes'])
+    multipv = property(lambda me: me._map['multipv'])    
+
 def ProcessFile(db, fn):
     global hit, miss, n_best_move, n_not_best_move
     global xnodes
     with file(fn) as f:
-        # game: ['positions', 'black_elo', 'is_stalemate', 'is_mate', 'result', 'white_elo', 'game_ply', 'event']                
-        game = cjson.decode(f.read())
-        # pos: ['fen', 'num_legal_moves', 'move', 'san', 'ply']
-        for pos in game['positions']:
-            # move: d2d3 | san: Qd3
-            (fen, move, san) = (pos['fen'], pos['move'], pos['san'])
-            simple = chess_util.SimplifyFen(fen)
+        game = Game(f)
+        print 'pos', game.event, game.white_elo, game.black_elo, game.game_ply, game.result
+
+        for pos in game.positions:
+            simple = chess_util.SimplifyFen(pos.fen)
 
             try:
                 raw = db.Get(simple)
@@ -32,27 +73,21 @@ def ProcessFile(db, fn):
             except KeyError:
                 miss += 1
                 continue
-            # analysis: ['depth', 'moves', 'analysis'[], 'extra'(opt) ]
-            #   analysis in inner list [ ['depth', 'score', 'pv', 'nodes', 'multipv'] ]            
-            analysis = cjson.decode(raw)
-            target_depth = analysis['depth']
-            # ['depth', 'score', 'pv', 'nodes', 'multipv']
-            for line in analysis['analysis']:
-                if line['depth'] != target_depth:
+            analysis = GameAnalysis(cjson.decode(raw))
+            target_depth = analysis.depth
+            for line in analysis.analysis:
+                if line.depth != target_depth:
                     continue
                 best_line = line
                 break
 
-            best_pv = best_line['pv']
-            if best_line['nodes'] > xnodes:
-                xnodes = best_line['nodes']
+            best_pv = best_line.pv
+            if best_line.nodes > xnodes:
+                xnodes = best_line.nodes
                 print xnodes, '!', simple
-                print
-                print analysis
-                print
                 
             best_move = best_pv[0]
-            if move == best_move:
+            if pos.move == best_move:
                 n_best_move += 1
             else:
                 n_not_best_move += 1
@@ -68,7 +103,11 @@ def main(argv):
 
     db = leveldb.LevelDB(FLAGS.analysis)
     files = 0
-    for fn in sys.argv[1:]:
+    if len(argv[1:]) == 0:
+        print 'Need *.json or (generated/game2json/#####.json) dir (generated/game2json) arg'
+        sys.exit(2)
+        
+    for fn in argv[1:]:
         if os.path.isdir(fn):
             for fn in glob.glob(fn + '/*.json'):
                 ProcessFile(db, fn)
