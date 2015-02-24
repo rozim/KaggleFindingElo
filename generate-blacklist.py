@@ -4,13 +4,10 @@
 # Very hardcoded.
 
 from chess_util import *
-import time
 import gflags
-import cjson as json
 import sys
-import os.path
-import glob
 import cjson
+import chess_util
 
 FLAGS = gflags.FLAGS
   
@@ -26,7 +23,7 @@ def main(argv):
         fn = 'generated/game2json/%05d.json' % event
         with file(fn, 'r') as f:
             obj = cjson.decode(f.read())
-            out.write(obj['positions'][-1]['fen'] + '\n')
+            out.write(chess_util.SimplifyFen(obj['positions'][-1]['fen']) + '\n')
             
 if __name__ == '__main__':
     main(sys.argv)
