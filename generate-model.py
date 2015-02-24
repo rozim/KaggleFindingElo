@@ -103,9 +103,8 @@ GameInfo = namedtuple('GameInfo', ['event',
                                    'co_elo',
                                    'co_deltas',
                                    'co_result'])
-hack = 0
+
 def StudyGame(db, fn):
-    global hack
     global hit, miss, n_best_move, n_not_best_move
     with file(fn) as f:
         game = Game(f)
@@ -145,7 +144,12 @@ def StudyGame(db, fn):
             else:
                 n_not_best_move += 1
                 delta = abs(move_map[best_move] - move_map[pos.move])
-                deltas[co].append(delta)
+                if delta == 0:
+                    # Regan gives a correction of -0.03 if an equal move was chosen
+                    # but which wasn't the 1st rank.
+                    deltas[co].append(3)
+                else:
+                    deltas[co].append(max(3, delta))
                 
         result = ParseResult[game.result]
         best_pct = [0.0, 0.0]
