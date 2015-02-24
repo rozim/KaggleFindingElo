@@ -23,7 +23,12 @@ def main(argv):
         fn = 'generated/game2json/%05d.json' % event
         with file(fn, 'r') as f:
             obj = cjson.decode(f.read())
-            out.write(chess_util.SimplifyFen(obj['positions'][-1]['fen']) + '\n')
+            fen= obj['positions'][-1]['fen']
+            simplify = chess_util.SimplifyFen(fen)
+            out.write(simplify + '\n')
+            if simplify == 'r3r3/1pk3pp/p6q/5p1n/1PP1bP1Q/4b1PP/PB4B1/3R1K1R b - -':
+                print event
+            
             
 if __name__ == '__main__':
     main(sys.argv)
