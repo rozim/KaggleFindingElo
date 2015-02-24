@@ -19,6 +19,7 @@ gflags.DEFINE_string('train_output', 'latest-train.svm', '')
 gflags.DEFINE_string('test_output', 'latest-test.svm', '')
 gflags.DEFINE_string('model_dir', '.', '')
 gflags.DEFINE_float('holdout', 0.1, '')
+gflags.DEFINE_integer('limit', 1000, '')
 
 (files, hit, miss, n_best_move, n_not_best_move) = (0, 0, 0, 0, 0)
 
@@ -76,7 +77,14 @@ class Analysis(object):
     nodes = property(lambda me: me._map['nodes'])
     multipv = property(lambda me: me._map['multipv'])
 
-GameInfo = namedtuple('GameInfo', ['game_ply', 'white_elo', 'black_elo', 'result',
+GameInfo = namedtuple('GameInfo', ['event',
+                                   'best_count',
+                                   'best_pct',
+                                   'game_ply',
+                                   'white_elo',
+                                   'black_elo',
+                                   'result',
+                                   'is_mate',
                                    'co_elo',
                                    'co_result'])    
 
@@ -86,7 +94,10 @@ def StudyGame(db, fn):
         game = Game(f)
         #print 'pos', game.event, game.white_elo, game.black_elo, game.game_ply, game.result
 
-        for pos in game.positions:
+        best_count = [0, 0]
+        best_try = [0, 0]      
+        for ply, pos in enumerate(game.positions):
+            co = ply % 2
             simple = chess_util.SimplifyFen(pos.fen)
 
             try:
@@ -105,12 +116,23 @@ def StudyGame(db, fn):
 
             best_pv = best_line.pv
             best_move = best_pv[0]
+            best_try[co] += 1 
             if pos.move == best_move:
                 n_best_move += 1
+                best_count[co] += 1
             else:
                 n_not_best_move += 1
         result = ParseResult[game.result]
+        best_pct = [0.0, 0.0]
+        if best_try[0] > 0:
+            best_pct[0] = float(best_count[0]) / best_try[0]
+        if best_try[1] > 0:
+            best_pct[1] = float(best_count[1]) / best_try[1]            
         return GameInfo(game_ply = game.game_ply,
+                        best_count = best_count,
+                        best_pct = best_pct, 
+                        event = game.event,
+                        is_mate = game.is_mate,
                         white_elo = game.white_elo,
                         black_elo = game.black_elo,
                         result = ParseResult[game.result],
@@ -137,21 +159,30 @@ def WriteFeatureMap(dir, pat_map):
                 
 pat_map = {'ply': 0,
            'result': 1,
-           'draw_ply': 2}
+           'draw_ply': 2,
+           'i_played_mate': 3,
+           'i_was_mated': 4,
+           'best_count': 5,
+           'best_pct': 6}
+           
            
 last_predefined_index =  max(pat_map.values())
 next_pat_index = max(pat_map.values()) + 1
 
-def ProcessArgs(db, argv):
+def ProcessArgs(db, limit, argv):
     global files
     for fn in argv:
         if os.path.isdir(fn):
             for fn in glob.glob(fn + '/*.json'):
                 yield StudyGame(db, fn)
                 files += 1
+                if files >= limit:
+                    break
         else:
             yield StudyGame(db, fn)
-            files += 1    
+            files += 1
+            if files >= limit:
+                break            
 
 def main(argv):
     try:
@@ -167,8 +198,11 @@ def main(argv):
         sys.exit(2)
 
     train_out = file(FLAGS.model_dir + '/' + FLAGS.train_output, 'w')
-    test_out = file(FLAGS.model_dir + '/' + FLAGS.test_output, 'w')    
-    for gi in ProcessArgs(db, argv[1:]):
+    test_out = file(FLAGS.model_dir + '/' + FLAGS.test_output, 'w')
+    
+    for gi in ProcessArgs(db, FLAGS.limit, argv[1:]):
+        i_was_mated = [0, 0]
+        i_played_mate = [0, 0]
         if random.random() <= FLAGS.holdout:
             out = test_out
         else:
@@ -176,12 +210,29 @@ def main(argv):
         draw_ply = 0
         if gi.result == 0.0:
             draw_ply = gi.game_ply
+        elif gi.is_mate:
+
+            if gi.result == 1.0:
+                i_played_mate[0] = gi.game_ply
+                i_was_mated[1] = gi.game_ply
+            elif gi.result == -1.0:
+                i_played_mate[1] = gi.game_ply
+                i_was_mated[0] = gi.game_ply
+            else:
+                raise AssertionError()
+
 
         for co in [0, 1]:
-            out.write('%4d 0:%d 1:%.0f 2:%d\n' % (gi.co_elo[co],
-                                                  gi.game_ply,
-                                                  gi.co_result[co],
-                                                  draw_ply))
+            out.write('%4d 0:%d 1:%.0f 2:%d 3:%d 4:%d 5:%d 6:%.2f\n' % (
+                    gi.co_elo[co],
+                    gi.game_ply,
+                    gi.co_result[co],
+                    draw_ply,
+                    i_played_mate[0],
+                    i_was_mated[0],
+                    gi.best_count[co],
+                    gi.best_pct[co]))
+                      
     WriteFeatureMap(FLAGS.model_dir, pat_map)
 
     print
