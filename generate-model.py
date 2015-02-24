@@ -199,18 +199,16 @@ next_pat_index = max(pat_map.values()) + 1
 
 def ProcessArgs(db, limit, argv):
     global files
-    for fn in argv:
-        if os.path.isdir(fn):
-            for fn in glob.glob(fn + '/*.json'):
-                yield StudyGame(db, fn)
-                files += 1
-                if files >= limit:
-                    break
-        else:
-            yield StudyGame(db, fn)
-            files += 1
-            if files >= limit:
-                break
+
+    all = range(1, 25001)
+    random.shuffle(all)
+    for event in all:
+        fn = 'generated/game2json/%05d.json' % event
+        yield StudyGame(db, fn)
+        files += 1
+        if files >= limit:
+            break
+
 
 def main(argv):
     try:
@@ -229,8 +227,6 @@ def main(argv):
     test_out = file(FLAGS.model_dir + '/' + FLAGS.test_output, 'w')
 
     for gi in ProcessArgs(db, FLAGS.limit, argv[1:]):
-
-
         i_was_mated = [0, 0]
         i_played_mate = [0, 0]
         if random.random() <= FLAGS.holdout:
