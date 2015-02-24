@@ -55,7 +55,7 @@ target/
 
 # Emacs
 *~
-#*#
+#.*#
 
 # Random junk
 shh
@@ -64,3 +64,4 @@ out
 stderr.txt
 *.shh
 *.err
+*.leveldb
