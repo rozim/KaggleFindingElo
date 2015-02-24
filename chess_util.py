@@ -51,7 +51,6 @@ def ClearHash(p):
 
 def StartEngine(exe):    
     p = subprocess.Popen(exe,
-                         stderr=file('stderr.txt', 'w'),
                          stdin=subprocess.PIPE,               
                          stdout=subprocess.PIPE)
     SendCommandAndWaitFor(p, 'uci', 'uciok')
