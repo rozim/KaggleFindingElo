@@ -68,3 +68,7 @@ stderr.txt
 *.o
 *.a
 *.so
+filter_pgn
+featmap.txt
+diffed
+position_frequency
