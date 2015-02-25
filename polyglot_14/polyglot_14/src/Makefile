@@ -15,7 +15,7 @@ MOST_OBJS = adapter.o attack.o board.o book.o book_make.o book_merge.o colour.o 
 
 # rules
 
-all: $(EXE) polyglot.a .depend
+all: $(EXE) polyglot.a reader_perf .depend
 
 clean:
 	$(RM) *.o .depend *.a *.so *~
@@ -42,12 +42,15 @@ CXXFLAGS += -fomit-frame-pointer
 
 # strip
 
-LDFLAGS  += -s
+LDFLAGS  += 
 
 # dependencies
 
 $(EXE): $(OBJS)
 	$(CXX) $(LDFLAGS) -o $@ $(OBJS)
+
+reader_perf : polyglot.a reader_perf.o
+	$(CXX) $(LDFLAGS) -o $@ reader_perf.o polyglot.a 
 
 %.s: %.cpp
 	$(CXX) -S $(CXXFLAGS) $<
