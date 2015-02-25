@@ -36,6 +36,14 @@ struct pgn_t {
 
    char result[PGN_STRING_SIZE];
    char fen[PGN_STRING_SIZE];
+   char event[PGN_STRING_SIZE];
+   char site[PGN_STRING_SIZE];
+   char date[PGN_STRING_SIZE];
+   char round[PGN_STRING_SIZE];    
+   char white[PGN_STRING_SIZE];
+   char black[PGN_STRING_SIZE];
+   char white_elo[PGN_STRING_SIZE];
+   char black_elo[PGN_STRING_SIZE];        
 
    int move_line;
    int move_column;

@@ -74,8 +74,17 @@ void pgn_open(pgn_t * pgn, const char file_name[]) {
    pgn->token_unread = false;
    pgn->token_first = true;
 
-   strcpy(pgn->result,"?"); // DEBUG
-   strcpy(pgn->fen,"?"); // DEBUG
+   strcpy(pgn->black,"");
+   strcpy(pgn->black_elo,"");
+   strcpy(pgn->date, "");
+   strcpy(pgn->event, "");
+   strcpy(pgn->fen,""); 
+   strcpy(pgn->result,""); 
+   strcpy(pgn->round, "");
+   strcpy(pgn->site,"");
+   strcpy(pgn->white,"");
+   strcpy(pgn->white_elo,"");
+
 
    pgn->move_line = -1; // DEBUG
    pgn->move_column = -1; // DEBUG
@@ -103,6 +112,15 @@ bool pgn_next_game(pgn_t * pgn) {
 
    strcpy(pgn->result,"*");
    strcpy(pgn->fen,"");
+   strcpy(pgn->black,"");
+   strcpy(pgn->black_elo,"");
+   strcpy(pgn->date, "");
+   strcpy(pgn->event, "");
+   strcpy(pgn->fen,""); 
+   strcpy(pgn->round, "");
+   strcpy(pgn->site, "");
+   strcpy(pgn->white,"");
+   strcpy(pgn->white_elo,"");   
 
    // loop
 
@@ -138,6 +156,22 @@ bool pgn_next_game(pgn_t * pgn) {
          strcpy(pgn->result,value);
       } else if (my_string_equal(name,"FEN")) {
          strcpy(pgn->fen,value);
+      } else if (my_string_equal(name,"White")) {
+        strcpy(pgn->white,value);
+      } else if (my_string_equal(name,"Black")) {
+        strcpy(pgn->black,value);
+      } else if (my_string_equal(name,"WhiteElo")) {
+        strcpy(pgn->white_elo,value);
+      } else if (my_string_equal(name,"BlackElo")) {
+ 	strcpy(pgn->black_elo,value);
+      } else if (my_string_equal(name,"Event")) {
+        strcpy(pgn->event,value);
+      } else if (my_string_equal(name,"Site")) {
+        strcpy(pgn->site,value);
+      } else if (my_string_equal(name,"Date")) {
+        strcpy(pgn->date,value);
+      } else if (my_string_equal(name,"Round")) {
+        strcpy(pgn->round,value);
       }
    }
 
