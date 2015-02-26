@@ -1,13 +1,16 @@
 #!/usr/bin/python
 
-import random
+import chess_util
 import cjson
 import gflags
 import glob
 import leveldb
-import sys
+import numpy
 import os.path
-import chess_util
+import random
+import sets
+import sys
+
 from collections import namedtuple
 
 FLAGS = gflags.FLAGS
@@ -61,7 +64,7 @@ class Game(object):
 
     positions = property(lambda me: (Position(pos) for pos in me._map['positions']))
     event = property(lambda me: me._map['event'])
-    black_elo = property(lambda me: me._map.get('black_elo', 0))    
+    black_elo = property(lambda me: me._map.get('black_elo', 0))
     white_elo = property(lambda me: me._map.get('white_elo', 0))
     game_ply = property(lambda me: me._map['game_ply'])
     result = property(lambda me: me._map['result'])
@@ -91,7 +94,7 @@ class Analysis(object):
     nodes = property(lambda me: me._map['nodes'])
     multipv = property(lambda me: me._map['multipv'])
 
-# Static info about a game    
+# Static info about a game
 GameInfo = namedtuple('GameInfo', ['event',
                                    'best_count',
                                    'best_pct',
@@ -102,17 +105,25 @@ GameInfo = namedtuple('GameInfo', ['event',
                                    'is_mate',
                                    'co_elo',
                                    'co_deltas',
-                                   'co_result'])
+                                   'opening',
+                                   'co_result',
+                                   'first_loss_100',
+                                   'first_loss_200',
+                                   'first_loss_300'
+                                   ])
 
-def StudyGame(db, fn):
+def StudyGame(db, opening_positions, fn):
     global hit, miss, n_best_move, n_not_best_move
     with file(fn) as f:
         game = Game(f)
-        #print 'pos', game.event, game.white_elo, game.black_elo, game.game_ply, game.result
 
         best_count = [0, 0]
         best_try = [0, 0]
         deltas = [[], []]
+        first_loss_100 = [999, 999]
+        first_loss_200 = [999, 999]
+        first_loss_300 = [999, 999]
+        opening = set()
         for ply, pos in enumerate(game.positions):
             co = ply % 2
             simple = chess_util.SimplifyFen(pos.fen)
@@ -123,6 +134,9 @@ def StudyGame(db, fn):
             except KeyError:
                 miss += 1
                 continue
+            simple_pos = simple.split(' ')[0]
+            if simple_pos in opening_positions:
+                opening.add(simple_pos)
             analysis = GameAnalysis(cjson.decode(raw))
             target_depth = analysis.depth
             move_map = {}
@@ -144,13 +158,20 @@ def StudyGame(db, fn):
             else:
                 n_not_best_move += 1
                 delta = abs(move_map[best_move] - move_map[pos.move])
+                if delta >= 100:
+                    first_loss_100[co] = min(first_loss_100[co], ply)
+                if delta >= 200:
+                    first_loss_200[co] = min(first_loss_200[co], ply)
+                if delta >= 300:
+                    first_loss_300[co] = min(first_loss_300[co], ply)
+
                 if delta == 0:
                     # Regan gives a correction of -0.03 if an equal move was chosen
                     # but which wasn't the 1st rank.
                     deltas[co].append(3)
                 else:
                     deltas[co].append(max(3, delta))
-                
+
         result = ParseResult[game.result]
         best_pct = [0.0, 0.0]
         if best_try[0] > 0:
@@ -158,6 +179,10 @@ def StudyGame(db, fn):
         if best_try[1] > 0:
             best_pct[1] = float(best_count[1]) / best_try[1]
         return GameInfo(game_ply = game.game_ply,
+                        first_loss_100 = first_loss_100,
+                        first_loss_200 = first_loss_200,
+                        first_loss_300 = first_loss_300,
+                        opening = opening,
                         co_deltas = deltas,
                         best_count = best_count,
                         best_pct = best_pct,
@@ -195,13 +220,19 @@ pat_map = {'ply': 0,
            'best_count': 5,
            'best_pct': 6,
            'worst_mistake': 7,
-           'avg_mistake': 8}
+           'avg_mistake': 8,
+           'median_mistake': 9,
+           'stddev_mistake': 10,
+           'first_loss_100': 11,
+           'first_loss_200': 12,
+           'first_loss_300': 13
+           }
 
 
 last_predefined_index =  max(pat_map.values())
 next_pat_index = max(pat_map.values()) + 1
 
-def ProcessArgs(db, limit, argv):
+def ProcessArgs(db, opening_positions, limit, argv):
     global files
 
     all = range(1, limit + 1)
@@ -209,7 +240,7 @@ def ProcessArgs(db, limit, argv):
         random.shuffle(all)
     for event in all:
         fn = 'generated/game2json/%05d.json' % event
-        yield StudyGame(db, fn)
+        yield StudyGame(db, opening_positions, fn)
         files += 1
         if files >= limit:
             break
@@ -221,9 +252,11 @@ def ReadOpeningPositions(fn):
         for line in (line.strip() for line in f.readlines()):
             ar = line.split(',')
             res.add(ar[1].split(' ')[0]) # just position part of FEN
-    return res
+    return sets.ImmutableSet(res)
 
 def main(argv):
+    global next_pat_index
+
     try:
       argv = FLAGS(argv)  # parse flags
     except gflags.FlagsError, e:
@@ -237,12 +270,11 @@ def main(argv):
         sys.exit(2)
 
     opening_positions = ReadOpeningPositions('generated/position-frequency.csv')
-    print opening_positions
-    sys.exit(1)
+
     train_out = file(FLAGS.model_dir + '/' + FLAGS.train_output, 'w')
     test_out = file(FLAGS.model_dir + '/' + FLAGS.test_output, 'w')
 
-    for gi_num, gi in enumerate(ProcessArgs(db, FLAGS.limit, argv[1:])):
+    for gi_num, gi in enumerate(ProcessArgs(db, opening_positions, FLAGS.limit, argv[1:])):
         i_was_mated = [0, 0]
         i_played_mate = [0, 0]
 
@@ -250,6 +282,7 @@ def main(argv):
                 if gi_num < 25000:
                     out = train_out
                 else:
+                    train_out.flush() # In case I'm watching closely
                     out = test_out
         else:
             if random.random() <= FLAGS.holdout:
@@ -271,7 +304,18 @@ def main(argv):
 
 
         for co in [0, 1]:
-            out.write('%4d 0:%d 1:%.0f 2:%d 3:%d 4:%d 5:%d 6:%.2f 7:%d 8:%.1f\n' % (
+            #print gi.co_deltas[co]
+            #print numpy.mean(gi.co_deltas[co])
+            #print numpy.median(gi.co_deltas[co])
+            #print numpy.std(gi.co_deltas[co])
+            dampened_deltas = [min(300, delta) for delta in gi.co_deltas[co]]
+            (median, stddev, avg) = (0, 0, 0)
+            if len(dampened_deltas) > 0:
+                avg = numpy.mean(dampened_deltas)
+                median = numpy.median(dampened_deltas)
+                stddev = numpy.std(dampened_deltas)
+
+            standard = '%4d 0:%d 1:%.0f 2:%d 3:%d 4:%d 5:%d 6:%.2f 7:%d 8:%.1f 9:%.0f 10:%.1f 11:%d 12:%d 13:%d' % (
                     gi.co_elo[co],
                     gi.game_ply,
                     gi.co_result[co],
@@ -281,7 +325,19 @@ def main(argv):
                     gi.best_count[co],
                     gi.best_pct[co],
                     safe_max(gi.co_deltas[co]),
-                    avg(gi.co_deltas[co])))
+                    avg,
+                    median,
+                    stddev,
+                    gi.first_loss_100[co],
+                    gi.first_loss_200[co],
+                    gi.first_loss_300[co])
+            extra = []
+            for pos in gi.opening:
+                if pos not in pat_map:
+                    pat_map[pos] = next_pat_index
+                    extra.append("%d:1" % next_pat_index)
+                    next_pat_index += 1
+            out.write('%s %s\n' % (standard, ' '.join(extra)))
 
     WriteFeatureMap(FLAGS.model_dir, pat_map)
 
@@ -291,6 +347,8 @@ def main(argv):
     print "Best move:      ", n_best_move
     print "Not best move:  ", n_not_best_move
     print "Files:          ", files
+    print "Last feature    ", next_pat_index
 
 if __name__ == '__main__':
     main(sys.argv)
+
