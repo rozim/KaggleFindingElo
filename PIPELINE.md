@@ -1,0 +1,1 @@
+time ./generate-model.py --limit=100 generated/game2json/ && time sh ./latest.sh 2> err
