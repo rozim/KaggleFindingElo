@@ -10,6 +10,7 @@ http://www.kaggle.com/c/finding-elo.
 * https://pypi.python.org/pypi/python-cjson
 * https://code.google.com/p/python-gflags/
 * http://www.gnu.org/software/parallel/
+* [vowpal wabbit](http://hunch.net/~vw/)
 
 ```
   O. Tange (2011): GNU Parallel - The Command-Line Power Tool,

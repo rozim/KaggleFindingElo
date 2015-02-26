@@ -1,4 +1,4 @@
-
+#!/usr/bin/python
 
 print 'Event,WhiteElo,BlackElo'
 

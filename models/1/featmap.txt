@@ -1,0 +1,9 @@
+0	ply	float
+1	result	float
+2	draw_ply	float
+3	i_played_mate	float
+4	i_was_mated	float
+5	best_count	float
+6	best_pct	float
+7	worst_mistake	float
+8	avg_mistake	float

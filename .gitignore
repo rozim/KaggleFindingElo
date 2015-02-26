@@ -68,3 +68,6 @@ stderr.txt
 *.o
 *.a
 *.so
+filter_pgn
+diffed
+position_frequency
