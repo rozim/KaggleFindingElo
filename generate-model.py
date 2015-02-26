@@ -61,8 +61,8 @@ class Game(object):
 
     positions = property(lambda me: (Position(pos) for pos in me._map['positions']))
     event = property(lambda me: me._map['event'])
-    black_elo = property(lambda me: me._map['black_elo'])
-    white_elo = property(lambda me: me._map['white_elo'])
+    black_elo = property(lambda me: me._map.get('black_elo', 0))    
+    white_elo = property(lambda me: me._map.get('white_elo', 0))
     game_ply = property(lambda me: me._map['game_ply'])
     result = property(lambda me: me._map['result'])
     is_mate = property(lambda me: me._map['is_mate'])
@@ -204,8 +204,9 @@ next_pat_index = max(pat_map.values()) + 1
 def ProcessArgs(db, limit, argv):
     global files
 
-    all = range(1, 25001)
-    random.shuffle(all)
+    all = range(1, limit + 1)
+    if limit < 50000:
+        random.shuffle(all)
     for event in all:
         fn = 'generated/game2json/%05d.json' % event
         yield StudyGame(db, fn)
@@ -230,18 +231,24 @@ def main(argv):
     train_out = file(FLAGS.model_dir + '/' + FLAGS.train_output, 'w')
     test_out = file(FLAGS.model_dir + '/' + FLAGS.test_output, 'w')
 
-    for gi in ProcessArgs(db, FLAGS.limit, argv[1:]):
+    for gi_num, gi in enumerate(ProcessArgs(db, FLAGS.limit, argv[1:])):
         i_was_mated = [0, 0]
         i_played_mate = [0, 0]
-        if random.random() <= FLAGS.holdout:
-            out = test_out
+
+        if FLAGS.limit == 50000:
+                if gi_num < 25000:
+                    out = train_out
+                else:
+                    out = test_out
         else:
-            out = train_out
+            if random.random() <= FLAGS.holdout:
+                out = test_out
+            else:
+                out = train_out
         draw_ply = 0
         if gi.result == 0.0:
             draw_ply = gi.game_ply
         elif gi.is_mate:
-
             if gi.result == 1.0:
                 i_played_mate[0] = gi.game_ply
                 i_was_mated[1] = gi.game_ply
