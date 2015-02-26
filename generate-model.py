@@ -18,8 +18,8 @@ FLAGS = gflags.FLAGS
 gflags.DEFINE_string('analysis', 'd13.leveldb', ("""Analysis database.
                                                 Key = 'simple FEN' """ ))
 
-gflags.DEFINE_string('train_output', 'latest-train.svm', '')
-gflags.DEFINE_string('test_output', 'latest-test.svm', '')
+gflags.DEFINE_string('train_output', 'latest-train.vw', '')
+gflags.DEFINE_string('test_output', 'latest-test.vw', '')
 gflags.DEFINE_string('model_dir', '.', '')
 gflags.DEFINE_float('holdout', 0.1, '')
 gflags.DEFINE_integer('limit', 1000, '')
@@ -199,39 +199,6 @@ def StudyGame(db, opening_positions, fn):
 
 
 
-def WriteFeatureMap(dir, pat_map):
-    global last_predefined_index
-    f = file(dir + '/featmap.txt', 'w')
-    tmp = []
-    for a, b in pat_map.iteritems():
-        tmp.append((b, a))
-    tmp.sort()
-    for i, pat in tmp:
-        if i <= last_predefined_index:
-            f.write('%d\t%s\tfloat\n' % (i, pat))
-        else:
-            f.write('%d\t%s\ti\n' % (i, pat))
-
-pat_map = {'ply': 0,
-           'result': 1,
-           'draw_ply': 2,
-           'i_played_mate': 3,
-           'i_was_mated': 4,
-           'best_count': 5,
-           'best_pct': 6,
-           'worst_mistake': 7,
-           'avg_mistake': 8,
-           'median_mistake': 9,
-           'stddev_mistake': 10,
-           'first_loss_100': 11,
-           'first_loss_200': 12,
-           'first_loss_300': 13
-           }
-
-
-last_predefined_index =  max(pat_map.values())
-next_pat_index = max(pat_map.values()) + 1
-
 def ProcessArgs(db, opening_positions, limit, argv):
     global files
 
@@ -255,7 +222,6 @@ def ReadOpeningPositions(fn):
     return sets.ImmutableSet(res)
 
 def main(argv):
-    global next_pat_index
 
     try:
       argv = FLAGS(argv)  # parse flags
@@ -315,8 +281,10 @@ def main(argv):
                 median = numpy.median(dampened_deltas)
                 stddev = numpy.std(dampened_deltas)
 
-            standard = '%4d 0:%d 1:%.0f 2:%d 3:%d 4:%d 5:%d 6:%.2f 7:%d 8:%.1f 9:%.0f 10:%.1f 11:%d 12:%d 13:%d' % (
+            standard = "%4d '%s_%s| ply:%d result:%.0f draw_ply:%d i_played_mate:%d i_was_mated:%d best_count:%d best_pct:%.2f worst_mistake:%d avg_mistake:%.1f median_mistake:%.0f stddev_mistake:%.1f first_loss_100:%d first_loss_200:%d first_loss_300:%d" % (
                     gi.co_elo[co],
+                    ["w", "b"][co],
+                    gi.event,
                     gi.game_ply,
                     gi.co_result[co],
                     draw_ply,
@@ -333,13 +301,8 @@ def main(argv):
                     gi.first_loss_300[co])
             extra = []
             for pos in gi.opening:
-                if pos not in pat_map:
-                    pat_map[pos] = next_pat_index
-                    extra.append("%d:1" % next_pat_index)
-                    next_pat_index += 1
+                extra.append("op_%s:1" % pos)
             out.write('%s %s\n' % (standard, ' '.join(extra)))
-
-    WriteFeatureMap(FLAGS.model_dir, pat_map)
 
     print
     print "Hit:            ", hit
@@ -347,7 +310,7 @@ def main(argv):
     print "Best move:      ", n_best_move
     print "Not best move:  ", n_not_best_move
     print "Files:          ", files
-    print "Last feature    ", next_pat_index
+
 
 if __name__ == '__main__':
     main(sys.argv)
