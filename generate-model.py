@@ -215,6 +215,14 @@ def ProcessArgs(db, limit, argv):
             break
 
 
+def ReadOpeningPositions(fn):
+    res = set()
+    with open(fn) as f:
+        for line in (line.strip() for line in f.readlines()):
+            ar = line.split(',')
+            res.add(ar[1].split(' ')[0]) # just position part of FEN
+    return res
+
 def main(argv):
     try:
       argv = FLAGS(argv)  # parse flags
@@ -228,6 +236,9 @@ def main(argv):
         print 'Need *.json or (generated/game2json/#####.json) dir (generated/game2json) arg'
         sys.exit(2)
 
+    opening_positions = ReadOpeningPositions('generated/position-frequency.csv')
+    print opening_positions
+    sys.exit(1)
     train_out = file(FLAGS.model_dir + '/' + FLAGS.train_output, 'w')
     test_out = file(FLAGS.model_dir + '/' + FLAGS.test_output, 'w')
 
