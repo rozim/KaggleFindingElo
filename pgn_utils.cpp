@@ -6,6 +6,8 @@
 #include "board.h"
 #include "fen.h"
 #include "san.h"
+#include "square.h"
+#include "piece.h"
 
 using namespace std;
 
@@ -77,4 +79,23 @@ void PrintPgnHeader(FILE * fpgn, pgn_t * pgn) {
   fprintf(fpgn, "[WhiteElo \"%s\"]\n", pgn->white_elo);
   fprintf(fpgn, "[BlackElo \"%s\"]\n", pgn->black_elo);
   fprintf(fpgn, "\n");
+}
+
+void FindPawnLocations(const board_t* board,
+                       vector<string>* w,
+                       vector<string>* b) {
+  for (int rank = 0; rank < 8; rank++) {
+    for (int file = 0; file < 8; file++) {
+      int sq = square_make(file, rank);
+      int piece = board->square[sq];
+      if (!piece_is_pawn(piece)) { continue; }
+      char str[3];
+      CHECK(square_to_string(sq, &str[0], sizeof(str)));
+      if (colour_is_white(piece_colour(piece))) {
+        w->push_back(str);
+      } else {
+        b->push_back(str);
+      }
+    }
+  }
 }
