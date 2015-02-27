@@ -1,0 +1,660 @@
+{"extra": ["f4g5"], "fen": "r1bq1rk1/p1p2ppp/np2p1n1/3p4/3PPB2/P1PB2Q1/2P2PPP/R3K1NR w KQ -", "analysis": [{"pv": ["g1e2", "g6f4", "e2f4"], "depth": 1, "score": 13, "time": 1, "nodes": 188, "multipv": 1}, {"pv": ["f4g5"], "depth": 1, "score": -25, "time": 1, "nodes": 10, "multipv": 1}], "depth": 1, "time": "0.1", "moves": ["f4g5"]}
+
+{"extra": ["d8c7"], "fen": "r1bq1rk1/pp1nbppp/3p1n2/2p1p3/3PP3/2P2N2/PPB1QPPP/RNBR2K1 b - -", "analysis": [{"pv": ["b7b6", "d4e5", "d6e5"], "depth": 1, "score": 0, "time": 2, "nodes": 136, "multipv": 1}, {"pv": ["d8c7"], "depth": 1, "score": -13, "time": 1, "nodes": 33, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["d8c7"]}
+
+{"extra": ["h2h3"], "fen": "1rbq1rk1/pp2ppbp/2np1np1/2p5/4P3/1BPP1N2/PP3PPP/RNBQR1K1 w - -", "analysis": [{"pv": ["b1d2"], "depth": 1, "score": 13, "time": 1, "nodes": 66, "multipv": 1}, {"pv": ["h2h3"], "depth": 1, "score": -6, "time": 2, "nodes": 10, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["h2h3"]}
+
+{"fen": "7r/1pr1bk1b/p1p2p2/N1PpnPP1/1P1p4/8/1P2B2B/R4RK1 b - -", "depth": 1, "moves": ["f7g7"], "analysis": [{"pv": ["f7g7", "h2e5", "f6e5"], "depth": 1, "score": 113, "time": 2, "nodes": 701, "multipv": 1}], "time": "0.0"}
+
+{"fen": "8/1pk3pp/5p2/rpP1p3/4P2P/5PP1/3RK3/8 b - h3", "depth": 1, "moves": ["b5b4"], "analysis": [{"pv": ["b5b4"], "depth": 1, "score": 148, "time": 1, "nodes": 21, "multipv": 1}], "time": "0.0"}
+
+{"fen": "5rk1/6pp/p5n1/q2rp3/8/5N2/QbB3PP/5R1K w - -", "depth": 1, "moves": ["a2b2"], "analysis": [{"pv": ["a2b2"], "depth": 1, "score": -324, "time": 1, "nodes": 61, "multipv": 1}], "time": "0.0"}
+
+{"fen": "2b2rk1/7p/1P6/2P3Q1/2P1pN2/4PnP1/5PB1/5R1K b - -", "depth": 1, "moves": ["f3g5"], "analysis": [{"pv": ["f3g5"], "depth": 1, "score": -567, "time": 1, "nodes": 125, "multipv": 1}], "time": "0.0"}
+
+{"fen": "6k1/p1b3p1/6p1/5pB1/8/1Q6/5PP1/q2B2K1 b - -", "depth": 1, "moves": ["g8h7"], "analysis": [{"pv": ["g8h7"], "depth": 1, "score": -226, "time": 1, "nodes": 11, "multipv": 1}], "time": "0.0"}
+
+{"fen": "8/8/6pp/1b1k4/3N2PP/2K5/8/8 b - -", "depth": 1, "moves": ["b5d7"], "analysis": [{"pv": ["b5d7"], "depth": 1, "score": 38, "time": 1, "nodes": 29, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["d4a4"], "fen": "8/5ppk/1pB1p2p/rR2P3/P2rP3/6P1/7P/R3K3 b - -", "analysis": [{"pv": ["a5a6"], "depth": 1, "score": -293, "time": 2, "nodes": 118, "multipv": 1}, {"pv": ["d4a4", "a1a4", "a5a4", "b5b6"], "depth": 1, "score": -376, "time": 1, "nodes": 35, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["d4a4"]}
+
+{"extra": ["d6c7"], "fen": "3r2k1/5pbp/p2B2p1/1p1q4/5Q2/5P2/P5PP/1R4K1 w - -", "analysis": [{"pv": ["d6e7", "g7d4", "g1h1", "d5a2"], "depth": 1, "score": -214, "time": 1, "nodes": 586, "multipv": 1}, {"pv": ["d6c7", "g7d4", "g1h1", "d5a2"], "depth": 1, "score": -220, "time": 1, "nodes": 80, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["d6c7"]}
+
+{"fen": "r4rk1/ppqn1pp1/1bp1bn1p/4p3/2N1P3/1N4PP/PPPBQPB1/R4RK1 b - -", "depth": 1, "moves": ["f8d8"], "analysis": [{"pv": ["f8d8"], "depth": 1, "score": 29, "time": 2, "nodes": 258, "multipv": 1}], "time": "0.0"}
+
+{"fen": "8/5k1p/2pp4/p4PP1/8/4B2P/8/b4K2 b - -", "depth": 1, "moves": ["a5a4"], "analysis": [{"pv": ["a5a4"], "depth": 1, "score": 132, "time": 1, "nodes": 23, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["f1g1"], "fen": "2k3r1/2pbq3/1p1p4/p1nPpp1p/P1P1P1rP/2P2Q2/3N1BPK/R4R2 w - f6", "analysis": [{"pv": ["e4f5", "d7a4"], "depth": 1, "score": -209, "time": 1, "nodes": 284, "multipv": 1}, {"pv": ["f1g1", "g4h4", "f2h4", "e7h4", "f3h3", "f5e4"], "depth": 1, "score": -494, "time": 1, "nodes": 162, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["f1g1"]}
+
+{"fen": "3rr3/6kp/2b1R1p1/3pR3/2pP1P1q/p1P2P2/3Q2BP/6K1 b - -", "depth": 1, "moves": ["e8e6"], "analysis": [{"pv": ["e8e6", "e5e6"], "depth": 1, "score": 112, "time": 1, "nodes": 119, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["f1c1"], "fen": "4k2r/pr1n1p1p/2N1pp1B/2b5/1p6/6P1/1P2PP1P/R4RK1 w k -", "analysis": [{"pv": ["f1d1"], "depth": 1, "score": 24, "time": 2, "nodes": 50, "multipv": 1}, {"pv": ["f1c1"], "depth": 1, "score": 18, "time": 2, "nodes": 5, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["f1c1"]}
+
+{"fen": "8/p1P3kp/1b1r2p1/1B3p2/N5n1/6P1/P1R3KP/8 w - -", "depth": 1, "moves": ["c7c8q"], "analysis": [{"pv": ["c7c8q", "g4e3", "g2f3", "e3c2", "c8c2"], "depth": 1, "score": 558, "time": 2, "nodes": 173, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["d7e8"], "fen": "2kr2r1/pppbq3/4p3/4Nppp/3Pp2P/2P3P1/PP1QPP2/2KR3R b - -", "analysis": [{"pv": ["d7a4"], "depth": 1, "score": -49, "time": 2, "nodes": 119, "multipv": 1}, {"pv": ["d7e8", "h4g5", "g8g5"], "depth": 1, "score": -114, "time": 2, "nodes": 36, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["d7e8"]}
+
+{"extra": ["b5b4"], "fen": "r1b2r2/2qnppbk/p1pp1np1/1p5p/2PPP2P/2N1BPN1/PP1QB1P1/2K3RR b - -", "analysis": [{"pv": ["e7e5"], "depth": 1, "score": -13, "time": 2, "nodes": 102, "multipv": 1}, {"pv": ["b5b4"], "depth": 1, "score": -34, "time": 1, "nodes": 18, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["b5b4"]}
+
+{"extra": ["c5d3"], "fen": "3r2k1/7p/4pb2/1Pn2p2/r3p3/4N2N/5PPP/1R3RK1 b - -", "analysis": [{"pv": ["a4a2"], "depth": 1, "score": 125, "time": 1, "nodes": 64, "multipv": 1}, {"pv": ["c5d3"], "depth": 1, "score": 111, "time": 1, "nodes": 5, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["c5d3"]}
+
+{"extra": ["g5d2"], "fen": "8/8/4k1P1/1K4b1/1p1B4/8/P7/8 b - -", "analysis": [{"pv": ["g5f6", "d4f6", "e6f6", "b5b4"], "depth": 1, "score": -196, "time": 1, "nodes": 36, "multipv": 1}, {"pv": ["g5d2"], "depth": 1, "score": -249, "time": 1, "nodes": 3, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["g5d2"]}
+
+{"fen": "8/3n3p/P1R5/3k3p/2p5/6BP/r5P1/7K w - -", "depth": 1, "moves": ["c6d6"], "analysis": [{"pv": ["c6d6", "d5c5", "d6d7", "a2a6", "d7h7"], "depth": 1, "score": 208, "time": 1, "nodes": 97, "multipv": 1}], "time": "0.0"}
+
+{"fen": "2r1n1k1/4q1p1/1pbp1r1p/p3Pp1B/2P4R/P1B1P1Q1/1P4PP/3R2K1 b - -", "depth": 1, "moves": ["d6e5"], "analysis": [{"pv": ["d6e5", "c3e5"], "depth": 1, "score": -187, "time": 1, "nodes": 238, "multipv": 1}], "time": "0.0"}
+
+{"fen": "6rk/1p2p2p/p2p1n2/P1pPpPBR/4P3/2P5/1P4PP/6K1 w - -", "depth": 1, "moves": ["g5f6"], "analysis": [{"pv": ["g5f6", "e7f6"], "depth": 1, "score": 144, "time": 1, "nodes": 92, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["f3e5"], "fen": "r2qnrk1/pb1n1pp1/1ppb3p/3p4/3P2P1/2NBPNBP/PPQ2P2/R3K2R w KQ -", "analysis": [{"pv": ["e1g1", "d6g3", "f2g3"], "depth": 1, "score": 42, "time": 1, "nodes": 123, "multipv": 1}, {"pv": ["f3e5", "d7e5", "g3e5", "d6e5", "d4e5"], "depth": 1, "score": -11, "time": 2, "nodes": 24, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["f3e5"]}
+
+{"fen": "r2qr1kb/pp3p1p/2p3pB/3np3/8/4P1P1/PP1Q1PBP/2RR2K1 w - -", "depth": 1, "moves": ["g2d5"], "analysis": [{"pv": ["g2d5", "c6d5", "d2d5", "d8d5", "d1d5"], "depth": 1, "score": 93, "time": 1, "nodes": 79, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["f3g3"], "fen": "r1bqkb1r/2pp1ppp/1pn1p3/4P3/2B5/2P2Q2/PP3PPP/R1B1K1NR w KQkq -", "analysis": [{"pv": ["g1e2"], "depth": 1, "score": 6, "time": 1, "nodes": 127, "multipv": 1}, {"pv": ["f3g3"], "depth": 1, "score": -38, "time": 1, "nodes": 9, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["f3g3"]}
+
+{"extra": ["d7c6"], "fen": "r3k2r/1b1q1ppp/pp2pb2/n1p5/P4P2/2NPB3/BPPQ2PP/R4RK1 b kq -", "analysis": [{"pv": ["e8g8"], "depth": 1, "score": 51, "time": 2, "nodes": 281, "multipv": 1}, {"pv": ["d7c6"], "depth": 1, "score": -24, "time": 1, "nodes": 9, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["d7c6"]}
+
+{"extra": ["b6a6"], "fen": "2r1r1k1/3nbppp/1q6/Bp1pP3/3P3P/5N2/1P2QPP1/2R1R1K1 b - -", "analysis": [{"pv": ["b6a5"], "depth": 1, "score": 242, "time": 2, "nodes": 100, "multipv": 1}, {"pv": ["b6a6"], "depth": 1, "score": -105, "time": 2, "nodes": 10, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["b6a6"]}
+
+{"extra": ["e2e1"], "fen": "8/6pk/p5pp/1q6/4P3/6P1/4Q2P/6K1 w - -", "analysis": [{"pv": ["e2g4"], "depth": 1, "score": -65, "time": 1, "nodes": 89, "multipv": 1}, {"pv": ["e2e1"], "depth": 1, "score": -82, "time": 2, "nodes": 11, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["e2e1"]}
+
+{"extra": ["a5c7"], "fen": "1r4k1/1p2pp1p/p2p1bp1/q1r5/P1P1Q3/1P4P1/3BPP1P/2RR2K1 b - -", "analysis": [{"pv": ["a5b6"], "depth": 1, "score": -5, "time": 2, "nodes": 175, "multipv": 1}, {"pv": ["a5c7"], "depth": 1, "score": -19, "time": 2, "nodes": 9, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["a5c7"]}
+
+{"extra": ["c7d7"], "fen": "1r6/2R2bk1/3p1qp1/3P4/8/5Q2/4B1KP/8 w - -", "analysis": [{"pv": ["f3e3"], "depth": 1, "score": 127, "time": 1, "nodes": 105, "multipv": 1}, {"pv": ["c7d7"], "depth": 1, "score": 80, "time": 1, "nodes": 9, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["c7d7"]}
+
+{"extra": ["b4b2"], "fen": "8/4k2p/4ppp1/1P6/1q1P4/5N1P/5PP1/5QK1 b - -", "analysis": [{"pv": ["g6g5"], "depth": 1, "score": -404, "time": 1, "nodes": 43, "multipv": 1}, {"pv": ["b4b2"], "depth": 1, "score": -420, "time": 2, "nodes": 3, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["b4b2"]}
+
+{"fen": "r2qr1k1/3n1p1p/pp1p1np1/2pPp3/2P1P3/2BQNPP1/PP5P/4RRK1 w - -", "depth": 1, "moves": ["b2b3"], "analysis": [{"pv": ["b2b3"], "depth": 1, "score": 74, "time": 2, "nodes": 45, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["f1f2"], "fen": "8/p3krp1/1p1p1r2/n1pPpP1p/q1P1P1pP/N1PK2P1/P7/1RQ2R2 w - -", "analysis": [{"pv": ["c1b2"], "depth": 1, "score": -21, "time": 1, "nodes": 308, "multipv": 1}, {"pv": ["f1f2"], "depth": 1, "score": -27, "time": 2, "nodes": 35, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["f1f2"]}
+
+{"extra": ["c5a5"], "fen": "1Q6/p2qppk1/6p1/2R4p/3r3P/6P1/1P2PP2/6K1 w - -", "analysis": [{"pv": ["g1g2"], "depth": 1, "score": 49, "time": 1, "nodes": 98, "multipv": 1}, {"pv": ["c5a5", "d4d1", "g1h2"], "depth": 1, "score": 19, "time": 1, "nodes": 12, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["c5a5"]}
+
+{"extra": ["c8c7"], "fen": "2k2r2/pp3Npp/2n5/2b2b2/8/1BP1P3/P5PP/R2R2K1 b - -", "analysis": [{"pv": ["c5e3", "g1h1"], "depth": 1, "score": -86, "time": 1, "nodes": 76, "multipv": 1}, {"pv": ["c8c7"], "depth": 1, "score": -151, "time": 2, "nodes": 5, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["c8c7"]}
+
+{"fen": "1n1r1rk1/pb4p1/1p2N3/3n4/2p5/1P4P1/P1P2PB1/3RR1K1 w - -", "depth": 1, "moves": ["e6f8"], "analysis": [{"pv": ["e6f8", "g8f8", "b3c4"], "depth": 1, "score": 138, "time": 1, "nodes": 118, "multipv": 1}], "time": "0.0"}
+
+{"fen": "rnb4r/pp2k1pp/2pR1p2/2n1p3/P1B1P3/2N1PN2/1PP3PP/2K4R w - -", "depth": 1, "moves": ["h1d1"], "analysis": [{"pv": ["h1d1"], "depth": 1, "score": 128, "time": 1, "nodes": 165, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["c3d2"], "fen": "8/5k2/3r1pR1/4pK2/4B2P/2b3P1/2P5/8 b - h3", "analysis": [{"pv": ["c3e1"], "depth": 1, "score": -99, "time": 1, "nodes": 65, "multipv": 1}, {"pv": ["c3d2"], "depth": 1, "score": -99, "time": 1, "nodes": 13, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["c3d2"]}
+
+{"extra": ["b2b3"], "fen": "2r2rk1/5ppp/1q2bb2/ppp1n3/4PB2/4Q1P1/PP3PBP/2RNR1K1 w - -", "analysis": [{"pv": ["d1c3"], "depth": 1, "score": -27, "time": 1, "nodes": 56, "multipv": 1}, {"pv": ["b2b3"], "depth": 1, "score": -44, "time": 1, "nodes": 8, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["b2b3"]}
+
+{"extra": ["c6e4"], "fen": "1r6/8/2B5/2k5/6p1/6P1/8/6K1 w - -", "analysis": [{"pv": ["c6d7"], "depth": 1, "score": -170, "time": 2, "nodes": 42, "multipv": 1}, {"pv": ["c6e4"], "depth": 1, "score": -177, "time": 1, "nodes": 5, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["c6e4"]}
+
+{"extra": ["f6g4"], "fen": "r1b1kb1r/pp3ppp/2n1pn2/2P5/8/2P1BN2/PP3PPP/RN1K1B1R b kq -", "analysis": [{"pv": ["e6e5"], "depth": 1, "score": 35, "time": 1, "nodes": 36, "multipv": 1}, {"pv": ["f6g4"], "depth": 1, "score": -4, "time": 2, "nodes": 3, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["f6g4"]}
+
+{"fen": "7r/1pp2p2/5k2/p1nP2Rp/2P4P/4p3/PP5K/5B2 w - -", "depth": 1, "moves": ["f1e2"], "analysis": [{"pv": ["f1e2"], "depth": 1, "score": -121, "time": 1, "nodes": 52, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["e1e2"], "fen": "rn1q3r/1pp2kp1/p3pnpp/3p4/1b1P1BPP/2NBPQ2/PPP2P2/R3K2R w KQ -", "analysis": [{"pv": ["f4e5", "b4c3", "b2c3"], "depth": 1, "score": 172, "time": 1, "nodes": 127, "multipv": 1}, {"pv": ["e1e2", "b4c3", "b2c3"], "depth": 1, "score": 37, "time": 1, "nodes": 26, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["e1e2"]}
+
+{"extra": ["e2d4"], "fen": "r4b1r/pp3kpp/2q2p2/7R/b1p1Q3/2P1PNP1/PP2NPP1/R3K3 w Q -", "analysis": [{"pv": ["f3e5", "f6e5", "h5e5"], "depth": 1, "score": 207, "time": 2, "nodes": 128, "multipv": 1}, {"pv": ["e2d4", "c6e4"], "depth": 1, "score": -886, "time": 1, "nodes": 8, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["e2d4"]}
+
+{"fen": "r7/p3Rpk1/4p1pp/3pP3/3P4/8/PP2rPPP/5RK1 b - -", "depth": 1, "moves": ["e2b2"], "analysis": [{"pv": ["e2b2"], "depth": 1, "score": 80, "time": 1, "nodes": 38, "multipv": 1}], "time": "0.0"}
+
+{"fen": "5rk1/4b2p/p1bpp1p1/2p3P1/1p2P1P1/3NB1QP/Pq6/4R1K1 b - -", "depth": 1, "moves": ["b2a2"], "analysis": [{"pv": ["b2a2"], "depth": 1, "score": 502, "time": 2, "nodes": 91, "multipv": 1}], "time": "0.0"}
+
+{"fen": "3r1rk1/1bq3pp/p3pb2/1p2n3/PPpP1P2/4B3/4B1PP/R2Q1RK1 w - -", "depth": 1, "moves": ["f4e5"], "analysis": [{"pv": ["f4e5", "f6e5", "f1f8", "g8f8"], "depth": 1, "score": -147, "time": 1, "nodes": 203, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["b6e3"], "fen": "r3r1k1/p1nq1ppp/1b6/1p1pP3/1P6/PQ2BN2/5PPP/2RR2K1 b - -", "analysis": [{"pv": ["a8c8", "e3b6", "a7b6"], "depth": 1, "score": -56, "time": 1, "nodes": 189, "multipv": 1}, {"pv": ["b6e3", "b3e3"], "depth": 1, "score": -60, "time": 1, "nodes": 19, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["b6e3"]}
+
+{"fen": "2r1kbnr/1bqp1ppp/p3p3/8/1p2PP2/2NQBB2/PPP3PP/R4RK1 w k -", "depth": 1, "moves": ["c3e2"], "analysis": [{"pv": ["c3e2", "c7c2"], "depth": 1, "score": 57, "time": 2, "nodes": 270, "multipv": 1}], "time": "0.0"}
+
+{"fen": "r3r1k1/Np1bppbp/n2p1n2/3P2p1/1P1B3N/P2P2P1/5PBP/2R2RK1 w - -", "depth": 1, "moves": ["h4f3"], "analysis": [{"pv": ["h4f3", "f6d5"], "depth": 1, "score": -5, "time": 2, "nodes": 174, "multipv": 1}], "time": "0.0"}
+
+{"fen": "2r5/5k1p/4pp2/pp1p4/2rP4/PnBR4/1P3PPP/3R1K2 w - -", "depth": 1, "moves": ["d3h3"], "analysis": [{"pv": ["d3h3"], "depth": 1, "score": -51, "time": 1, "nodes": 136, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["h2h4"], "fen": "3rr1k1/p4p1p/1p4bQ/2n1q3/2Bp4/P4P2/1P1B2PR/R5K1 w - -", "analysis": [{"pv": ["a1e1"], "depth": 1, "score": 95, "time": 2, "nodes": 130, "multipv": 1}, {"pv": ["h2h4"], "depth": 1, "score": 80, "time": 1, "nodes": 13, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["h2h4"]}
+
+{"fen": "4nrk1/pp1q1pp1/2p1pbp1/2PP4/2P3PP/1B3R2/P7/3RQ1K1 b - -", "depth": 1, "moves": ["e6d5"], "analysis": [{"pv": ["e6d5", "c4d5", "d7g4", "e1g3"], "depth": 1, "score": -11, "time": 1, "nodes": 182, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["d7f8"], "fen": "r1bqk2r/pp1nb1pp/2n1p3/3pPp2/3P4/P1N1BPP1/1P2NK1P/R2Q1B1R b kq -", "analysis": [{"pv": ["e8g8"], "depth": 1, "score": -9, "time": 1, "nodes": 85, "multipv": 1}, {"pv": ["d7f8"], "depth": 1, "score": -127, "time": 1, "nodes": 5, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["d7f8"]}
+
+{"fen": "rnbqk1nr/ppp1p1bp/3p2p1/5p2/2PP4/4P1P1/PP3PBP/RNBQK1NR b KQkq -", "depth": 1, "moves": ["g8f6"], "analysis": [{"pv": ["g8f6"], "depth": 1, "score": 15, "time": 1, "nodes": 175, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["d8d5"], "fen": "r2r2k1/1p2bpp1/2p1p2p/1q6/p2P4/P1QNP1P1/1P1R1PP1/2R3K1 b - -", "analysis": [{"pv": ["b5d5"], "depth": 1, "score": 22, "time": 1, "nodes": 133, "multipv": 1}, {"pv": ["d8d5"], "depth": 1, "score": 13, "time": 2, "nodes": 6, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["d8d5"]}
+
+{"extra": ["c1d2"], "fen": "1r1qkb1r/p1pb1ppp/2p5/3pP3/3N1P2/8/PPPn2PP/R1BQ1RK1 w k -", "analysis": [{"pv": ["d1d2"], "depth": 1, "score": 44, "time": 1, "nodes": 59, "multipv": 1}, {"pv": ["c1d2", "b8b2"], "depth": 1, "score": -23, "time": 1, "nodes": 8, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["c1d2"]}
+
+{"fen": "5k2/1p3p2/p2p2p1/P2P3p/1PPK1P1P/6P1/2q5/4Q3 b - -", "depth": 1, "moves": ["c2b2"], "analysis": [{"pv": ["c2b2", "d4e3"], "depth": 1, "score": -134, "time": 2, "nodes": 237, "multipv": 1}], "time": "0.0"}
+
+{"fen": "8/pppk2pp/2nb4/2r5/8/2p2N2/PP1B1PPP/3R1K2 w - -", "depth": 1, "moves": ["d2c3"], "analysis": [{"pv": ["d2c3"], "depth": 1, "score": 58, "time": 1, "nodes": 48, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["g4c4"], "fen": "8/4bk2/8/4PKP1/6R1/7r/8/8 w - -", "analysis": [{"pv": ["e5e6", "f7g7"], "depth": 1, "score": -15, "time": 2, "nodes": 23, "multipv": 1}, {"pv": ["g4c4", "h3f3", "f5g4"], "depth": 1, "score": -27, "time": 1, "nodes": 17, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["g4c4"]}
+
+{"fen": "3r3r/5ppk/p1n5/1pBNp3/P6p/7P/2P1RPP1/1R4K1 b - -", "depth": 1, "moves": ["d8d5"], "analysis": [{"pv": ["d8d5", "a4b5", "d5c5", "b5c6", "c5c6", "e2e5"], "depth": 1, "score": 6, "time": 1, "nodes": 79, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["c7b6"], "fen": "r1b1r1k1/ppB2ppp/nn2p3/8/1P2P3/2P5/4NPPP/R3KB1R w KQ -", "analysis": [{"pv": ["c7e5"], "depth": 1, "score": 116, "time": 1, "nodes": 79, "multipv": 1}, {"pv": ["c7b6", "a7b6"], "depth": 1, "score": 68, "time": 1, "nodes": 9, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["c7b6"]}
+
+{"fen": "8/p7/1b3kp1/2n1p3/1R4K1/8/8/8 w - -", "depth": 1, "moves": ["g4f3"], "analysis": [{"pv": ["g4f3"], "depth": 1, "score": -410, "time": 1, "nodes": 27, "multipv": 1}], "time": "0.0"}
+
+{"fen": "6k1/R6p/3p1B2/3P1p2/1pp4K/4P2P/8/6r1 b - -", "depth": 1, "moves": ["c4c3"], "analysis": [{"pv": ["c4c3"], "depth": 1, "score": 43, "time": 1, "nodes": 46, "multipv": 1}], "time": "0.0"}
+
+{"fen": "4r3/5pk1/3p2p1/ppqP1B1p/5P2/2P4P/3BR2K/3Q4 b - -", "depth": 1, "moves": ["e8e2"], "analysis": [{"pv": ["e8e2", "d1e2", "g6f5", "e2h5", "c5d5"], "depth": 1, "score": -111, "time": 1, "nodes": 103, "multipv": 1}], "time": "0.0"}
+
+{"fen": "8/8/1p3k2/3K4/1P6/7p/8/5B2 b - -", "depth": 1, "moves": ["h3h2"], "analysis": [{"pv": ["h3h2"], "depth": 1, "score": 13, "time": 2, "nodes": 10, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["f4h6"], "fen": "5nr1/p3qk1p/1pr2pp1/8/P1pBPQRP/2P2P2/5PR1/7K w - -", "analysis": [{"pv": ["g2g1"], "depth": 1, "score": 195, "time": 1, "nodes": 76, "multipv": 1}, {"pv": ["f4h6"], "depth": 1, "score": 194, "time": 1, "nodes": 5, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["f4h6"]}
+
+{"extra": ["c6b5"], "fen": "rn1qk2r/pp2bppp/2b1pn2/2p5/4P3/3P1NP1/PP2QPBP/RNB2RK1 b kq -", "analysis": [{"pv": ["e8g8"], "depth": 1, "score": 10, "time": 1, "nodes": 53, "multipv": 1}, {"pv": ["c6b5"], "depth": 1, "score": -63, "time": 1, "nodes": 3, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["c6b5"]}
+
+{"extra": ["a3c4"], "fen": "r1b2rk1/pp2R1pp/3p1p2/bPpP3Q/P7/N7/5PPP/6K1 w - c6", "analysis": [{"pv": ["d5c6", "b7c6", "b5c6"], "depth": 1, "score": 341, "time": 2, "nodes": 67, "multipv": 1}, {"pv": ["a3c4"], "depth": 1, "score": 211, "time": 1, "nodes": 3, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["a3c4"]}
+
+{"extra": ["a8c8"], "fen": "r2qr1k1/1p3pp1/2ppbnnp/p7/P2PP3/RP2RNPP/2QN1P2/5BK1 b - -", "analysis": [{"pv": ["d6d5"], "depth": 1, "score": 10, "time": 1, "nodes": 105, "multipv": 1}, {"pv": ["a8c8"], "depth": 1, "score": -6, "time": 1, "nodes": 5, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["a8c8"]}
+
+{"extra": ["f8e8"], "fen": "2br1rk1/6pp/p4n2/1pp1N1B1/4P3/7P/PPP3P1/R3R1K1 b - -", "analysis": [{"pv": ["c8e6"], "depth": 1, "score": -63, "time": 2, "nodes": 58, "multipv": 1}, {"pv": ["f8e8"], "depth": 1, "score": -88, "time": 1, "nodes": 5, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["f8e8"]}
+
+{"extra": ["b7b6"], "fen": "r4rk1/pp1q2bp/3pbnp1/3Np1B1/2PpP3/1P4P1/P2Q1PBP/2R2RK1 b - -", "analysis": [{"pv": ["f6g4"], "depth": 1, "score": -6, "time": 2, "nodes": 195, "multipv": 1}, {"pv": ["b7b6"], "depth": 1, "score": -21, "time": 1, "nodes": 37, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["b7b6"]}
+
+{"extra": ["e6d5"], "fen": "r2q1rk1/1ppn1ppp/p1b1pn2/3P2B1/Pbp5/2N2NP1/1PQ1PPBP/R2R2K1 b - -", "analysis": [{"pv": ["c6d5", "c3d5", "e6d5"], "depth": 1, "score": 124, "time": 2, "nodes": 221, "multipv": 1}, {"pv": ["e6d5", "c3d5", "c6d5", "d1d5"], "depth": 1, "score": 75, "time": 1, "nodes": 75, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["e6d5"]}
+
+{"fen": "3br2r/1p3k2/P2p1p2/P2NpP2/K1P1P2p/7P/1B2B3/5R2 b - -", "depth": 1, "moves": ["b7a6"], "analysis": [{"pv": ["b7a6"], "depth": 1, "score": -322, "time": 1, "nodes": 50, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["g3e4"], "fen": "5rk1/pp4q1/2p3r1/2P1p3/5bP1/1P1R1PN1/P5K1/3Q1R2 w - -", "analysis": [{"pv": ["d3d8"], "depth": 1, "score": 93, "time": 1, "nodes": 119, "multipv": 1}, {"pv": ["g3e4"], "depth": 1, "score": 80, "time": 1, "nodes": 11, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["g3e4"]}
+
+{"extra": ["g6f5"], "fen": "2r3k1/p4p2/1p4p1/5P2/1P1rP3/P2p1K1P/3R4/4R3 b - -", "analysis": [{"pv": ["g8g7"], "depth": 1, "score": 8, "time": 2, "nodes": 135, "multipv": 1}, {"pv": ["g6f5", "e4f5"], "depth": 1, "score": -32, "time": 1, "nodes": 27, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["g6f5"]}
+
+{"extra": ["h2h3"], "fen": "rnbqkb1r/pp4pp/2p1pn2/3pN3/2PP2p1/8/PPQ1PP1P/RNB1KB1R w KQkq -", "analysis": [{"pv": ["c4c5"], "depth": 1, "score": 30, "time": 2, "nodes": 195, "multipv": 1}, {"pv": ["h2h3", "f8b4", "c1d2"], "depth": 1, "score": -35, "time": 2, "nodes": 295, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["h2h3"]}
+
+{"fen": "2b1kr2/p2p1pQp/2p1p3/q3P3/2P5/2bB4/Pr1B1PPP/3RK2R w K -", "depth": 1, "moves": ["d2c3"], "analysis": [{"pv": ["d2c3", "a5c3", "e1f1", "b2a2"], "depth": 1, "score": -79, "time": 2, "nodes": 243, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["d5d6"], "fen": "7r/pp2R3/3r1k2/3R3P/8/P4P2/1P3K2/8 w - -", "analysis": [{"pv": ["e7e8", "h8e8", "d5d6", "f6g5"], "depth": 1, "score": 221, "time": 2, "nodes": 153, "multipv": 1}, {"pv": ["d5d6", "f6e7"], "depth": 1, "score": 209, "time": 1, "nodes": 12, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["d5d6"]}
+
+{"extra": ["f3e1"], "fen": "2rq1rk1/pb1nbpp1/1p1ppn1p/8/3P3B/2PB1N2/PP1NQPPP/3R1RK1 w - -", "analysis": [{"pv": ["h4g3"], "depth": 1, "score": 6, "time": 1, "nodes": 61, "multipv": 1}, {"pv": ["f3e1"], "depth": 1, "score": -86, "time": 1, "nodes": 9, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["f3e1"]}
+
+{"extra": ["f8f6"], "fen": "5rk1/ppp3p1/1bb3Bp/8/5B1P/2P3P1/PP6/2K1R3 b - -", "analysis": [{"pv": ["b6f2"], "depth": 1, "score": -8, "time": 2, "nodes": 72, "multipv": 1}, {"pv": ["f8f6"], "depth": 1, "score": -18, "time": 1, "nodes": 20, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["f8f6"]}
+
+{"extra": ["f6d7"], "fen": "rnbq1rk1/pp3pbp/3p1np1/2pP4/2P5/2NB3P/PP2NPP1/R1BQK2R b KQ -", "analysis": [{"pv": ["f8e8"], "depth": 1, "score": 10, "time": 1, "nodes": 66, "multipv": 1}, {"pv": ["f6d7"], "depth": 1, "score": -59, "time": 1, "nodes": 5, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["f6d7"]}
+
+{"extra": ["a7a5"], "fen": "3r2k1/p5p1/7p/3qPP2/1bQB4/6P1/P1R1KP1P/8 b - -", "analysis": [{"pv": ["a7a6", "c4d5", "d8d5"], "depth": 1, "score": -401, "time": 1, "nodes": 178, "multipv": 1}, {"pv": ["a7a5", "c4d5", "d8d5"], "depth": 1, "score": -417, "time": 1, "nodes": 14, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["a7a5"]}
+
+{"fen": "r2qkb1r/5ppp/p1nppn2/1pp5/4P1b1/2PP1N2/PPBN1PPP/R1BQR1K1 b kq -", "depth": 1, "moves": ["f8e7"], "analysis": [{"pv": ["f8e7"], "depth": 1, "score": -50, "time": 1, "nodes": 67, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["f1e1"], "fen": "r4b2/pp1q1kp1/5n2/3ppp2/8/1P5Q/1P3PPP/R1B2RK1 w - -", "analysis": [{"pv": ["c1e3"], "depth": 1, "score": 60, "time": 1, "nodes": 68, "multipv": 1}, {"pv": ["f1e1"], "depth": 1, "score": 50, "time": 2, "nodes": 3, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["f1e1"]}
+
+{"fen": "2r2rk1/1bpq3p/1p1b4/p2p1pp1/3Pn3/1P1NP1PB/PBQ2P1P/2R2RK1 b - -", "depth": 1, "moves": ["g5g4"], "analysis": [{"pv": ["g5g4"], "depth": 1, "score": 19, "time": 1, "nodes": 88, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["c3d5"], "fen": "r1b1r1k1/pp2qpbp/2p1n1p1/3n4/P5P1/2N1B1NP/1PP2PB1/R2Q1RK1 w - -", "analysis": [{"pv": ["g2d5", "c6d5", "c3d5"], "depth": 1, "score": 30, "time": 1, "nodes": 119, "multipv": 1}, {"pv": ["c3d5", "c6d5"], "depth": 1, "score": -17, "time": 2, "nodes": 27, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["c3d5"]}
+
+{"extra": ["e6e5"], "fen": "3n1r2/1r3kpp/1p1Qpn2/p1q2p2/2P2N2/1P3PP1/P3B2P/3R1R1K b - -", "analysis": [{"pv": ["c5d6", "d1d6"], "depth": 1, "score": -127, "time": 1, "nodes": 110, "multipv": 1}, {"pv": ["e6e5"], "depth": 1, "score": -196, "time": 1, "nodes": 38, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["e6e5"]}
+
+{"fen": "5rk1/1p2rpbp/p1b2n2/3q4/5B2/6PP/1P3Q1K/1BR1R3 w - -", "depth": 1, "moves": ["e1e7"], "analysis": [{"pv": ["e1e7"], "depth": 1, "score": 115, "time": 1, "nodes": 90, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["e4d5"], "fen": "r1bqk2r/pp2bppp/2n1pn2/2pp4/3PP3/2PB1N2/PP1N1PPP/R1BQK2R w KQkq -", "analysis": [{"pv": ["e1g1", "c5d4", "f3d4", "c6d4", "c3d4", "d5e4", "d2e4", "f6e4", "d3e4"], "depth": 1, "score": 58, "time": 2, "nodes": 326, "multipv": 1}, {"pv": ["e4d5", "e6d5"], "depth": 1, "score": 0, "time": 1, "nodes": 14, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["e1g1", "e4d5"]}
+
+{"extra": ["g5g4"], "fen": "r3r3/pp6/3Bpkn1/2Pp2R1/8/2R1P3/P4PP1/5K2 w - -", "analysis": [{"pv": ["g5h5"], "depth": 1, "score": 117, "time": 2, "nodes": 72, "multipv": 1}, {"pv": ["g5g4"], "depth": 1, "score": 108, "time": 2, "nodes": 3, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["g5g4"]}
+
+{"extra": ["f1g2"], "fen": "2r2rk1/2q1pp1p/1pb2npb/8/4P3/1QP3P1/PB1N1P1P/R2R1BK1 w - -", "analysis": [{"pv": ["f1h3", "f6e4", "d2e4", "c6e4", "h3c8", "f8c8"], "depth": 1, "score": 63, "time": 1, "nodes": 328, "multipv": 1}, {"pv": ["f1g2", "h6d2", "d1d2", "f6e4"], "depth": 1, "score": 0, "time": 1, "nodes": 42, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["f1g2"]}
+
+{"fen": "1r3k2/4p1b1/3P1pp1/6Bp/4P3/2q2NPP/5P2/3Q1K2 w - -", "depth": 1, "moves": ["d6e7"], "analysis": [{"pv": ["d6e7", "f8e7"], "depth": 1, "score": -45, "time": 1, "nodes": 236, "multipv": 1}], "time": "0.0"}
+
+{"fen": "1q3rk1/3p2pp/1p1b4/3bp3/1P2p3/3B1N2/4QPPP/R5K1 w - -", "depth": 1, "moves": ["d3e4"], "analysis": [{"pv": ["d3e4"], "depth": 1, "score": -114, "time": 2, "nodes": 79, "multipv": 1}], "time": "0.0"}
+
+{"fen": "6k1/2q2pp1/pNn1p2p/PNp5/3bP3/1P4P1/3Q1PBP/6K1 b - -", "depth": 1, "moves": ["a6b5"], "analysis": [{"pv": ["a6b5"], "depth": 1, "score": 6, "time": 1, "nodes": 80, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["d3c4"], "fen": "1rbq1rk1/ppn1ppbp/3p1np1/2pP4/P3P3/2NB1N1P/1PP2PP1/R1BQ1RK1 w - -", "analysis": [{"pv": ["c1f4"], "depth": 1, "score": 113, "time": 1, "nodes": 224, "multipv": 1}, {"pv": ["d3c4"], "depth": 1, "score": 101, "time": 1, "nodes": 25, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["d3c4"]}
+
+{"extra": ["d5c3"], "fen": "8/2k5/8/3n2P1/8/1p6/5PK1/7R b - -", "analysis": [{"pv": ["c7d6"], "depth": 1, "score": -204, "time": 1, "nodes": 32, "multipv": 1}, {"pv": ["d5c3"], "depth": 1, "score": -277, "time": 1, "nodes": 5, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["d5c3"]}
+
+{"extra": ["e2d1"], "fen": "r3kb1r/pp3pp1/1qn1pn1p/3p1b2/2pP1B2/2P1PN2/PP1NBPPP/R1Q1K2R w KQkq -", "analysis": [{"pv": ["e1g1"], "depth": 1, "score": 27, "time": 1, "nodes": 109, "multipv": 1}, {"pv": ["e2d1"], "depth": 1, "score": -77, "time": 2, "nodes": 13, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["e2d1"]}
+
+{"extra": ["h1a1"], "fen": "8/8/pkpp1p2/1p4p1/1P2P1P1/P1P1KPP1/4N3/7r b - -", "analysis": [{"pv": ["h1e1"], "depth": 1, "score": 149, "time": 1, "nodes": 27, "multipv": 1}, {"pv": ["h1a1"], "depth": 1, "score": 131, "time": 1, "nodes": 3, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["h1a1"]}
+
+{"extra": ["b4c6"], "fen": "2r2bk1/2r2p1p/p3bnp1/1p2p3/1n2P3/1PN2PPB/P2BKN1P/2R4R b - -", "analysis": [{"pv": ["e6h3", "f2h3"], "depth": 1, "score": 103, "time": 1, "nodes": 112, "multipv": 1}, {"pv": ["b4c6", "h3e6", "f7e6"], "depth": 1, "score": 12, "time": 1, "nodes": 27, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["b4c6"]}
+
+{"extra": ["g7g6"], "fen": "r2q1rk1/pb1nbppp/1p3n2/2pp2B1/7N/2NP2P1/PPP2PBP/R2QR1K1 b - -", "analysis": [{"pv": ["h7h6", "g5f6", "d7f6"], "depth": 1, "score": 32, "time": 2, "nodes": 505, "multipv": 1}, {"pv": ["g7g6"], "depth": 1, "score": -8, "time": 1, "nodes": 120, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["g7g6"]}
+
+{"fen": "1n1r1rk1/1pq1bppp/p1b3n1/3p4/1PP5/PB2BN2/4QPPP/2RR2K1 w - -", "depth": 1, "moves": ["c4d5"], "analysis": [{"pv": ["c4d5"], "depth": 1, "score": -93, "time": 2, "nodes": 209, "multipv": 1}], "time": "0.0"}
+
+{"fen": "5r1k/6bp/pB4p1/8/1p5P/q1r5/P1R1BPP1/3Q1K1R w - -", "depth": 1, "moves": ["h4h5"], "analysis": [{"pv": ["h4h5", "c3c2", "d1c2"], "depth": 1, "score": 340, "time": 2, "nodes": 145, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["a6c7"], "fen": "2R2b2/1pB2kp1/n1p2p1p/p4P2/P6N/1r4PP/6K1/8 b - -", "analysis": [{"pv": ["f8b4"], "depth": 1, "score": 239, "time": 1, "nodes": 85, "multipv": 1}, {"pv": ["a6c7", "c8c7", "f8e7"], "depth": 1, "score": 223, "time": 2, "nodes": 24, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["a6c7"]}
+
+{"extra": ["e4e3"], "fen": "8/5ppk/1Pp1b3/6Pp/N3p3/6P1/1R3P1K/3r4 b - -", "analysis": [{"pv": ["d1d7"], "depth": 1, "score": 38, "time": 1, "nodes": 63, "multipv": 1}, {"pv": ["e4e3", "f2e3"], "depth": 1, "score": -81, "time": 1, "nodes": 9, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["e4e3"]}
+
+{"fen": "r5k1/p6r/3pq1p1/2pP4/2P2P2/1PN4b/P4R1R/7K w - -", "depth": 1, "moves": ["d5e6"], "analysis": [{"pv": ["d5e6", "h3e6", "h2h7", "g8h7"], "depth": 1, "score": -27, "time": 1, "nodes": 62, "multipv": 1}], "time": "0.0"}
+
+{"fen": "nr6/3R2kp/6p1/P1p1N3/8/1P3P2/6PP/6K1 b - -", "depth": 1, "moves": ["g7f6"], "analysis": [{"pv": ["g7f6"], "depth": 1, "score": -335, "time": 2, "nodes": 21, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["g8f8"], "fen": "6k1/5p1b/7p/2r3bP/Bp1NPpP1/2q2P2/P2Q2K1/3R4 b - -", "analysis": [{"pv": ["g8g7"], "depth": 1, "score": -131, "time": 1, "nodes": 133, "multipv": 1}, {"pv": ["g8f8"], "depth": 1, "score": -172, "time": 1, "nodes": 13, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["g8f8"]}
+
+{"extra": ["e7g7"], "fen": "5rk1/p2br2p/2pNpppq/2Pn4/Pp1P4/1B4P1/1P2QP1P/R3R1K1 b - -", "analysis": [{"pv": ["e6e5"], "depth": 1, "score": -65, "time": 1, "nodes": 65, "multipv": 1}, {"pv": ["e7g7"], "depth": 1, "score": -153, "time": 2, "nodes": 9, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["e7g7"]}
+
+{"fen": "r1b4k/1p3rpp/1B1q4/p2nQ3/P1B5/6b1/1P3PPP/4RRK1 w - -", "depth": 1, "moves": ["h2g3"], "analysis": [{"pv": ["h2g3", "d6e5", "e1e5"], "depth": 1, "score": 191, "time": 1, "nodes": 170, "multipv": 1}], "time": "0.0"}
+
+{"fen": "r1bq1rk1/ppp1ppbp/1n4p1/8/3n1B2/2N2NP1/PP2PPBP/R2Q1RK1 w - -", "depth": 1, "moves": ["f3d4"], "analysis": [{"pv": ["f3d4", "g7d4"], "depth": 1, "score": 0, "time": 2, "nodes": 113, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["g8h8"], "fen": "r2q2k1/3bb2p/4p3/pp1pP3/2pP1pQ1/2P3N1/PPB3PP/R6K b - -", "analysis": [{"pv": ["e7g5"], "depth": 1, "score": -12, "time": 1, "nodes": 128, "multipv": 1}, {"pv": ["g8h8", "g4f4"], "depth": 1, "score": -84, "time": 1, "nodes": 20, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["g8h8"]}
+
+{"extra": ["e6e5"], "fen": "rn2k2r/pbp1qppp/1p1ppn2/8/2PPP3/5NP1/PPQN1PBP/R4RK1 b kq e3", "analysis": [{"pv": ["e8g8"], "depth": 1, "score": -90, "time": 2, "nodes": 204, "multipv": 1}, {"pv": ["b8d7"], "depth": 1, "score": -108, "time": 1, "nodes": 3, "multipv": 1}, {"pv": ["e6e5"], "depth": 1, "score": -146, "time": 1, "nodes": 84, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["b8d7", "e6e5"]}
+
+{"fen": "2k3r1/1pqn1pr1/p2pb3/8/4P3/2N2Q1P/PPP3B1/2KR3R b - -", "depth": 1, "moves": ["g7g2"], "analysis": [{"pv": ["g7g2"], "depth": 1, "score": 387, "time": 1, "nodes": 59, "multipv": 1}], "time": "0.0"}
+
+{"fen": "6r1/5p1k/1n2pQpP/p2pP3/3P4/5PR1/P6K/2q5 w - -", "depth": 1, "moves": ["f6f7"], "analysis": [{"pv": ["f6f7", "h7h8", "g3g6", "g8g6", "f7g6"], "depth": 1, "score": -146, "time": 1, "nodes": 154, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["b6a4"], "fen": "r2q1rk1/1p1bb1pp/pn2p3/3pPp2/3P2P1/2NQ2BP/PP1N1P2/R4RK1 b - -", "analysis": [{"pv": ["f5g4", "h3g4"], "depth": 1, "score": 71, "time": 1, "nodes": 93, "multipv": 1}, {"pv": ["b6a4"], "depth": 1, "score": 27, "time": 1, "nodes": 44, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["b6a4"]}
+
+{"fen": "rr4k1/4q3/b2p2p1/4ppP1/2PpP3/1P6/P2Q2BP/R3R1K1 w - -", "depth": 1, "moves": ["e4f5"], "analysis": [{"pv": ["e4f5"], "depth": 1, "score": 137, "time": 1, "nodes": 122, "multipv": 1}], "time": "0.0"}
+
+{"fen": "r2qk2r/1b2bppp/pp1ppn2/4n3/2P1P3/N1N1BP2/PP2B1PP/R2Q1RK1 b kq -", "depth": 1, "moves": ["e8g8"], "analysis": [{"pv": ["e8g8"], "depth": 1, "score": 0, "time": 1, "nodes": 279, "multipv": 1}], "time": "0.0"}
+
+{"fen": "2rq1rk1/pp2n1b1/2npb1pp/4pp2/NPP5/3P2P1/3NPPBP/1RBQ1RK1 w - -", "depth": 1, "moves": ["b4b5"], "analysis": [{"pv": ["b4b5"], "depth": 1, "score": 22, "time": 1, "nodes": 47, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["d1a4"], "fen": "rn2k1nr/pp3ppp/4p3/2qpPb2/8/2P5/PP3PPP/R1BQKBNR w KQkq -", "analysis": [{"pv": ["c1g5"], "depth": 1, "score": 81, "time": 1, "nodes": 87, "multipv": 1}, {"pv": ["g1f3"], "depth": 1, "score": 71, "time": 1, "nodes": 9, "multipv": 1}, {"pv": ["d1a4", "b8d7"], "depth": 1, "score": 16, "time": 2, "nodes": 79, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["g1f3", "d1a4"]}
+
+{"extra": ["d8e8"], "fen": "1r1r4/2q2p1p/ppP2kp1/2p5/P2nQ3/5B2/1P3PPP/3RR1K1 b - -", "analysis": [{"pv": ["f6g7", "e4e5", "c7e5", "e1e5"], "depth": 1, "score": -2, "time": 2, "nodes": 312, "multipv": 1}, {"pv": ["d8e8"], "depth": 1, "score": -320, "time": 1, "nodes": 91, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["d8e8"]}
+
+{"extra": ["c7b7"], "fen": "5rk1/2r2p2/4p1pb/1N2n2p/7P/1P4P1/1KP5/3R1B1R b - -", "analysis": [{"pv": ["c7c8"], "depth": 1, "score": 35, "time": 2, "nodes": 108, "multipv": 1}, {"pv": ["c7b7"], "depth": 1, "score": 26, "time": 2, "nodes": 3, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["c7b7"]}
+
+{"extra": ["f6f5"], "fen": "1r4k1/5p1p/r2p1qp1/2pPp2P/8/1B1N2P1/2Q2PK1/4R3 b - -", "analysis": [{"pv": ["g6h5"], "depth": 1, "score": 100, "time": 2, "nodes": 117, "multipv": 1}, {"pv": ["f6f5", "h5g6", "f7g6"], "depth": 1, "score": 61, "time": 1, "nodes": 131, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["f6f5"]}
+
+{"extra": ["c7d8"], "fen": "8/2B5/pR6/6k1/3Kp3/3b4/8/8 w - -", "analysis": [{"pv": ["c7e5"], "depth": 1, "score": 334, "time": 2, "nodes": 38, "multipv": 1}, {"pv": ["c7d8", "g5f4", "b6f6", "f4g4"], "depth": 1, "score": 311, "time": 1, "nodes": 38, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["c7d8"]}
+
+{"extra": ["f1e2"], "fen": "3r4/1pp2kp1/7p/n3p3/4N3/2P5/1P3PPP/1R3K2 w - -", "analysis": [{"pv": ["b2b4"], "depth": 1, "score": 50, "time": 1, "nodes": 37, "multipv": 1}, {"pv": ["f1e2"], "depth": 1, "score": 24, "time": 1, "nodes": 5, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["f1e2"]}
+
+{"extra": ["d1c2"], "fen": "7r/1q3pk1/3pnn2/2r1p1pp/RpP1P3/pP1Q1PPP/P7/3BK1BR w - -", "analysis": [{"pv": ["g1c5", "d6c5"], "depth": 1, "score": -5, "time": 1, "nodes": 236, "multipv": 1}, {"pv": ["d1c2"], "depth": 1, "score": -97, "time": 2, "nodes": 52, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["d1c2"]}
+
+{"fen": "4n1r1/1pq1rpbk/p2p3p/2pP1b2/P3PR2/6NP/1PQ1B1P1/5RK1 w - -", "depth": 1, "moves": ["g3f5"], "analysis": [{"pv": ["g3f5", "g7d4", "f5d4", "c5d4"], "depth": 1, "score": 78, "time": 1, "nodes": 206, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["e6g7"], "fen": "4k3/pp2b2p/2brN3/3p4/3P3P/4PBP1/P4K2/2R5 w - -", "analysis": [{"pv": ["e6f4"], "depth": 1, "score": 160, "time": 2, "nodes": 83, "multipv": 1}, {"pv": ["e6g7", "e8f7"], "depth": 1, "score": 93, "time": 1, "nodes": 29, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["e6g7"]}
+
+{"fen": "8/R7/6p1/p1r3k1/8/5BP1/6K1/8 b - -", "depth": 1, "moves": ["g5f5"], "analysis": [{"pv": ["g5f5"], "depth": 1, "score": -167, "time": 1, "nodes": 61, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["c1f4"], "fen": "r2qk2r/1pp1n1pp/p1np4/8/B1b5/2PN3R/PP3PPP/RNQ3K1 w kq -", "analysis": [{"pv": ["b1d2"], "depth": 1, "score": 81, "time": 1, "nodes": 65, "multipv": 1}, {"pv": ["c1f4"], "depth": 1, "score": 6, "time": 1, "nodes": 7, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["c1f4"]}
+
+{"extra": ["h2a2"], "fen": "8/1p6/5k2/p7/P7/3KP3/7r/1R6 b - -", "analysis": [{"pv": ["h2h4"], "depth": 1, "score": -34, "time": 1, "nodes": 72, "multipv": 1}, {"pv": ["h2a2"], "depth": 1, "score": -46, "time": 2, "nodes": 11, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["h2a2"]}
+
+{"extra": ["c7d6"], "fen": "r1b1rbk1/1pq2p1p/2p2np1/p1pPp3/2P1P3/P1N2N2/1P1QBPPP/2RR2K1 b - -", "analysis": [{"pv": ["c8g4"], "depth": 1, "score": -60, "time": 2, "nodes": 75, "multipv": 1}, {"pv": ["c7d6"], "depth": 1, "score": -97, "time": 1, "nodes": 16, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["c7d6"]}
+
+{"fen": "r7/1p1br1k1/p2p2n1/P1pP1p2/7p/R1N2P2/1P1q2PP/3R1B1K w - -", "depth": 1, "moves": ["d1d2"], "analysis": [{"pv": ["d1d2"], "depth": 1, "score": -72, "time": 1, "nodes": 39, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["f2e3"], "fen": "4r3/6kp/2b2pp1/3N4/1pP1PP2/1P3BP1/r4K1P/3R4 w - -", "analysis": [{"pv": ["f2g1", "c6d5", "e4d5"], "depth": 1, "score": 33, "time": 1, "nodes": 96, "multipv": 1}, {"pv": ["f2e3", "c6d5", "c4d5", "a2h2"], "depth": 1, "score": 0, "time": 1, "nodes": 29, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["f2e3"]}
+
+{"extra": ["c5e3"], "fen": "r1bq1rk1/pppp1ppp/2n2n2/2b2N2/4P3/2N1B3/PPP2PPP/R2QKB1R b KQ -", "analysis": [{"pv": ["d7d6"], "depth": 1, "score": 6, "time": 2, "nodes": 109, "multipv": 1}, {"pv": ["c5e3", "f5e3"], "depth": 1, "score": -6, "time": 1, "nodes": 21, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["c5e3"]}
+
+{"extra": ["d7f8"], "fen": "3r2k1/1pqn1p2/r1pNp3/p3PpNp/7P/1P4P1/PBQ2P1K/4R3 b - -", "analysis": [{"pv": ["d7e5", "b2e5", "d8d6", "e5d6", "c7d6"], "depth": 1, "score": -235, "time": 1, "nodes": 323, "multipv": 1}, {"pv": ["d7f8", "g5f7"], "depth": 1, "score": -347, "time": 1, "nodes": 47, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["d7f8"]}
+
+{"extra": ["d5c5"], "fen": "8/8/5k2/p2r4/PpN5/1P4PP/4K3/8 b - -", "analysis": [{"pv": ["d5g5"], "depth": 1, "score": -17, "time": 1, "nodes": 38, "multipv": 1}, {"pv": ["d5c5"], "depth": 1, "score": -42, "time": 1, "nodes": 5, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["d5c5"]}
+
+{"fen": "2r5/p5bk/4RB1p/P7/2B5/1P3n2/5PKP/4R3 b - -", "depth": 1, "moves": ["f3e1"], "analysis": [{"pv": ["f3e1", "g2g3", "g7f6", "e6f6"], "depth": 1, "score": -287, "time": 1, "nodes": 163, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["f4h5"], "fen": "1r1r2k1/3n1ppp/p1q1pb2/2p5/1p3N2/6PP/PPP1QP1K/2BR1R2 w - -", "analysis": [{"pv": ["f1e1"], "depth": 1, "score": -152, "time": 2, "nodes": 101, "multipv": 1}, {"pv": ["f4h5"], "depth": 1, "score": -204, "time": 1, "nodes": 11, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["f4h5"]}
+
+{"fen": "8/3k1p2/3PpKp1/r5Pp/3R1P1P/8/8/8 b - -", "depth": 1, "moves": ["a5f5"], "analysis": [{"pv": ["a5f5", "f6g7"], "depth": 1, "score": 41, "time": 1, "nodes": 56, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["f8e8"], "fen": "2r2r2/2q2pnk/2p2np1/p1PpR2p/Q2P3P/5BP1/P4PN1/R5K1 b - -", "analysis": [{"pv": ["g7e6"], "depth": 1, "score": -15, "time": 1, "nodes": 189, "multipv": 1}, {"pv": ["f8e8"], "depth": 1, "score": -37, "time": 1, "nodes": 84, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["f8e8"]}
+
+{"fen": "3qr1k1/pp1br2p/3npnp1/3p2N1/P1pP1PP1/2P2B2/2P1R2P/R1B1Q1K1 b - -", "depth": 1, "moves": ["h7h6"], "analysis": [{"pv": ["h7h6"], "depth": 1, "score": -4, "time": 1, "nodes": 262, "multipv": 1}], "time": "0.0"}
+
+{"fen": "8/4k3/6Np/3n4/r7/8/4KRPP/8 b - -", "depth": 1, "moves": ["e7e6"], "analysis": [{"pv": ["e7e6"], "depth": 1, "score": -44, "time": 1, "nodes": 26, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["d3e5"], "fen": "8/1p2kppp/1p6/r3b3/3pP3/P2N2P1/1Pb3BP/4R1K1 w - -", "analysis": [{"pv": ["g2f1"], "depth": 1, "score": -151, "time": 1, "nodes": 92, "multipv": 1}, {"pv": ["d3e5", "a5e5"], "depth": 1, "score": -189, "time": 1, "nodes": 8, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["d3e5"]}
+
+{"fen": "1KQ5/8/3nk3/p6p/7P/8/P7/8 b - -", "depth": 1, "moves": ["d6c8"], "analysis": [{"pv": ["d6c8", "b8c8"], "depth": 1, "score": 52, "time": 1, "nodes": 34, "multipv": 1}], "time": "0.0"}
+
+{"fen": "8/p4rk1/4R1Qp/2p3p1/3q4/1P4P1/P4P2/6K1 b - -", "depth": 1, "moves": ["g7f8"], "analysis": [{"pv": ["g7f8", "g6h6", "f8g8", "h6g5", "g8f8"], "depth": 1, "score": -147, "time": 2, "nodes": 81, "multipv": 1}], "time": "0.0"}
+
+{"fen": "3r4/1R1N1pk1/6pp/3P4/5P2/2b3P1/6KP/8 w - -", "depth": 1, "moves": ["g2f3"], "analysis": [{"pv": ["g2f3"], "depth": 1, "score": 161, "time": 1, "nodes": 53, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["f6e5"], "fen": "8/1p4p1/2p2k1p/2Pp4/P1n4r/P2RP1N1/6KP/8 b - -", "analysis": [{"pv": ["c4e5"], "depth": 1, "score": 254, "time": 1, "nodes": 93, "multipv": 1}, {"pv": ["f6e5"], "depth": 1, "score": 186, "time": 2, "nodes": 5, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["f6e5"]}
+
+{"extra": ["b2b4"], "fen": "2r1r1k1/bb2pp2/p5p1/B2P1n2/q7/N2Q2P1/PP3PB1/2RR2K1 w - -", "analysis": [{"pv": ["a5c3"], "depth": 1, "score": 78, "time": 1, "nodes": 488, "multipv": 1}, {"pv": ["b2b4"], "depth": 1, "score": 46, "time": 1, "nodes": 207, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["b2b4"]}
+
+{"extra": ["e7f7"], "fen": "8/p3k3/1ppn1p2/5P1p/PP5P/3KN1P1/8/8 b - -", "analysis": [{"pv": ["e7d7"], "depth": 1, "score": 10, "time": 1, "nodes": 46, "multipv": 1}, {"pv": ["e7f7"], "depth": 1, "score": 6, "time": 1, "nodes": 3, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["e7f7"]}
+
+{"extra": ["a1a2"], "fen": "1r3r2/2nq2kp/b2p1p2/N1p2Pp1/1p1pP1P1/1P1P3P/2PQ2B1/R4RK1 w - -", "analysis": [{"pv": ["d2f2"], "depth": 1, "score": -18, "time": 1, "nodes": 86, "multipv": 1}, {"pv": ["a1a2"], "depth": 1, "score": -33, "time": 1, "nodes": 9, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["a1a2"]}
+
+{"fen": "8/8/1P1n1K2/6Nk/7p/8/6P1/8 b - -", "depth": 1, "moves": ["h5g4"], "analysis": [{"pv": ["h5g4"], "depth": 1, "score": -182, "time": 1, "nodes": 40, "multipv": 1}], "time": "0.0"}
+
+{"fen": "1r2r1k1/p2n1p1p/4bp2/3p3N/1ppP4/q1P1PB2/P1Q2PPP/R3R1K1 w - -", "depth": 1, "moves": ["c3b4"], "analysis": [{"pv": ["c3b4", "a3b4"], "depth": 1, "score": 36, "time": 1, "nodes": 155, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["f1e2"], "fen": "r1bq1rk1/ppp2ppp/2nb4/4p3/8/P1PPPN2/5PPP/R1BQKB1R w KQ -", "analysis": [{"pv": ["d3d4"], "depth": 1, "score": -59, "time": 1, "nodes": 69, "multipv": 1}, {"pv": ["f1e2"], "depth": 1, "score": -88, "time": 1, "nodes": 6, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["f1e2"]}
+
+{"extra": ["e5c6"], "fen": "r2r2k1/pp2bppp/n3p3/2p1N3/3P4/1P2P3/1PRBKPPP/R7 w - -", "analysis": [{"pv": ["c2c4"], "depth": 1, "score": 31, "time": 1, "nodes": 160, "multipv": 1}, {"pv": ["e5c6"], "depth": 1, "score": -26, "time": 2, "nodes": 23, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["e5c6"]}
+
+{"extra": ["h4e4"], "fen": "3rk2r/pp2b3/1nq1pp2/6pp/3P3Q/2N1B3/PP3PPP/R4RK1 w k g6", "analysis": [{"pv": ["h4h3"], "depth": 1, "score": 8, "time": 2, "nodes": 164, "multipv": 1}, {"pv": ["h4e4", "c6e4", "c3e4"], "depth": 1, "score": 0, "time": 2, "nodes": 24, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["h4e4"]}
+
+{"extra": ["b7b5"], "fen": "r1b2rk1/1p1nqppp/p3p3/2bpP3/3B1P2/2N5/PPP2QPP/1K1R1B1R b - -", "analysis": [{"pv": ["c5d4", "d1d4"], "depth": 1, "score": -12, "time": 1, "nodes": 67, "multipv": 1}, {"pv": ["b7b5"], "depth": 1, "score": 6, "time": 1, "nodes": 69, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["b7b5"]}
+
+{"fen": "r3r1k1/1b3R1p/pp1p2p1/2n1p1Pn/1P2P1B1/2N5/P1PB2PP/4R2K w - -", "depth": 1, "moves": ["f7c7"], "analysis": [{"pv": ["f7c7"], "depth": 1, "score": 195, "time": 1, "nodes": 194, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["e5d5"], "fen": "8/5p1k/6p1/1qp1Q2p/7P/6P1/5PK1/8 w - -", "analysis": [{"pv": ["g2f3"], "depth": 1, "score": -60, "time": 1, "nodes": 97, "multipv": 1}, {"pv": ["e5d5"], "depth": 1, "score": -64, "time": 2, "nodes": 5, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["e5d5"]}
+
+{"fen": "2r3k1/5R1p/6p1/p2nb1P1/Np1r3P/1P4N1/P1P3K1/2Q5 b - -", "depth": 1, "moves": ["g8f7"], "analysis": [{"pv": ["g8f7"], "depth": 1, "score": 104, "time": 1, "nodes": 81, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["g2h2"], "fen": "4q1k1/6p1/4p2p/3r1p1P/3P4/3NPQP1/5PK1/8 w - -", "analysis": [{"pv": ["d3c5"], "depth": 1, "score": 2, "time": 1, "nodes": 112, "multipv": 1}, {"pv": ["g2h2"], "depth": 1, "score": -52, "time": 1, "nodes": 10, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["g2h2"]}
+
+{"fen": "6k1/5ppp/1q2p3/pP6/P2p4/3P2P1/5P1P/2Q3K1 b - -", "depth": 1, "moves": ["g8f8"], "analysis": [{"pv": ["g8f8"], "depth": 1, "score": -36, "time": 1, "nodes": 59, "multipv": 1}], "time": "0.0"}
+
+{"fen": "r3k2r/p2q3p/2n3p1/2P2P2/p1B1p3/2P3P1/1P2Q1P1/R3K2R b KQkq -", "depth": 1, "moves": ["d7f5"], "analysis": [{"pv": ["d7f5", "a1a4"], "depth": 1, "score": -128, "time": 2, "nodes": 323, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["g1g2"], "fen": "8/5p2/1p4p1/7k/8/4P2P/1r3P2/2R3K1 w - -", "analysis": [{"pv": ["c1c7"], "depth": 1, "score": -12, "time": 1, "nodes": 40, "multipv": 1}, {"pv": ["g1g2"], "depth": 1, "score": -25, "time": 1, "nodes": 5, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["g1g2"]}
+
+{"extra": ["h8g7"], "fen": "r3rb1k/p4p2/1p2p1p1/3p4/3P2N1/2P3R1/PP3PP1/4R1K1 b - -", "analysis": [{"pv": ["f8e7"], "depth": 1, "score": -3, "time": 1, "nodes": 92, "multipv": 1}, {"pv": ["h8g7"], "depth": 1, "score": -21, "time": 1, "nodes": 5, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["h8g7"]}
+
+{"extra": ["b5b6"], "fen": "8/7p/8/1k1KP2r/8/8/5R1P/8 b - -", "analysis": [{"pv": ["h5h6", "f2b2", "b5a4"], "depth": 1, "score": -252, "time": 2, "nodes": 60, "multipv": 1}, {"pv": ["b5b6"], "depth": 1, "score": -274, "time": 2, "nodes": 11, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["b5b6"]}
+
+{"fen": "rnbqr1k1/pp3pbp/1np3p1/4p3/8/Q1NPBNP1/PP2PPBP/R4RK1 b - -", "depth": 1, "moves": ["b8a6"], "analysis": [{"pv": ["b8a6"], "depth": 1, "score": -37, "time": 1, "nodes": 207, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["h7h6"], "fen": "r3kb1r/1bqn1ppp/pp1p1n2/4pNB1/2P1P3/P1N5/1PQ1BPPP/3RK2R b Kkq -", "analysis": [{"pv": ["g7g6"], "depth": 1, "score": -89, "time": 1, "nodes": 104, "multipv": 1}, {"pv": ["h7h6", "g5f6", "d7f6"], "depth": 1, "score": -93, "time": 1, "nodes": 82, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["h7h6"]}
+
+{"fen": "8/3k1K2/8/5P2/3r4/8/R7/8 w - -", "depth": 1, "moves": ["f5f6"], "analysis": [{"pv": ["f5f6"], "depth": 1, "score": 165, "time": 1, "nodes": 33, "multipv": 1}], "time": "0.0"}
+
+{"fen": "6k1/p7/8/1N6/8/1P1p1K2/n2B1pr1/5R2 b - -", "depth": 1, "moves": ["g2g7"], "analysis": [{"pv": ["g2g7", "f3f2"], "depth": 1, "score": -242, "time": 1, "nodes": 88, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["b7b6"], "fen": "r2qr1k1/ppp2p1p/2n1bbp1/2Nnp3/8/1B1P1N1P/PPP2PP1/R1BQR1K1 b - -", "analysis": [{"pv": ["b7b5", "c5e6", "e8e6"], "depth": 1, "score": 17, "time": 1, "nodes": 465, "multipv": 1}, {"pv": ["b7b6", "c5e6", "e8e6"], "depth": 1, "score": -5, "time": 1, "nodes": 85, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["b7b6"]}
+
+{"extra": ["d8h4"], "fen": "r1bq1rk1/pp3pbp/4n1p1/2pNp3/2P1P3/3BB2P/PP1Q1PP1/R4RK1 b - -", "analysis": [{"pv": ["c8d7"], "depth": 1, "score": -41, "time": 1, "nodes": 82, "multipv": 1}, {"pv": ["d8h4"], "depth": 1, "score": -89, "time": 1, "nodes": 11, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["d8h4"]}
+
+{"extra": ["g4f2"], "fen": "rnbq3r/pp3pk1/2p1p1p1/2PpP2p/5PnP/2NBP3/PPQB2P1/2K3RR b - f3", "analysis": [{"pv": ["b8d7"], "depth": 1, "score": 16, "time": 2, "nodes": 165, "multipv": 1}, {"pv": ["g4f2"], "depth": 1, "score": -31, "time": 2, "nodes": 22, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["g4f2"]}
+
+{"fen": "8/1r3p1k/3P1P2/7p/6bP/1pK5/6Q1/8 w - -", "depth": 1, "moves": ["g2b7"], "analysis": [{"pv": ["g2b7"], "depth": 1, "score": 838, "time": 1, "nodes": 46, "multipv": 1}], "time": "0.0"}
+
+{"fen": "6k1/1p5p/3P2p1/p1N1K3/1p4P1/3r3P/R7/5r2 b - -", "depth": 1, "moves": ["f1e1"], "analysis": [{"pv": ["f1e1", "e5f4", "d3d4", "f4f3", "d4d6", "a2a5"], "depth": 1, "score": 403, "time": 1, "nodes": 140, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["h3h5"], "fen": "R7/1p1k2p1/2n2bP1/8/3p4/3BB2r/1P2KP2/8 b - -", "analysis": [{"pv": ["h3h2"], "depth": 1, "score": -47, "time": 2, "nodes": 196, "multipv": 1}, {"pv": ["h3h5"], "depth": 1, "score": -68, "time": 1, "nodes": 16, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["h3h5"]}
+
+{"extra": ["h7h6"], "fen": "r1br2k1/2q1bppp/pp6/2pP4/P7/R4N1P/1P2QPP1/2BR2K1 b - -", "analysis": [{"pv": ["c8f5"], "depth": 1, "score": 68, "time": 1, "nodes": 66, "multipv": 1}, {"pv": ["h7h6"], "depth": 1, "score": 22, "time": 1, "nodes": 14, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["h7h6"]}
+
+{"fen": "8/5ppk/1p5r/p3B3/P5Q1/7P/3rKP2/7q w - -", "depth": 1, "moves": ["e2d2"], "analysis": [{"pv": ["e2d2", "h1d5", "g4d4", "d5d4", "e5d4", "h6h3"], "depth": 1, "score": -332, "time": 2, "nodes": 214, "multipv": 1}], "time": "0.0"}
+
+{"fen": "8/1p6/1P5p/3k2p1/3npP2/7P/3N1PK1/8 b - -", "depth": 1, "moves": ["g5f4"], "analysis": [{"pv": ["g5f4"], "depth": 1, "score": 195, "time": 1, "nodes": 29, "multipv": 1}], "time": "0.0"}
+
+{"fen": "1q1rr1k1/1b3pbp/pp1p1np1/2pP4/P4P2/3B1N1P/1P2NBP1/2RQR1K1 b - -", "depth": 1, "moves": ["f6d5"], "analysis": [{"pv": ["f6d5"], "depth": 1, "score": -95, "time": 1, "nodes": 91, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["c1d2"], "fen": "r7/2p4k/2p1qbp1/p4npp/P1N5/1P2PBPP/2Q2PK1/2B5 w - -", "analysis": [{"pv": ["e3e4"], "depth": 1, "score": -50, "time": 1, "nodes": 125, "multipv": 1}, {"pv": ["c1d2"], "depth": 1, "score": -55, "time": 2, "nodes": 34, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["c1d2"]}
+
+{"fen": "5Bk1/5ppp/5n2/8/r1b5/6PP/5PB1/R3R1K1 b - -", "depth": 1, "moves": ["a4a1"], "analysis": [{"pv": ["a4a1", "e1a1", "g8f8"], "depth": 1, "score": -228, "time": 1, "nodes": 45, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["f3e5"], "fen": "r2q1rk1/pbpn1ppp/1p2pb2/8/3P1B2/2PB1N2/PP3PPP/R2Q1RK1 w - -", "analysis": [{"pv": ["f1e1"], "depth": 1, "score": 68, "time": 1, "nodes": 75, "multipv": 1}, {"pv": ["f3e5", "d7e5", "d4e5"], "depth": 1, "score": 6, "time": 2, "nodes": 48, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["f3e5"]}
+
+{"fen": "8/7p/5k2/8/r2N1P2/4B1KP/8/8 b - f3", "depth": 1, "moves": ["a4a3"], "analysis": [{"pv": ["a4a3"], "depth": 1, "score": -166, "time": 1, "nodes": 25, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["e6e5"], "fen": "r1b1kb1r/pppn2pp/2n1pq2/3p4/3P4/1P3N2/PBPN1PPP/R2QKB1R b KQkq -", "analysis": [{"pv": ["f8b4"], "depth": 1, "score": 54, "time": 2, "nodes": 74, "multipv": 1}, {"pv": ["e6e5"], "depth": 1, "score": 3, "time": 2, "nodes": 28, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["e6e5"]}
+
+{"fen": "rnbqk2r/ppp1ppbp/5np1/8/2pP3P/2N2N2/PP2PPP1/R1BQKB1R w KQkq -", "depth": 1, "moves": ["e2e4"], "analysis": [{"pv": ["e2e4"], "depth": 1, "score": 34, "time": 1, "nodes": 64, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["h2h3"], "fen": "rnbqkbnr/pp3ppp/3p4/2pPp3/4P3/8/PPP2PPP/RNBQKBNR w KQkq -", "analysis": [{"pv": ["b1c3"], "depth": 1, "score": 108, "time": 1, "nodes": 88, "multipv": 1}, {"pv": ["f1d3"], "depth": 1, "score": 58, "time": 2, "nodes": 12, "multipv": 1}, {"pv": ["f2f4"], "depth": 1, "score": 44, "time": 1, "nodes": 68, "multipv": 1}, {"pv": ["a2a4"], "depth": 1, "score": 64, "time": 1, "nodes": 12, "multipv": 1}, {"pv": ["g1f3"], "depth": 1, "score": 106, "time": 1, "nodes": 11, "multipv": 1}, {"pv": ["c2c4"], "depth": 1, "score": 51, "time": 1, "nodes": 15, "multipv": 1}, {"pv": ["f1b5", "c8d7"], "depth": 1, "score": 85, "time": 1, "nodes": 22, "multipv": 1}, {"pv": ["h2h3"], "depth": 1, "score": 72, "time": 2, "nodes": 23, "multipv": 1}], "depth": 1, "time": "0.1", "moves": ["f1d3", "f2f4", "b1c3", "a2a4", "g1f3", "c2c4", "f1b5", "h2h3"]}
+
+{"extra": ["d4e2"], "fen": "r1b2rk1/pp3pp1/5qnp/2p5/3NPP2/1BP5/P5PP/R2Q1RK1 w - c6", "analysis": [{"pv": ["e4e5"], "depth": 1, "score": 106, "time": 1, "nodes": 140, "multipv": 1}, {"pv": ["d4e2"], "depth": 1, "score": 37, "time": 2, "nodes": 18, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["d4e2"]}
+
+{"extra": ["c5d4"], "fen": "1R6/8/8/2k5/P1b5/1p6/2r2N2/6K1 b - -", "analysis": [{"pv": ["b3b2", "f2e4", "c5d4"], "depth": 1, "score": 210, "time": 1, "nodes": 52, "multipv": 1}, {"pv": ["c5d4"], "depth": 1, "score": 183, "time": 1, "nodes": 7, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["c5d4"]}
+
+{"extra": ["f3d4"], "fen": "r1bq1rk1/pppp1ppp/3b1n2/8/2B1p3/1P2PN2/PBPP1PPP/R2QK2R w KQ -", "analysis": [{"pv": ["f3g5"], "depth": 1, "score": 15, "time": 2, "nodes": 258, "multipv": 1}, {"pv": ["f3d4"], "depth": 1, "score": -6, "time": 2, "nodes": 4, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["f3d4"]}
+
+{"extra": ["c4e3"], "fen": "8/6pp/2pk1p2/1r2p3/R1n1P3/2P1B1P1/2K2P1P/8 b - -", "analysis": [{"pv": ["b5b2", "c2d3", "c4e3", "d3e3"], "depth": 1, "score": 54, "time": 1, "nodes": 92, "multipv": 1}, {"pv": ["c4e3", "f2e3"], "depth": 1, "score": 53, "time": 1, "nodes": 11, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["c4e3"]}
+
+{"extra": ["f1e1"], "fen": "r2qkb1r/pp1n1ppp/2bpp3/3nP3/3P4/P4N2/1P2BPPP/RNBQ1RK1 w kq -", "analysis": [{"pv": ["c1g5"], "depth": 1, "score": 78, "time": 2, "nodes": 165, "multipv": 1}, {"pv": ["f1e1", "d6e5", "d4e5"], "depth": 1, "score": 15, "time": 1, "nodes": 21, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["f1e1"]}
+
+{"fen": "rnbq1rk1/pp2ppbp/5np1/2p5/2NP4/4PN2/PP2BPPP/R1BQ1RK1 w - -", "depth": 1, "moves": ["d4c5"], "analysis": [{"pv": ["d4c5"], "depth": 1, "score": 172, "time": 1, "nodes": 52, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["d8h4"], "fen": "3q1rk1/5p2/R2p2p1/p2Pp2p/Pr2P3/5Q1P/5PP1/2R3K1 b - -", "analysis": [{"pv": ["b4a4"], "depth": 1, "score": 1, "time": 1, "nodes": 61, "multipv": 1}, {"pv": ["d8h4"], "depth": 1, "score": -54, "time": 1, "nodes": 54, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["d8h4"]}
+
+{"extra": ["a1d1"], "fen": "3rr1k1/p2q1pb1/1pnp1npp/2p5/4PP2/2N2N2/PPPQ2PP/R3R1BK w - -", "analysis": [{"pv": ["g1f2"], "depth": 1, "score": -22, "time": 2, "nodes": 96, "multipv": 1}, {"pv": ["a1d1"], "depth": 1, "score": -27, "time": 1, "nodes": 12, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["a1d1"]}
+
+{"extra": ["a4a5"], "fen": "8/5k1p/4pp2/2R2n2/P1N1KP2/6P1/1P5P/7r w - -", "analysis": [{"pv": ["c5c7", "f7g6"], "depth": 1, "score": 313, "time": 1, "nodes": 111, "multipv": 1}, {"pv": ["a4a5", "h1h2"], "depth": 1, "score": 176, "time": 1, "nodes": 26, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["a4a5"]}
+
+{"extra": ["c4f7"], "fen": "2k3r1/1ppr3p/pb3p1p/8/2b1PP2/P2N1RP1/1KPN3P/3R4 b - -", "analysis": [{"pv": ["c4e6"], "depth": 1, "score": 19, "time": 1, "nodes": 138, "multipv": 1}, {"pv": ["c4f7"], "depth": 1, "score": 8, "time": 1, "nodes": 3, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["c4f7"]}
+
+{"fen": "3r2k1/3b1p1p/5Rp1/pppP4/2P3P1/8/P6P/4R1K1 b - -", "depth": 1, "moves": ["b5c4"], "analysis": [{"pv": ["b5c4"], "depth": 1, "score": -100, "time": 2, "nodes": 57, "multipv": 1}], "time": "0.0"}
+
+{"fen": "2rr4/pR5p/6k1/b2Bp3/N3P1p1/P5P1/1P5P/6K1 w - -", "depth": 1, "moves": ["b2b4"], "analysis": [{"pv": ["b2b4"], "depth": 1, "score": 21, "time": 1, "nodes": 94, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["b4a5"], "fen": "r1bq1rk1/2b2p1p/2pp1np1/pp2p3/1P2P3/1BPPNQ2/P4PPP/R1B2RK1 w - a6", "analysis": [{"pv": ["c1a3", "a5b4", "a3b4"], "depth": 1, "score": -13, "time": 1, "nodes": 265, "multipv": 1}, {"pv": ["b4a5", "a8a5"], "depth": 1, "score": -24, "time": 1, "nodes": 27, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["b4a5"]}
+
+{"extra": ["b1a3"], "fen": "r2q1rk1/1bpn1ppp/p1np1b2/1p2p3/P2PP3/1BP2N1P/1P3PP1/RNBQR1K1 w - -", "analysis": [{"pv": ["a4b5", "a6b5", "a1a8", "d8a8"], "depth": 1, "score": -22, "time": 2, "nodes": 168, "multipv": 1}, {"pv": ["b1a3"], "depth": 1, "score": -39, "time": 1, "nodes": 56, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["b1a3", "a4b5"]}
+
+{"extra": ["f2e2"], "fen": "2rqr1k1/p3ppbp/3p1np1/4nPB1/1p2P3/1N1PN3/PP3QPP/R4R1K w - -", "analysis": [{"pv": ["f5g6", "h7g6"], "depth": 1, "score": 20, "time": 1, "nodes": 237, "multipv": 1}, {"pv": ["f2e2"], "depth": 1, "score": -8, "time": 1, "nodes": 44, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["f2e2"]}
+
+{"extra": ["g6h7"], "fen": "1rbr2k1/3nq1p1/1p1ppbB1/p1p3B1/2P2PNP/6P1/PPQ5/3R1RK1 w - -", "analysis": [{"pv": ["b2b3"], "depth": 1, "score": 219, "time": 1, "nodes": 105, "multipv": 1}, {"pv": ["g6h7", "g8f8"], "depth": 1, "score": 156, "time": 2, "nodes": 131, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["g6h7"]}
+
+{"extra": ["a5a8"], "fen": "4k3/5p2/2n1p3/R5B1/P7/1r5p/5P1P/5K2 w - -", "analysis": [{"pv": ["a5b5"], "depth": 1, "score": 69, "time": 1, "nodes": 90, "multipv": 1}, {"pv": ["a5a8", "e8d7"], "depth": 1, "score": 8, "time": 1, "nodes": 14, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["a5a8"]}
+
+{"fen": "r1nqk2r/pp1nbppp/2p1p3/3pPb2/3P4/1N2BN2/PPP1BPPP/R2QK2R w KQkq -", "depth": 1, "moves": ["e1g1"], "analysis": [{"pv": ["e1g1"], "depth": 1, "score": 115, "time": 1, "nodes": 71, "multipv": 1}], "time": "0.0"}
+
+{"fen": "rn2kb1r/pp3p1p/2p1pp2/8/3P4/7P/PPPB1PP1/2KR1B1R b kq -", "depth": 1, "moves": ["b8d7"], "analysis": [{"pv": ["b8d7"], "depth": 1, "score": -64, "time": 1, "nodes": 58, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["a7a6"], "fen": "3k4/p5p1/1pP1p2p/4Pp2/2K2P2/P7/6PP/8 b - -", "analysis": [{"pv": ["d8c7"], "depth": 1, "score": -23, "time": 2, "nodes": 37, "multipv": 1}, {"pv": ["a7a6"], "depth": 1, "score": -79, "time": 2, "nodes": 5, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["a7a6"]}
+
+{"extra": ["f4g3"], "fen": "2r3k1/2P1b1pp/r7/1p2Pq2/p2p1B2/5P2/PPR2P1P/3QR2K w - -", "analysis": [{"pv": ["d1d2"], "depth": 1, "score": 215, "time": 2, "nodes": 119, "multipv": 1}, {"pv": ["f4g3"], "depth": 1, "score": 199, "time": 1, "nodes": 17, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["f4g3"]}
+
+{"fen": "rnb1k2r/pp2ppbp/2p2np1/qN6/2BP4/8/PPPN1PPP/R1BQ1RK1 w kq -", "depth": 1, "moves": ["d2b3"], "analysis": [{"pv": ["d2b3"], "depth": 1, "score": 136, "time": 1, "nodes": 145, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["f7f6"], "fen": "2r2rk1/3q1ppp/1p1P4/2b5/5Bb1/6P1/1Q1R1PBP/R5K1 b - -", "analysis": [{"pv": ["f8e8"], "depth": 1, "score": -43, "time": 1, "nodes": 58, "multipv": 1}, {"pv": ["f7f6"], "depth": 1, "score": -139, "time": 1, "nodes": 14, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["f7f6"]}
+
+{"fen": "r1bq1rk1/1p2p2p/3p2p1/6N1/1nPb2P1/8/4BP1P/1R1Q1RK1 w - -", "depth": 1, "moves": ["d1d4"], "analysis": [{"pv": ["d1d4"], "depth": 1, "score": 19, "time": 1, "nodes": 54, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["b4c3"], "fen": "8/4k3/pB1p2p1/P1PP1b2/1K6/3p4/8/8 w - -", "analysis": [{"pv": ["c5c6"], "depth": 1, "score": 12, "time": 1, "nodes": 17, "multipv": 1}, {"pv": ["b4c3"], "depth": 1, "score": -20, "time": 1, "nodes": 10, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["b4c3"]}
+
+{"extra": ["e6c4"], "fen": "2r3k1/p1r4p/3nbb1P/4p1p1/1qPpP3/1N1B2B1/P3QPP1/2R2RK1 b - -", "analysis": [{"pv": ["d6c4"], "depth": 1, "score": 51, "time": 2, "nodes": 153, "multipv": 1}, {"pv": ["e6c4"], "depth": 1, "score": 45, "time": 1, "nodes": 83, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["e6c4"]}
+
+{"extra": ["d8d7"], "fen": "r2qk2r/pp2p1bp/2bp2pn/2p2pN1/4PP2/2NP4/PPP3PP/R1B1QRK1 b kq -", "analysis": [{"pv": ["e8g8"], "depth": 1, "score": 1, "time": 1, "nodes": 132, "multipv": 1}, {"pv": ["d8d7"], "depth": 1, "score": -78, "time": 1, "nodes": 24, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["d8d7"]}
+
+{"fen": "r7/2p2qbk/RpPp3p/1Q1Npp2/8/4B1P1/2PK1P2/8 b - -", "depth": 1, "moves": ["a8a6"], "analysis": [{"pv": ["a8a6", "d5c7"], "depth": 1, "score": 178, "time": 1, "nodes": 129, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["a8b8"], "fen": "r3r1k1/p1qn1p1p/1pp3p1/4p3/P1NP4/1QP1P2P/5PP1/1R1R2K1 b - -", "analysis": [{"pv": ["e5d4", "c3d4"], "depth": 1, "score": -50, "time": 1, "nodes": 59, "multipv": 1}, {"pv": ["a8b8"], "depth": 1, "score": -71, "time": 1, "nodes": 41, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["a8b8"]}
+
+{"fen": "2r5/2k5/4P3/2q3P1/6p1/1Q6/2P5/2KR4 b - -", "depth": 1, "moves": ["c5g5"], "analysis": [{"pv": ["c5g5", "c1b1"], "depth": 1, "score": -205, "time": 1, "nodes": 69, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["f3g4"], "fen": "r5k1/pp4pp/2p2b2/5b2/5P2/2P2B1P/PP6/3R1R1K w - -", "analysis": [{"pv": ["h1g2"], "depth": 1, "score": 156, "time": 1, "nodes": 94, "multipv": 1}, {"pv": ["f3g4"], "depth": 1, "score": 151, "time": 2, "nodes": 18, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["h1g2", "f3g4"]}
+
+{"fen": "r1bq1rk1/pp3ppp/1bn1pn2/8/2Q5/5NP1/PP1BPPBP/RN3RK1 w - -", "depth": 1, "moves": ["b1c3"], "analysis": [{"pv": ["b1c3"], "depth": 1, "score": 8, "time": 1, "nodes": 108, "multipv": 1}], "time": "0.0"}
+
+{"fen": "1rq1r1k1/1pp2ppp/3p4/p1bPn3/Pn2P3/1P3PPP/1B1QN1BK/R4R2 w - -", "depth": 1, "moves": ["e2d4"], "analysis": [{"pv": ["e2d4", "c5d4", "b2d4"], "depth": 1, "score": 18, "time": 2, "nodes": 136, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["b4b3"], "fen": "r7/2k1pp1p/2p1n1p1/2P1P3/1pP2P2/4PB2/7P/3R2K1 b - -", "analysis": [{"pv": ["e6c5"], "depth": 1, "score": 206, "time": 2, "nodes": 44, "multipv": 1}, {"pv": ["b4b3"], "depth": 1, "score": 196, "time": 1, "nodes": 9, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["b4b3"]}
+
+{"fen": "3rr1k1/4qpnp/2pb2p1/pp1p4/1P1P1PP1/P2QPN1P/4Nn2/1RR3K1 w - -", "depth": 1, "moves": ["g1f2"], "analysis": [{"pv": ["g1f2", "a5b4", "a3b4"], "depth": 1, "score": -84, "time": 2, "nodes": 202, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["g4c8"], "fen": "2bqnrk1/1r3ppp/pp1p1n2/2pPp3/P1N1P1B1/2N4P/1PPQ1PP1/R3R1K1 w - -", "analysis": [{"pv": ["g4e2"], "depth": 1, "score": 120, "time": 2, "nodes": 213, "multipv": 1}, {"pv": ["g4c8", "d8c8"], "depth": 1, "score": 107, "time": 1, "nodes": 14, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["g4c8"]}
+
+{"extra": ["g7f7"], "fen": "r5k1/2p3r1/npPp4/1N1Pp1q1/1P2P3/5Q2/4K3/R6R b - -", "analysis": [{"pv": ["g5g4", "f3g4", "g7g4"], "depth": 1, "score": -34, "time": 1, "nodes": 252, "multipv": 1}, {"pv": ["g7f7"], "depth": 1, "score": -46, "time": 1, "nodes": 42, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["g7f7"]}
+
+{"extra": ["h2g2"], "fen": "7k/8/2p2K2/1p6/1P1r4/5R2/4Bp1r/8 b - -", "analysis": [{"pv": ["d4b4"], "depth": 1, "score": 548, "time": 2, "nodes": 94, "multipv": 1}, {"pv": ["h2g2"], "depth": 1, "score": 505, "time": 2, "nodes": 23, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["h2g2"]}
+
+{"fen": "r1bq1rk1/1p1nbpp1/2pBp2p/p2p4/P1PP4/1Q4P1/1P1NPPBP/RNR3K1 b - -", "depth": 1, "moves": ["e7d6"], "analysis": [{"pv": ["e7d6", "c4d5", "e6d5"], "depth": 1, "score": 39, "time": 2, "nodes": 205, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["c7c6"], "fen": "rnbqk1nr/ppp1ppbp/3p2p1/8/3PP3/2N5/PPP1BPPP/R1BQK1NR b KQkq -", "analysis": [{"pv": ["g8f6"], "depth": 1, "score": -82, "time": 1, "nodes": 128, "multipv": 1}, {"pv": ["b8c6"], "depth": 1, "score": -91, "time": 1, "nodes": 3, "multipv": 1}, {"pv": ["a7a6"], "depth": 1, "score": -127, "time": 1, "nodes": 8, "multipv": 1}, {"pv": ["b8d7"], "depth": 1, "score": -114, "time": 1, "nodes": 3, "multipv": 1}, {"pv": ["c7c6"], "depth": 1, "score": -124, "time": 1, "nodes": 3, "multipv": 1}], "depth": 1, "time": "0.1", "moves": ["b8c6", "g8f6", "a7a6", "b8d7", "c7c6"]}
+
+{"extra": ["a1g1"], "fen": "2r1k2r/p4p2/1p2p3/3qPp2/3P1P1p/1P5P/PB2Q1P1/R6K w k -", "analysis": [{"pv": ["e2a6"], "depth": 1, "score": -74, "time": 1, "nodes": 116, "multipv": 1}, {"pv": ["a1g1"], "depth": 1, "score": -102, "time": 1, "nodes": 11, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["a1g1"]}
+
+{"extra": ["g7e8"], "fen": "2r3k1/1p2qpnp/3pb1p1/4p3/2P1P3/1PNQBP2/6PP/3R2K1 b - -", "analysis": [{"pv": ["c8c6"], "depth": 1, "score": -129, "time": 1, "nodes": 186, "multipv": 1}, {"pv": ["g7e8"], "depth": 1, "score": -129, "time": 1, "nodes": 6, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["g7e8"]}
+
+{"fen": "8/8/8/8/8/3kp1K1/2r5/3R4 b - -", "depth": 1, "moves": ["d3e4"], "analysis": [{"pv": ["d3e4"], "depth": 1, "score": 225, "time": 2, "nodes": 20, "multipv": 1}], "time": "0.0"}
+
+{"fen": "3q1rk1/3nbpp1/4p2p/p2pP3/3P4/1N1Q1NP1/Pr3P1P/R1R3K1 b - -", "depth": 1, "moves": ["a5a4"], "analysis": [{"pv": ["a5a4"], "depth": 1, "score": 59, "time": 1, "nodes": 41, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["f7h7"], "fen": "2r3k1/1r3q2/3p4/1bnPp1pp/pNp1Pp2/2P4P/RP2QPPN/3R2K1 b - -", "analysis": [{"pv": ["c5d3"], "depth": 1, "score": 47, "time": 1, "nodes": 98, "multipv": 1}, {"pv": ["f7h7"], "depth": 1, "score": 34, "time": 1, "nodes": 13, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["f7h7"]}
+
+{"extra": ["f1f2"], "fen": "8/8/2r1k1p1/4pp1p/R6P/5P2/6P1/5K2 w - -", "analysis": [{"pv": ["a4a5"], "depth": 1, "score": -98, "time": 1, "nodes": 37, "multipv": 1}, {"pv": ["f1f2", "c6c2", "f2g3"], "depth": 1, "score": -158, "time": 1, "nodes": 19, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["f1f2"]}
+
+{"extra": ["a1c1"], "fen": "8/r5p1/1kp4p/8/pP6/Pr3RPP/5PK1/R7 w - -", "analysis": [{"pv": ["f3e3"], "depth": 1, "score": 105, "time": 2, "nodes": 42, "multipv": 1}, {"pv": ["a1c1"], "depth": 1, "score": 85, "time": 1, "nodes": 8, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["a1c1"]}
+
+{"extra": ["e4h4"], "fen": "r1b2rk1/ppq2ppp/3bpn2/2p5/3PQ3/2PB1NB1/PP3PPP/R3K2R w KQ -", "analysis": [{"pv": ["g3d6", "c7d6"], "depth": 1, "score": 19, "time": 1, "nodes": 166, "multipv": 1}, {"pv": ["e4h4"], "depth": 1, "score": -4, "time": 1, "nodes": 38, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["e4h4"]}
+
+{"fen": "3r4/1pkP1r1p/7R/pB6/P2K1P2/1P6/7P/8 w - -", "depth": 1, "moves": ["d4e5"], "analysis": [{"pv": ["d4e5", "f7e7", "e5f5"], "depth": 1, "score": 95, "time": 1, "nodes": 329, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["b2c3"], "fen": "2r2rk1/4b2p/p2pbnp1/q3p3/2PnN3/P2BN3/1B3PPP/1R1Q1RK1 w - -", "analysis": [{"pv": ["b2d4", "e5d4"], "depth": 1, "score": -25, "time": 2, "nodes": 373, "multipv": 1}, {"pv": ["b2c3", "a5a3"], "depth": 1, "score": -43, "time": 1, "nodes": 64, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["b2c3"]}
+
+{"fen": "8/2pknQ2/1p1p2p1/r1nNp3/p1P1P1Pq/P7/1PB5/1K4R1 b - -", "depth": 1, "moves": ["d7d8"], "analysis": [{"pv": ["d7d8"], "depth": 1, "score": -48, "time": 1, "nodes": 970, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["e4c6"], "fen": "r4rk1/pR3pp1/1pp1pq1p/2n5/2P1BB2/6P1/PPQ2P1P/3R2K1 w - -", "analysis": [{"pv": ["e4h7", "g8h8"], "depth": 1, "score": 389, "time": 1, "nodes": 142, "multipv": 1}, {"pv": ["e4c6", "c5b7", "c6b7"], "depth": 1, "score": 327, "time": 2, "nodes": 18, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["e4c6"]}
+
+{"extra": ["a5a6"], "fen": "8/2k5/2p3Bp/K1Pp1pp1/3P1P2/6Pb/7P/8 w - -", "analysis": [{"pv": ["a5b4", "g5f4", "g3f4"], "depth": 1, "score": 68, "time": 1, "nodes": 46, "multipv": 1}, {"pv": ["a5a4", "g5f4", "g3f4"], "depth": 1, "score": 41, "time": 1, "nodes": 12, "multipv": 1}, {"pv": ["a5a6", "h3f1", "a6a5", "g5f4", "g3f4"], "depth": 1, "score": 29, "time": 1, "nodes": 24, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["a5a4", "a5a6"]}
+
+{"extra": ["c4e3"], "fen": "r2r2k1/p1pbbpp1/2p1n2p/Q7/2N5/3P4/PP3PPP/3R2K1 w - -", "analysis": [{"pv": ["d1e1"], "depth": 1, "score": -183, "time": 2, "nodes": 50, "multipv": 1}, {"pv": ["c4e3"], "depth": 1, "score": -215, "time": 2, "nodes": 3, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["c4e3"]}
+
+{"extra": ["a7a6"], "fen": "2kr1r2/pppn1p1p/4p1p1/3qN3/Q2P4/2P4P/PP3PP1/R3R1K1 b - -", "analysis": [{"pv": ["d7e5", "e1e5"], "depth": 1, "score": -35, "time": 1, "nodes": 108, "multipv": 1}, {"pv": ["a7a6"], "depth": 1, "score": -122, "time": 2, "nodes": 28, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["a7a6"]}
+
+{"fen": "7r/5pk1/bq2p1n1/3pP1Q1/p1pP2NP/brP3P1/R1R2PB1/6K1 w - -", "depth": 1, "moves": ["h4h5"], "analysis": [{"pv": ["h4h5", "b3b1", "g1h2"], "depth": 1, "score": 241, "time": 1, "nodes": 139, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["f6h5"], "fen": "r1b1kn1r/ppq1bp2/2pp1npp/4p3/P1BPP3/2N2N1P/1PP2PP1/R1BQR1K1 b kq -", "analysis": [{"pv": ["f8e6"], "depth": 1, "score": -100, "time": 1, "nodes": 322, "multipv": 1}, {"pv": ["f6h5", "d4e5", "d6e5"], "depth": 1, "score": -175, "time": 1, "nodes": 55, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["f6h5"]}
+
+{"extra": ["f4d2"], "fen": "2rr2k1/1p3pp1/p2pbn1p/q3n3/2PQPB2/1PN3PP/P3B1K1/2RR4 w - -", "analysis": [{"pv": ["g3g4"], "depth": 1, "score": 0, "time": 1, "nodes": 314, "multipv": 1}, {"pv": ["f4d2"], "depth": 1, "score": -29, "time": 2, "nodes": 86, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["f4d2"]}
+
+{"fen": "r1bq1rk1/1p2ppbp/pn3np1/3pN3/B2P4/2N4P/PPP2PP1/R1BQ1RK1 w - -", "depth": 1, "moves": ["a4b3"], "analysis": [{"pv": ["a4b3"], "depth": 1, "score": 23, "time": 1, "nodes": 153, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["f6f3"], "fen": "rnb1k1nr/1pp2ppp/p2p1q2/2bNp3/2B1P3/3P1Q2/PPP2PPP/R1B1K1NR b KQkq -", "analysis": [{"pv": ["f6d8"], "depth": 1, "score": -79, "time": 1, "nodes": 359, "multipv": 1}, {"pv": ["f6f3", "g1f3"], "depth": 1, "score": -97, "time": 1, "nodes": 46, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["f6f3"]}
+
+{"extra": ["b5a4"], "fen": "r3r2k/p2n2pp/2b2p2/1qB1p3/1P2P3/7P/P1QN1PP1/2RR2K1 b - -", "analysis": [{"pv": ["d7c5", "c2c5"], "depth": 1, "score": -85, "time": 1, "nodes": 100, "multipv": 1}, {"pv": ["b5a4"], "depth": 1, "score": -144, "time": 1, "nodes": 7, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["b5a4"]}
+
+{"fen": "r1bqkb1r/ppp2ppp/2n3n1/4P1B1/2Pp4/4PN2/PP3PPP/RN1QKB1R b KQkq -", "depth": 1, "moves": ["f7f6"], "analysis": [{"pv": ["f7f6"], "depth": 1, "score": -36, "time": 1, "nodes": 223, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["a3c4"], "fen": "8/8/p5kp/2B5/6P1/n6P/7r/5K2 b - -", "analysis": [{"pv": ["h2h3"], "depth": 1, "score": 616, "time": 1, "nodes": 35, "multipv": 1}, {"pv": ["a3c4"], "depth": 1, "score": 583, "time": 1, "nodes": 3, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["a3c4"]}
+
+{"fen": "rnbqkb1r/p3pp1p/3p1np1/2pP4/2p1P3/1P6/P2N1PPP/R1BQKBNR w KQkq -", "depth": 1, "moves": ["f1c4"], "analysis": [{"pv": ["f1c4"], "depth": 1, "score": 62, "time": 1, "nodes": 58, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["e6e5"], "fen": "r4rk1/pppb1pp1/2nbp1qp/1N6/2QP4/4PN2/PP2BPPP/R4RK1 b - -", "analysis": [{"pv": ["a7a6", "b5d6", "c7d6"], "depth": 1, "score": -15, "time": 2, "nodes": 209, "multipv": 1}, {"pv": ["e6e5"], "depth": 1, "score": -16, "time": 1, "nodes": 110, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["e6e5"]}
+
+{"extra": ["e8c8"], "fen": "4r1k1/5p2/5b2/3p3n/bP3Ppp/P1N3P1/3N1P1P/B1R3K1 b - -", "analysis": [{"pv": ["a4c6"], "depth": 1, "score": -90, "time": 1, "nodes": 159, "multipv": 1}, {"pv": ["e8c8"], "depth": 1, "score": -105, "time": 1, "nodes": 37, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["e8c8"]}
+
+{"extra": ["b7b8"], "fen": "6k1/1K2Q1P1/8/1P6/8/8/6q1/8 w - -", "analysis": [{"pv": ["b7c7"], "depth": 1, "score": 306, "time": 1, "nodes": 96, "multipv": 1}, {"pv": ["b7b8"], "depth": 1, "score": 242, "time": 1, "nodes": 17, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["b7b8"]}
+
+{"extra": ["a5b4"], "fen": "2k3r1/4p3/3p2P1/B7/1p3n2/1P6/P1P5/1K4R1 w - -", "analysis": [{"pv": ["g6g7"], "depth": 1, "score": 225, "time": 1, "nodes": 60, "multipv": 1}, {"pv": ["a5b4", "g8g6", "g1g6", "f4g6"], "depth": 1, "score": 143, "time": 1, "nodes": 25, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["a5b4"]}
+
+{"extra": ["b5c6"], "fen": "8/8/1p5p/1B4kP/P2r4/6PK/8/8 w - -", "analysis": [{"pv": ["b5e8"], "depth": 1, "score": -199, "time": 1, "nodes": 58, "multipv": 1}, {"pv": ["b5c6", "g5h5"], "depth": 1, "score": -234, "time": 1, "nodes": 15, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["b5c6"]}
+
+{"extra": ["e2c2"], "fen": "5k2/5p2/8/2p4p/1p1q1p2/1P1rbPpP/P3R1P1/1Q2R2K w - -", "analysis": [{"pv": ["b1c2"], "depth": 1, "score": -6, "time": 1, "nodes": 42, "multipv": 1}, {"pv": ["e2c2"], "depth": 1, "score": -16, "time": 1, "nodes": 5, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["e2c2"]}
+
+{"fen": "1q1r2k1/4bppp/p3p3/1p1pP3/1PnP2QP/PN6/1B3PP1/2R3K1 w - -", "depth": 1, "moves": ["c1c2"], "analysis": [{"pv": ["c1c2"], "depth": 1, "score": -61, "time": 1, "nodes": 241, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["f5f7"], "fen": "r5k1/2q2pp1/6P1/p2prQ2/1p2n3/3B4/1PP4P/3RRK2 w - -", "analysis": [{"pv": ["g6f7", "c7f7", "f5f7", "g8f7", "d3e4", "d5e4"], "depth": 1, "score": -123, "time": 1, "nodes": 232, "multipv": 1}, {"pv": ["f5f7", "c7f7", "g6f7", "g8f7", "d3e4", "d5e4"], "depth": 1, "score": -123, "time": 1, "nodes": 31, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["f5f7"]}
+
+{"extra": ["c3d2"], "fen": "8/B6p/2k3p1/6P1/2P1pp1P/P1K5/5P2/2n5 w - -", "analysis": [{"pv": ["c3d4"], "depth": 1, "score": 91, "time": 1, "nodes": 81, "multipv": 1}, {"pv": ["c3d2"], "depth": 1, "score": 64, "time": 2, "nodes": 12, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["c3d2"]}
+
+{"fen": "r4rk1/pp1b1ppp/4pn2/2B1q3/2P5/2N5/PPQ1BPPP/2R2RK1 b - -", "depth": 1, "moves": ["e5c5"], "analysis": [{"pv": ["e5c5"], "depth": 1, "score": -34, "time": 1, "nodes": 68, "multipv": 1}], "time": "0.0"}
+
+{"fen": "3r4/pp2ppkp/6p1/8/3b1qP1/1P2rP2/P1QR3P/3B1K1R w - -", "depth": 1, "moves": ["f1g2"], "analysis": [{"pv": ["f1g2"], "depth": 1, "score": -201, "time": 2, "nodes": 671, "multipv": 1}], "time": "0.0"}
+
+{"fen": "r2q1rk1/pp1npp2/6pp/3P4/P1N1b1P1/2P5/7P/R1BQKB1R w KQ -", "depth": 1, "moves": ["h1g1"], "analysis": [{"pv": ["h1g1"], "depth": 1, "score": 211, "time": 2, "nodes": 108, "multipv": 1}], "time": "0.0"}
+
+{"fen": "3qb2k/1r4p1/p2r1n1p/2pNpP2/1pPnP2P/1P2Q2B/P5RK/6RN w - -", "depth": 1, "moves": ["h1f2"], "analysis": [{"pv": ["h1f2", "f6d5", "e4d5"], "depth": 1, "score": 60, "time": 2, "nodes": 452, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["f1e1"], "fen": "r1bq1rk1/1ppnbpp1/p2p1n1p/P3p3/2BPP3/2N2N2/1PP2PPP/R1BQ1RK1 w - -", "analysis": [{"pv": ["c1d2"], "depth": 1, "score": 71, "time": 2, "nodes": 73, "multipv": 1}, {"pv": ["f1e1"], "depth": 1, "score": 47, "time": 1, "nodes": 10, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["f1e1"]}
+
+{"extra": ["f2f3"], "fen": "r2q1rk1/p2n1pp1/1p1p1n1p/2pPp2b/2P4B/2PBP3/P1QN1PPP/1R2K2R w K -", "analysis": [{"pv": ["e1g1"], "depth": 1, "score": -3, "time": 1, "nodes": 69, "multipv": 1}, {"pv": ["f2f3"], "depth": 1, "score": -41, "time": 1, "nodes": 13, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["f2f3"]}
+
+{"fen": "r2b1rk1/1p1q2pp/p2p4/3P4/b1N1RP2/8/1PP4P/R2Q2BK b - -", "depth": 1, "moves": ["a4b5"], "analysis": [{"pv": ["a4b5"], "depth": 1, "score": 26, "time": 1, "nodes": 218, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["f8d8"], "fen": "5r2/1p2ppbk/rqp1b1pp/p3P3/QP1PP3/P3BN1P/6P1/2RR2K1 b - b3", "analysis": [{"pv": ["a5b4", "a4b4", "b6b4", "a3b4"], "depth": 1, "score": 13, "time": 2, "nodes": 156, "multipv": 1}, {"pv": ["f8d8"], "depth": 1, "score": -41, "time": 2, "nodes": 69, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["f8d8"]}
+
+{"fen": "8/5p2/8/P2pN3/1Pk3p1/4P1P1/5PK1/r7 b - -", "depth": 1, "moves": ["c4b4"], "analysis": [{"pv": ["c4b4"], "depth": 1, "score": 100, "time": 1, "nodes": 27, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["c3e4"], "fen": "1r3rk1/n2n1ppp/pq3b2/1ppPp3/5P2/1PN3PP/PB2Q1B1/3R1R1K w - -", "analysis": [{"pv": ["e2g4"], "depth": 1, "score": 42, "time": 2, "nodes": 257, "multipv": 1}, {"pv": ["c3e4", "e5f4", "f1f4"], "depth": 1, "score": 29, "time": 2, "nodes": 49, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["c3e4"]}
+
+{"extra": ["g7a7"], "fen": "8/P5r1/2K5/7p/6p1/R3Rp2/4p1k1/5b2 b - -", "analysis": [{"pv": ["g7g8", "a7a8q", "g8a8", "a3a8"], "depth": 1, "score": 243, "time": 1, "nodes": 98, "multipv": 1}, {"pv": ["g7a7", "a3a7"], "depth": 1, "score": 243, "time": 1, "nodes": 12, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["g7a7"]}
+
+{"extra": ["d6b4"], "fen": "r4rk1/pp2bppp/2nqpnb1/4N3/3P1BP1/2N4P/PP2BP2/R2Q1RK1 b - -", "analysis": [{"pv": ["g6e4", "c3e4", "f6e4"], "depth": 1, "score": -11, "time": 1, "nodes": 380, "multipv": 1}, {"pv": ["d6b4", "e5g6", "h7g6"], "depth": 1, "score": -42, "time": 1, "nodes": 19, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["d6b4"]}
+
+{"extra": ["f4e5"], "fen": "8/5R2/8/3P3p/p2r1kp1/P4p2/1P5P/5K2 b - -", "analysis": [{"pv": ["f4e3", "f7e7", "e3f4"], "depth": 1, "score": 148, "time": 1, "nodes": 17, "multipv": 1}, {"pv": ["f4e5"], "depth": 1, "score": 146, "time": 2, "nodes": 9, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["f4e5"]}
+
+{"extra": ["e6c8"], "fen": "r7/4qnk1/p1prb1p1/2Npp2p/4P1nP/1PQN2PB/P1PR4/1K1R4 b - -", "analysis": [{"pv": ["d5d4"], "depth": 1, "score": -17, "time": 1, "nodes": 103, "multipv": 1}, {"pv": ["e6c8"], "depth": 1, "score": -111, "time": 1, "nodes": 124, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["e6c8"]}
+
+{"extra": ["c3b3"], "fen": "8/4RRpk/6rp/8/6PP/2r2PK1/8/8 b - -", "analysis": [{"pv": ["h7g8"], "depth": 1, "score": -163, "time": 1, "nodes": 79, "multipv": 1}, {"pv": ["c3b3"], "depth": 1, "score": -167, "time": 1, "nodes": 7, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["c3b3"]}
+
+{"extra": ["g1h1"], "fen": "8/3nk3/6p1/3Qp2p/2P5/4q3/6P1/6K1 w - -", "analysis": [{"pv": ["g1h2"], "depth": 1, "score": -471, "time": 1, "nodes": 64, "multipv": 1}, {"pv": ["g1h1"], "depth": 1, "score": -490, "time": 1, "nodes": 13, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["g1h1"]}
+
+{"fen": "r2qr1k1/pp1n1ppp/2pbpn2/8/2P1p1b1/1P1P1NP1/PBQ2PBP/RN3RK1 w - -", "depth": 1, "moves": ["d3e4"], "analysis": [{"pv": ["d3e4"], "depth": 1, "score": -52, "time": 1, "nodes": 73, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["d1c2"], "fen": "1rbq1rk1/4n1bp/pp1p1n2/3Pp1p1/NP2Pp2/5P2/P3BBPP/2RQNRK1 w - -", "analysis": [{"pv": ["e1d3"], "depth": 1, "score": 119, "time": 2, "nodes": 168, "multipv": 1}, {"pv": ["d1c2"], "depth": 1, "score": 82, "time": 1, "nodes": 33, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["d1c2"]}
+
+{"extra": ["d5d6"], "fen": "6k1/p1n1pp1p/6p1/1p1q4/1P5P/3PQNP1/4PP2/6K1 b - -", "analysis": [{"pv": ["d5e6", "e3a7", "e6e2", "a7c7", "e2f3", "c7e7"], "depth": 1, "score": -64, "time": 1, "nodes": 149, "multipv": 1}, {"pv": ["d5d6", "e3a7"], "depth": 1, "score": -75, "time": 1, "nodes": 15, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["d5d6"]}
+
+{"extra": ["f7f6"], "fen": "8/1p3r1k/p1p4b/2Bp4/1P1P4/2P5/4K1R1/8 b - -", "analysis": [{"pv": ["h6f4"], "depth": 1, "score": 94, "time": 2, "nodes": 50, "multipv": 1}, {"pv": ["f7f6"], "depth": 1, "score": 84, "time": 1, "nodes": 5, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["f7f6"]}
+
+{"fen": "8/8/6N1/5P1p/3n3P/6k1/8/7K w - -", "depth": 1, "moves": ["f5f6"], "analysis": [{"pv": ["f5f6"], "depth": 1, "score": 110, "time": 1, "nodes": 9, "multipv": 1}], "time": "0.0"}
+
+{"fen": "8/1R6/6pk/7p/1p2p1rP/7K/5P2/8 b - -", "depth": 1, "moves": ["e4e3"], "analysis": [{"pv": ["e4e3", "f2e3"], "depth": 1, "score": 127, "time": 1, "nodes": 46, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["h7h5"], "fen": "2r2r2/p3k2p/3Rp3/2p1P1p1/2K3P1/1PP2b1P/P3p2B/4R3 b - -", "analysis": [{"pv": ["f3d5", "c4d3", "c5c4", "d3c2", "c4b3", "a2b3"], "depth": 1, "score": 100, "time": 2, "nodes": 187, "multipv": 1}, {"pv": ["h7h5", "g4h5", "f3h5"], "depth": 1, "score": 67, "time": 1, "nodes": 26, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["h7h5"]}
+
+{"fen": "r2qk2r/4bppp/p1npbn2/1p1Np3/4P3/2N5/PPP2PPP/R1BQKB1R w KQkq -", "depth": 1, "moves": ["c1e3"], "analysis": [{"pv": ["c1e3", "e6d5", "e4d5"], "depth": 1, "score": -4, "time": 2, "nodes": 169, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["a1a3"], "fen": "r5k1/r5p1/2p1p1p1/8/pn1PN3/2R1P3/4KP2/R7 w - -", "analysis": [{"pv": ["c3c1"], "depth": 1, "score": -62, "time": 1, "nodes": 39, "multipv": 1}, {"pv": ["a1a3"], "depth": 1, "score": -93, "time": 1, "nodes": 3, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["a1a3"]}
+
+{"extra": ["e2g3"], "fen": "r1r5/p3pkbp/2bp4/2p2pP1/5P2/1P2B3/P1PRN2P/5RK1 w - -", "analysis": [{"pv": ["d2d1"], "depth": 1, "score": -64, "time": 2, "nodes": 40, "multipv": 1}, {"pv": ["e2g3"], "depth": 1, "score": -67, "time": 1, "nodes": 3, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["e2g3"]}
+
+{"extra": ["b4b5"], "fen": "2r5/1p3kb1/p5pp/3rp3/PP2R1P1/4B3/5PKP/R7 w - -", "analysis": [{"pv": ["h2h3"], "depth": 1, "score": 7, "time": 2, "nodes": 69, "multipv": 1}, {"pv": ["b4b5", "a6b5", "a4b5", "d5b5"], "depth": 1, "score": -43, "time": 1, "nodes": 25, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["b4b5"]}
+
+{"extra": ["d4c4"], "fen": "4r1k1/p3r2p/1p4p1/5p2/1P1Q4/5P2/P1P4b/5K2 w - -", "analysis": [{"pv": ["c2c4"], "depth": 1, "score": -561, "time": 2, "nodes": 62, "multipv": 1}, {"pv": ["d4c4", "g8g7", "c4d4", "g7f7"], "depth": 1, "score": -580, "time": 1, "nodes": 32, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["d4c4"]}
+
+{"fen": "2rq1rk1/p2nbppp/bpP2n2/4p3/2PpPB2/2N3P1/PPQN1PBP/3R1RK1 w - -", "depth": 1, "moves": ["c6d7"], "analysis": [{"pv": ["c6d7", "d8d7"], "depth": 1, "score": 256, "time": 1, "nodes": 155, "multipv": 1}], "time": "0.0"}
+
+{"fen": "8/1p1k2R1/p4K2/3p1P2/4r3/2P3P1/6P1/8 b - -", "depth": 1, "moves": ["d7c6"], "analysis": [{"pv": ["d7c6"], "depth": 1, "score": -166, "time": 1, "nodes": 12, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["h7h6"], "fen": "r2q1rk1/1ppnnpbp/3p2p1/3P4/p1P1NR2/P1N1P3/1P2Q1PP/1RB3K1 b - -", "analysis": [{"pv": ["f7f5"], "depth": 1, "score": 35, "time": 1, "nodes": 152, "multipv": 1}, {"pv": ["h7h6"], "depth": 1, "score": -28, "time": 1, "nodes": 16, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["h7h6"]}
+
+{"extra": ["d1d5"], "fen": "1rb1k3/p4p1p/2n2QpP/q1npP3/5P2/1p3N2/PPP3P1/2KR1B1R w - -", "analysis": [{"pv": ["f6h8", "e8d7", "d1d5", "d7c7", "c2b3"], "depth": 1, "score": 636, "time": 2, "nodes": 782, "multipv": 1}, {"pv": ["d1d5", "b3a2", "f6c6", "c8d7"], "depth": 1, "score": 389, "time": 1, "nodes": 110, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["d1d5"]}
+
+{"extra": ["a2a3"], "fen": "3rk2r/pp3ppp/2p1bn2/8/1b1qP3/5B2/PPQB1PPP/RN2K2R w KQk -", "analysis": [{"pv": ["b1c3"], "depth": 1, "score": -91, "time": 2, "nodes": 419, "multipv": 1}, {"pv": ["a2a3"], "depth": 1, "score": -204, "time": 2, "nodes": 133, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["a2a3"]}
+
+{"extra": ["a8c8"], "fen": "r7/pp1k1p1p/8/2b1p1B1/6P1/1bNP1P2/1P4P1/2K2B2 b - -", "analysis": [{"pv": ["a8g8"], "depth": 1, "score": 300, "time": 1, "nodes": 52, "multipv": 1}, {"pv": ["a8c8"], "depth": 1, "score": 281, "time": 2, "nodes": 3, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["a8c8"]}
+
+{"extra": ["g7h6"], "fen": "r4r1k/p2q2bp/1p1P2pN/2p2p2/3n4/3Q2P1/PB3PKP/1R1R4 b - -", "analysis": [{"pv": ["f5f4", "b2d4", "g7d4"], "depth": 1, "score": 344, "time": 2, "nodes": 296, "multipv": 1}, {"pv": ["g7h6", "b2d4", "c5d4", "d3d4", "h6g7"], "depth": 1, "score": 273, "time": 1, "nodes": 48, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["g7h6"]}
+
+{"fen": "3r2k1/1p1r1pb1/2ppn2p/p4NP1/P1B1PP2/1P3K2/2P3R1/3R4 b - -", "depth": 1, "moves": ["h6g5"], "analysis": [{"pv": ["h6g5", "f5g7", "g8g7", "c4e6", "f7e6", "g2g5", "g7f6"], "depth": 1, "score": -109, "time": 1, "nodes": 386, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["d2d5"], "fen": "8/8/1p1nk1p1/2p4p/p1P5/1P3K1P/P2R2P1/8 w - -", "analysis": [{"pv": ["d2e2", "e6f6"], "depth": 1, "score": 256, "time": 1, "nodes": 141, "multipv": 1}, {"pv": ["d2d5", "a4b3", "a2b3"], "depth": 1, "score": 222, "time": 1, "nodes": 18, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["d2d5"]}
+
+{"fen": "3q1rk1/2p2ppp/pr6/1pQBP2b/3P4/4Rp2/PP3PPP/4R1K1 b - -", "depth": 1, "moves": ["f3g2"], "analysis": [{"pv": ["f3g2", "d5g2"], "depth": 1, "score": -90, "time": 1, "nodes": 221, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["g5h4"], "fen": "r4b2/2R4R/4p1p1/p5kp/4N3/6rP/6PK/8 b - -", "analysis": [{"pv": ["g5f4", "e4g3"], "depth": 1, "score": -276, "time": 2, "nodes": 24, "multipv": 1}, {"pv": ["g5h4", "e4g3"], "depth": 1, "score": -301, "time": 1, "nodes": 9, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["g5h4"]}
+
+{"extra": ["e2f2"], "fen": "4r3/5kpp/4b3/3p4/p7/6P1/1P1BR2P/6K1 w - -", "analysis": [{"pv": ["d2c3"], "depth": 1, "score": -82, "time": 2, "nodes": 40, "multipv": 1}, {"pv": ["e2f2", "f7g6"], "depth": 1, "score": -108, "time": 1, "nodes": 11, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["e2f2"]}
+
+{"extra": ["f3d2"], "fen": "r3k2r/1b1q1pbp/pp2p3/3p1p2/P1nN4/2P1PNP1/1P3PBP/R2Q1RK1 w kq -", "analysis": [{"pv": ["b2b3"], "depth": 1, "score": 34, "time": 1, "nodes": 53, "multipv": 1}, {"pv": ["f3d2", "c4b2"], "depth": 1, "score": -69, "time": 2, "nodes": 51, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["f3d2"]}
+
+{"fen": "1k2r3/1p4p1/p6p/2BRp2P/2P3q1/1P3Pn1/P7/1K6 w - -", "depth": 1, "moves": ["f3g4"], "analysis": [{"pv": ["f3g4"], "depth": 1, "score": 98, "time": 1, "nodes": 60, "multipv": 1}], "time": "0.0"}
+
+{"fen": "r4rk1/p2b1pb1/1q1p1np1/2nPp1Bp/1p2P1P1/1P3P1P/P1BQN3/R2NK2R b KQ -", "depth": 1, "moves": ["a7a5"], "analysis": [{"pv": ["a7a5", "g4h5", "f6h5"], "depth": 1, "score": 84, "time": 2, "nodes": 193, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["g7h6"], "fen": "8/6k1/8/8/pR3N2/P6P/1P4P1/KB1q4 b - -", "analysis": [{"pv": ["g7f6"], "depth": 1, "score": -463, "time": 1, "nodes": 88, "multipv": 1}, {"pv": ["g7h6"], "depth": 1, "score": -501, "time": 1, "nodes": 7, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["g7h6"]}
+
+{"extra": ["g8f8"], "fen": "2r3k1/5pp1/p4n2/1pp1RPN1/3p4/3P4/1PP4P/6K1 b - -", "analysis": [{"pv": ["f6d7"], "depth": 1, "score": 131, "time": 2, "nodes": 57, "multipv": 1}, {"pv": ["g8f8"], "depth": 1, "score": 87, "time": 2, "nodes": 20, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["g8f8"]}
+
+{"extra": ["h1b1"], "fen": "r7/p3kp2/2r1p1p1/Pp1pP2p/7P/2PP4/3K1PP1/R6R w - -", "analysis": [{"pv": ["a1b1"], "depth": 1, "score": 25, "time": 1, "nodes": 41, "multipv": 1}, {"pv": ["h1b1"], "depth": 1, "score": 25, "time": 2, "nodes": 5, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["h1b1"]}
+
+{"fen": "r2q4/pp1b1kp1/2n1pPp1/P2p1r2/P6Q/B1p2N2/2P2PPP/R3R1K1 b - -", "depth": 1, "moves": ["d8f6"], "analysis": [{"pv": ["d8f6"], "depth": 1, "score": -56, "time": 1, "nodes": 231, "multipv": 1}], "time": "0.0"}
+
+{"fen": "6k1/pppq1p1p/1nnpRQp1/8/2PP4/3B2P1/PP5P/5RK1 b - -", "depth": 1, "moves": ["d7e6"], "analysis": [{"pv": ["d7e6"], "depth": 1, "score": -139, "time": 1, "nodes": 217, "multipv": 1}], "time": "0.0"}
+
+{"fen": "3r1rk1/3nq2p/2bpp3/4bp2/1PpB4/1B3P2/3QN1PP/4RRK1 w - -", "depth": 1, "moves": ["b3c4"], "analysis": [{"pv": ["b3c4"], "depth": 1, "score": 6, "time": 1, "nodes": 109, "multipv": 1}], "time": "0.0"}
+
+{"fen": "4r3/P7/8/3R4/1b6/1P4k1/4B3/5K2 w - -", "depth": 1, "moves": ["d5d3"], "analysis": [{"pv": ["d5d3", "g3h2"], "depth": 1, "score": 312, "time": 1, "nodes": 150, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["f7f1"], "fen": "5rk1/R1n2qb1/4p1p1/3pP2p/3N3P/1P4B1/2PQ2P1/6K1 b - -", "analysis": [{"pv": ["g8h7", "a7c7", "f7c7", "d4e6"], "depth": 1, "score": -17, "time": 1, "nodes": 141, "multipv": 1}, {"pv": ["f7f1", "g1h2"], "depth": 1, "score": -55, "time": 1, "nodes": 19, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["f7f1"]}
+
+{"extra": ["b5b4"], "fen": "rnbqkb1r/p4p2/2p1pn1p/1p4p1/2pPP3/2N2NB1/PP2BPPP/R2QK2R b KQkq -", "analysis": [{"pv": ["b8d7"], "depth": 1, "score": 29, "time": 1, "nodes": 156, "multipv": 1}, {"pv": ["c8b7"], "depth": 1, "score": -18, "time": 1, "nodes": 24, "multipv": 1}, {"pv": ["f8g7"], "depth": 1, "score": -31, "time": 1, "nodes": 24, "multipv": 1}, {"pv": ["b5b4"], "depth": 1, "score": -46, "time": 1, "nodes": 21, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["c8b7", "f8g7", "b5b4"]}
+
+{"extra": ["d4e3"], "fen": "6rk/6qp/3p4/8/1P1b1R2/3BR3/5QbP/6K1 b - -", "analysis": [{"pv": ["g2e4", "g1f1", "e4d3", "f1e1", "d4e3", "f2e3"], "depth": 1, "score": 407, "time": 1, "nodes": 219, "multipv": 1}, {"pv": ["d4e3", "f2e3"], "depth": 1, "score": 86, "time": 2, "nodes": 7, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["d4e3"]}
+
+{"extra": ["d4c5"], "fen": "8/8/5k2/6p1/3bR3/5PK1/4P3/4r3 b - -", "analysis": [{"pv": ["d4e5", "g3f2"], "depth": 1, "score": 212, "time": 1, "nodes": 166, "multipv": 1}, {"pv": ["d4c5"], "depth": 1, "score": 206, "time": 1, "nodes": 13, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["d4c5"]}
+
+{"fen": "r2qnrk1/p1pp1ppp/bpn1p3/8/2PPP3/P1PB1P1N/6PP/R1BQK2R w KQ -", "depth": 1, "moves": ["e1g1"], "analysis": [{"pv": ["e1g1"], "depth": 1, "score": 103, "time": 1, "nodes": 172, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["e5g3"], "fen": "2rr2k1/4pp1p/p5pb/Pp1nBq2/3P4/1Q1N3P/1P3PP1/R2R2K1 w - -", "analysis": [{"pv": ["g2g4"], "depth": 1, "score": -59, "time": 2, "nodes": 131, "multipv": 1}, {"pv": ["e5g3"], "depth": 1, "score": -84, "time": 1, "nodes": 9, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["e5g3"]}
+
+{"fen": "r4q1k/1p1b2pp/p1p2n2/4RB2/PP6/3P2P1/3BQP1P/6K1 b - -", "depth": 1, "moves": ["d7f5"], "analysis": [{"pv": ["d7f5", "e5f5"], "depth": 1, "score": -94, "time": 2, "nodes": 59, "multipv": 1}], "time": "0.0"}
+
+{"fen": "r1bq1rk1/pp3ppp/5nn1/1P6/1bPPp3/5NP1/1B1N1PBP/R2Q1RK1 w - -", "depth": 1, "moves": ["f3g5"], "analysis": [{"pv": ["f3g5"], "depth": 1, "score": 67, "time": 2, "nodes": 172, "multipv": 1}], "time": "0.0"}
+
+{"fen": "r1b2rk1/1p3pbp/p1p2np1/1NPp2q1/1P6/4P3/PBQ1BPPP/R4RK1 w - -", "depth": 1, "moves": ["b5d6"], "analysis": [{"pv": ["b5d6"], "depth": 1, "score": 90, "time": 1, "nodes": 189, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["d1d2"], "fen": "r1b1kb1r/pp2pppp/2n1q3/2pn4/8/3PBNP1/PPP2PBP/RN1QK2R w KQkq -", "analysis": [{"pv": ["d1e2"], "depth": 1, "score": -24, "time": 1, "nodes": 179, "multipv": 1}, {"pv": ["d1d2"], "depth": 1, "score": -82, "time": 1, "nodes": 11, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["d1d2"]}
+
+{"extra": ["f8g8"], "fen": "5k2/4qpr1/p3p2p/3bQ1p1/7r/2P5/1PN2R2/2K2R2 b - -", "analysis": [{"pv": ["f7f5", "f2f5", "e6f5", "e5d5"], "depth": 1, "score": 205, "time": 1, "nodes": 232, "multipv": 1}, {"pv": ["f8g8"], "depth": 1, "score": 41, "time": 1, "nodes": 34, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["f8g8"]}
+
+{"extra": ["c7d6"], "fen": "3r4/ppkr2pp/5p2/3Pn3/3R4/P5B1/1PR3PP/3K4 b - -", "analysis": [{"pv": ["c7b6", "d4b4", "b6a5", "g3e5", "f6e5"], "depth": 1, "score": -14, "time": 1, "nodes": 35, "multipv": 1}, {"pv": ["c7d6"], "depth": 1, "score": -20, "time": 1, "nodes": 15, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["c7d6"]}
+
+{"fen": "r1b2rk1/p2nqppp/3ppn2/2p5/2P5/P1b1PN2/1P1BBPPP/2RQ1RK1 w - -", "depth": 1, "moves": ["d2c3"], "analysis": [{"pv": ["d2c3"], "depth": 1, "score": 56, "time": 1, "nodes": 33, "multipv": 1}], "time": "0.0"}
+
+{"fen": "1R3b2/5rkp/2n3p1/8/5P2/1Q6/7P/7K b - -", "depth": 1, "moves": ["c6b8"], "analysis": [{"pv": ["c6b8", "b3b8"], "depth": 1, "score": -41, "time": 2, "nodes": 190, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["g5e7"], "fen": "1n1q4/5k2/1PBp4/3Pp1bp/4P1n1/2N3P1/4Q1K1/6B1 b - -", "analysis": [{"pv": ["d8f6"], "depth": 1, "score": -235, "time": 1, "nodes": 165, "multipv": 1}, {"pv": ["g5e7"], "depth": 1, "score": -405, "time": 2, "nodes": 22, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["g5e7"]}
+
+{"fen": "3r4/1r1P1kp1/1p1R1n1p/1P6/P7/5R1P/5P2/5K2 b - a3", "depth": 1, "moves": ["d8d7"], "analysis": [{"pv": ["d8d7"], "depth": 1, "score": 182, "time": 1, "nodes": 59, "multipv": 1}], "time": "0.0"}
+
+{"fen": "1n6/R3Rpkp/3r2p1/p2P4/2B5/5r2/1P5P/6K1 w - -", "depth": 1, "moves": ["a7a5"], "analysis": [{"pv": ["a7a5"], "depth": 1, "score": 120, "time": 1, "nodes": 56, "multipv": 1}], "time": "0.0"}
+
+{"extra": ["d4e2"], "fen": "R7/5pk1/6pp/8/1rNnP3/4N1P1/5P1P/7K b - -", "analysis": [{"pv": ["h6h5"], "depth": 1, "score": -390, "time": 2, "nodes": 46, "multipv": 1}, {"pv": ["d4e2"], "depth": 1, "score": -431, "time": 1, "nodes": 8, "multipv": 1}], "depth": 1, "time": "0.0", "moves": ["d4e2"]}
+
