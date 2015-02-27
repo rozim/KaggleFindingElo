@@ -7,7 +7,6 @@ import glob
 import leveldb
 import numpy
 import os.path
-import random
 import sets
 import sys
 
@@ -18,10 +17,7 @@ FLAGS = gflags.FLAGS
 gflags.DEFINE_string('analysis', 'd13.leveldb', ("""Analysis database.
                                                 Key = 'simple FEN' """ ))
 
-gflags.DEFINE_string('train_output', 'latest-train.vw', '')
-gflags.DEFINE_string('test_output', 'latest-test.vw', '')
 gflags.DEFINE_string('model_dir', '.', '')
-gflags.DEFINE_float('holdout', 0.1, '')
 gflags.DEFINE_integer('limit', 1000, '')
 
 (files, hit, miss, n_best_move, n_not_best_move) = (0, 0, 0, 0, 0)
@@ -120,9 +116,9 @@ def StudyGame(db, opening_positions, fn):
         best_count = [0, 0]
         best_try = [0, 0]
         deltas = [[], []]
-        first_loss_100 = [999, 999]
-        first_loss_200 = [999, 999]
-        first_loss_300 = [999, 999]
+        first_loss_100 = [0, 0]
+        first_loss_200 = [0, 0]
+        first_loss_300 = [0, 0]
         opening = set()
         for ply, pos in enumerate(game.positions):
             co = ply % 2
@@ -202,10 +198,7 @@ def StudyGame(db, opening_positions, fn):
 def ProcessArgs(db, opening_positions, limit, argv):
     global files
 
-    all = range(1, limit + 1)
-    if limit < 50000:
-        random.shuffle(all)
-    for event in all:
+    for event in range(1, limit + 1):
         fn = 'generated/game2json/%05d.json' % event
         yield StudyGame(db, opening_positions, fn)
         files += 1
@@ -220,6 +213,33 @@ def ReadOpeningPositions(fn):
             ar = line.split(',')
             res.add(ar[1].split(' ')[0]) # just position part of FEN
     return sets.ImmutableSet(res)
+
+def ProcessDrawAndMate(gi):
+    draw_ply = 0
+    i_played_mate = [0, 0]
+    i_was_mated = [0, 0]
+    
+    if gi.result == 0.0:
+        draw_ply = gi.game_ply
+    elif gi.is_mate:
+        if gi.result == 1.0:
+            i_played_mate[0] = gi.game_ply
+            i_was_mated[1] = gi.game_ply
+        elif gi.result == -1.0:
+            i_played_mate[1] = gi.game_ply
+            i_was_mated[0] = gi.game_ply
+        else:
+            raise AssertionError()
+    return (draw_ply, i_played_mate, i_was_mated)
+
+def ProcessDeltas(gi, co):
+    dampened_deltas = [min(300, delta) for delta in gi.co_deltas[co]]
+    (delta_median, delta_stddev, delta_avg) = (0, 0, 0)
+    if len(dampened_deltas) > 0:
+        delta_avg = numpy.mean(dampened_deltas)
+        delta_median = numpy.median(dampened_deltas)
+        delta_stddev = numpy.std(dampened_deltas)
+    return (delta_median, delta_stddev, delta_avg)
 
 def main(argv):
 
@@ -237,79 +257,45 @@ def main(argv):
 
     opening_positions = ReadOpeningPositions('generated/position-frequency.csv')
 
-    train_out = file(FLAGS.model_dir + '/' + FLAGS.train_output, 'w')
-    test_out = file(FLAGS.model_dir + '/' + FLAGS.test_output, 'w')
-
     for gi_num, gi in enumerate(ProcessArgs(db, opening_positions, FLAGS.limit, argv[1:])):
-        i_was_mated = [0, 0]
-        i_played_mate = [0, 0]
-
-        if FLAGS.limit == 50000:
-                if gi_num < 25000:
-                    out = train_out
-                else:
-                    train_out.flush() # In case I'm watching closely
-                    out = test_out
-        else:
-            if random.random() <= FLAGS.holdout:
-                out = test_out
-            else:
-                out = train_out
-        draw_ply = 0
-        if gi.result == 0.0:
-            draw_ply = gi.game_ply
-        elif gi.is_mate:
-            if gi.result == 1.0:
-                i_played_mate[0] = gi.game_ply
-                i_was_mated[1] = gi.game_ply
-            elif gi.result == -1.0:
-                i_played_mate[1] = gi.game_ply
-                i_was_mated[0] = gi.game_ply
-            else:
-                raise AssertionError()
-
+        (draw_ply, i_played_mate, i_was_mated) = ProcessDrawAndMate(gi)
 
         for co in [0, 1]:
-            #print gi.co_deltas[co]
-            #print numpy.mean(gi.co_deltas[co])
-            #print numpy.median(gi.co_deltas[co])
-            #print numpy.std(gi.co_deltas[co])
-            dampened_deltas = [min(300, delta) for delta in gi.co_deltas[co]]
-            (median, stddev, avg) = (0, 0, 0)
-            if len(dampened_deltas) > 0:
-                avg = numpy.mean(dampened_deltas)
-                median = numpy.median(dampened_deltas)
-                stddev = numpy.std(dampened_deltas)
+            (delta_median, delta_stddev, delta_avg) = ProcessDeltas(gi, co)
 
-            standard = "%4d '%s_%s| ply:%d result:%.0f draw_ply:%d i_played_mate:%d i_was_mated:%d best_count:%d best_pct:%.2f worst_mistake:%d avg_mistake:%.1f median_mistake:%.0f stddev_mistake:%.1f first_loss_100:%d first_loss_200:%d first_loss_300:%d" % (
-                    gi.co_elo[co],
-                    ["w", "b"][co],
-                    gi.event,
-                    gi.game_ply,
-                    gi.co_result[co],
-                    draw_ply,
-                    i_played_mate[0],
-                    i_was_mated[0],
-                    gi.best_count[co],
-                    gi.best_pct[co],
-                    safe_max(gi.co_deltas[co]),
-                    avg,
-                    median,
-                    stddev,
-                    gi.first_loss_100[co],
-                    gi.first_loss_200[co],
-                    gi.first_loss_300[co])
-            extra = []
+            standard = {
+                '$g_event': gi.event,                
+                '$g_co_rating': gi.co_elo[co],
+                '$g_co': ["w", "b"][co],
+                '$g_co_deltas': gi.co_deltas[co],
+                
+                'color_value': [1, -1][co],
+                'game_ply': gi.game_ply,
+                'result': gi.co_result[co],
+                'draw_ply': draw_ply,
+                'i_played_mate': i_played_mate[co],
+                'i_was_mated': i_was_mated[co],
+                'best_count': gi.best_count[co],
+                'best__pct': gi.best_pct[co],
+                'delta_max': safe_max(gi.co_deltas[co]),
+                'delta_avg': delta_avg,
+                'delta_median': delta_median,
+                'delta_stddev': delta_stddev,
+                'first_loss_100': gi.first_loss_100[co],
+                'first_loss_200': gi.first_loss_200[co],
+                'first_loss_300': gi.first_loss_300[co]
+            }
             for pos in gi.opening:
-                extra.append("op_%s:1" % pos)
-            out.write('%s %s\n' % (standard, ' '.join(extra)))
+                standard['op_%s' % pos] = 1
+            print cjson.encode(standard)
+
 
     print
-    print "Hit:            ", hit
-    print "Miss:           ", miss
-    print "Best move:      ", n_best_move
-    print "Not best move:  ", n_not_best_move
-    print "Files:          ", files
+    print "#Hit:            ", hit
+    print "#Miss:           ", miss
+    print "#Best move:      ", n_best_move
+    print "#Not best move:  ", n_not_best_move
+    print "#Files:          ", files
 
 
 if __name__ == '__main__':
