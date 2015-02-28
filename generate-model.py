@@ -154,12 +154,12 @@ def StudyGame(db, opening_positions, fn):
             else:
                 n_not_best_move += 1
                 delta = abs(move_map[best_move] - move_map[pos.move])
-                if delta >= 100:
-                    first_loss_100[co] = min(first_loss_100[co], ply)
-                if delta >= 200:
-                    first_loss_200[co] = min(first_loss_200[co], ply)
-                if delta >= 300:
-                    first_loss_300[co] = min(first_loss_300[co], ply)
+                if delta >= 100 and first_loss_100[co] == 0:
+                    first_loss_100[co] = ply
+                if delta >= 200 and first_loss_200[co] == 0:
+                    first_loss_200[co] = ply
+                if delta >= 300 and first_loss_300[co] == 0:
+                    first_loss_300[co] = ply                    
 
                 if delta == 0:
                     # Regan gives a correction of -0.03 if an equal move was chosen
@@ -276,7 +276,7 @@ def main(argv):
                 'i_played_mate': i_played_mate[co],
                 'i_was_mated': i_was_mated[co],
                 'best_count': gi.best_count[co],
-                'best__pct': gi.best_pct[co],
+                'best_pct': gi.best_pct[co],
                 'delta_max': safe_max(gi.co_deltas[co]),
                 'delta_avg': delta_avg,
                 'delta_median': delta_median,
