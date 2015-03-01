@@ -1,5 +1,7 @@
 #!/usr/bin/python
 
+# time ./study-headers.py < generated/twic-blacklist-filtered-headers.csv > generated/twic-blacklist-filtered-headers-report.txt
+
 import sys
 import cjson
 import gflags
@@ -58,8 +60,8 @@ def main(argv):
         elif result == '1/2-1/2':
             all_w_draw.append(w)
             all_b_draw.append(b)
-            all_w_draw_length[(ply / 10) * 10].append(w)
-            all_b_draw_length[(ply / 10) * 10].append(b) 
+            all_w_draw_length[(ply / 1) * 1].append(w)
+            all_b_draw_length[(ply / 1) * 1].append(b) 
             if ply < 30:
                 all_w_gm_draw.append(w)
                 all_b_gm_draw.append(b)                
