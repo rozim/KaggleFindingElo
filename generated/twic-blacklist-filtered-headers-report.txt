@@ -1,0 +1,88 @@
+#  All
+N      :  2749606
+Min    :  1113
+Max    :  2881
+Median :  2327.0
+Mean   :  2301.9
+Dev    :  230.9
+
+#  All sum
+N      :  1374803
+Min    :  2307
+Max    :  5698
+Median :  4643.0
+Mean   :  4603.9
+Dev    :  414.2
+
+#  All diff
+N      :  1374803
+Min    :  -1500
+Max    :  1281
+Median :  4.0
+Mean   :  3.6
+Dev    :  204.3
+
+#  W, White Wins
+N      :  516126
+Min    :  1113
+Max    :  2881
+Median :  2376.0
+Mean   :  2345.3
+Dev    :  214.6
+
+#  B, White Wins
+N      :  516126
+Min    :  1113
+Max    :  2881
+Median :  2238.0
+Mean   :  2221.7
+Dev    :  238.0
+
+#  W, Black Wins
+N      :  400330
+Min    :  1113
+Max    :  2881
+Median :  2218.0
+Mean   :  2201.9
+Dev    :  237.4
+
+#  B, Black Wins
+N      :  400330
+Min    :  1114
+Max    :  2881
+Median :  2366.0
+Mean   :  2335.8
+Dev    :  215.0
+
+#  W, Draw
+N      :  458347
+Min    :  1158
+Max    :  2881
+Median :  2375.0
+Mean   :  2345.8
+Dev    :  212.8
+
+#  B, Draw
+N      :  458347
+Min    :  1114
+Max    :  2881
+Median :  2388.0
+Mean   :  2357.2
+Dev    :  212.7
+
+#  W, GM Draw
+N      :  58291
+Min    :  1222
+Max    :  2851
+Median :  2393.0
+Mean   :  2363.2
+Dev    :  175.8
+
+#  B, GM Draw
+N      :  58291
+Min    :  1222
+Max    :  2849
+Median :  2414.0
+Mean   :  2384.5
+Dev    :  179.3
+

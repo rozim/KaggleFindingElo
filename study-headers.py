@@ -27,20 +27,53 @@ def main(argv):
 
     all = []
     all_sum = []
-    all_diff = []    
+    all_diff = []
+    all_w_wwin = []
+    all_b_wwin = []
+    all_w_bwin = []
+    all_b_bwin = []
+    all_w_draw = []
+    all_b_draw = []
+    all_w_gm_draw = []
+    all_b_gm_draw = [] 
     for line in sys.stdin.read().splitlines():
         ar = line.split(',')
         w = int(ar[0])
         b = int(ar[1])
         result = ar[2]
+        ply = int(ar[3])
         all.append(w)
         all.append(b)
         all_sum.append(w + b)
         all_diff.append(w - b)
 
+        if result == '1-0':
+            all_w_wwin.append(w)
+            all_b_wwin.append(b)
+        elif result == '0-1':
+            all_w_bwin.append(w)
+            all_b_bwin.append(b)
+        elif result == '1/2-1/2':
+            all_w_draw.append(w)
+            all_b_draw.append(b)
+            if ply < 30:
+                all_w_gm_draw.append(w)
+                all_b_gm_draw.append(b)                
+
     Report("All", all)
     Report("All sum", all_sum)
-    Report("All diff", all_diff)    
+    Report("All diff", all_diff)
+
+    Report("W, White Wins", all_w_wwin)
+    Report("B, White Wins", all_b_wwin)
+    Report("W, Black Wins", all_w_bwin)
+    Report("B, Black Wins", all_b_bwin)
+    Report("W, Draw", all_w_draw)
+    Report("B, Draw", all_b_draw)
+    Report("W, GM Draw", all_w_gm_draw)
+    Report("B, GM Draw", all_b_gm_draw)                
+
+    
               
 
 
