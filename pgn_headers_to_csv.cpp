@@ -52,6 +52,8 @@ int main(int argc, char * argv[]) {
       }
       string r(pgn->result);
       if (w > 1000 && b > 1000 && w < 3000 && b < 3000 &&
+          strlen(pgn->white_elo) == 4 && // consultation games have 2 ratings
+          strlen(pgn->black_elo) == 4 &&
           (r == "1-0" || r == "0-1" || r == "1/2-1/2")) {
         printf("%s,%s,%s,%d\n",
                pgn->white_elo,
