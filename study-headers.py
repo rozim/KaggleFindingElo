@@ -8,13 +8,15 @@ import numpy
 
 FLAGS = gflags.FLAGS
 # gflags.DEFINE_string('in_model', 'model.xjson', 'Output of generate-model.py')
-def Report(all):
+def Report(header, all):
+    print "# ", header
     print 'N      : ', len(all)        
     print 'Min    : ', numpy.min(all)
     print 'Max    : ', numpy.max(all)
     print 'Median :  %.1f' % numpy.median(all)
     print 'Mean   :  %.1f' % numpy.mean(all)
-    print 'Dev    :  %.1f' % numpy.std(all)  
+    print 'Dev    :  %.1f' % numpy.std(all)
+    print
 
 def main(argv):
     try:
@@ -24,6 +26,8 @@ def main(argv):
       sys.exit(1)
 
     all = []
+    all_sum = []
+    all_diff = []    
     for line in sys.stdin.read().splitlines():
         ar = line.split(',')
         w = int(ar[0])
@@ -31,8 +35,12 @@ def main(argv):
         result = ar[2]
         all.append(w)
         all.append(b)
+        all_sum.append(w + b)
+        all_diff.append(w - b)
 
-    Report(all)
+    Report("All", all)
+    Report("All sum", all_sum)
+    Report("All diff", all_diff)    
               
 
 
