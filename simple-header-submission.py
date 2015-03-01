@@ -15,11 +15,22 @@ def Predict(ply, result):
     elif result == '0-1':
         return (2202, 2335)
     elif result == '1/2-1/2':
+        # no improvement with 2nd degres poly
         #X:: (0.0022 * ply**2) + (-0.3426 * ply) + 2352.3218
         #Y:: (0.0023 * ply**2) + (-0.4363 * ply) + 2369.6024
-
-        return (int((0.0022 * ply**2) + (-0.3426 * ply) + 2352.3218),
-                int(((0.0023 * ply**2) + (-0.4363 * ply) + 2369.6024)))
+        #return (int((0.0022 * ply**2) + (-0.3426 * ply) + 2352.3218),
+        #int(((0.0023 * ply**2) + (-0.4363 * ply) + 2369.6024)))
+        #
+        # try hybrid with google sheets
+        if ply <= 30: # linear
+            return (int(4.009 * ply + 2273.188),
+                    int(4.284 * ply) + 2290.01)
+            pass
+        else: # 2nd degree
+            return (int((3.593E-3 * ply**2) + (0.761 * ply) + 2376),
+                    int((4.372E-3 * ply**2) + (1 * ply) + 2400.166))
+        
+            
 
 def main(argv):
     try:
