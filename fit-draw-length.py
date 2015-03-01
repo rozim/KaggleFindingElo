@@ -95,38 +95,13 @@ x = [
     280,
     290]
 
-white = [
-    2312,
-    2356,
-    2372,
-    2360,
-    2351,
-    2345,
-    2343,
-    2338,
-    2341,
-    2332,
-    2333,
-    2336,
-    2336,
-    2338,
-    2341,
-    2346,
-    2351,
-    2356,
-    2360,
-    2369,
-    2372,
-    2381,
-    2381,
-    2381,
-    2403,
-    2419,
-    2399,
-    2440,
-    2408,
-    2427]
 
 formula = numpy.polyfit(x, ratings, 2)
 print 'X:: (%.4f * ply**2) + (%.4f * ply) + %.4f' % (formula[0][0], formula[1][0], formula[2][0])
 print 'Y:: (%.4f * ply**2) + (%.4f * ply) + %.4f' % (formula[0][1], formula[1][1], formula[2][1])
+
+
+for i, ply in enumerate(range(0, 300, 10)):
+    w = (formula[0][0] * ply**2 + formula[1][0] * ply + formula[2][0])
+    b = (formula[0][1] * ply**2 + formula[1][1] * ply + formula[2][1])
+    print ply, int(w), int(b), ratings[i][0], ratings[i][1]
