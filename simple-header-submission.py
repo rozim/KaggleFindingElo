@@ -22,15 +22,18 @@ def Predict(ply, result):
         #int(((0.0023 * ply**2) + (-0.4363 * ply) + 2369.6024)))
         #
         # try hybrid with google sheets
-        if ply <= 30: # linear
-            return (int(4.009 * ply + 2273.188),
-                    int(4.284 * ply) + 2290.01)
-            pass
-        else: # 2nd degree
-            return (int((3.593E-3 * ply**2) + (0.761 * ply) + 2376),
-                    int((4.372E-3 * ply**2) + (1 * ply) + 2400.166))
-        
-            
+        #         if ply <= 30: # linear
+        #             return (int(4.009 * ply + 2273.188),
+        #                     int(4.284 * ply) + 2290.01)
+        #             pass
+        #         else: # 2nd degree
+        #             return (int((3.593E-3 * ply**2) + (0.761 * ply) + 2376),
+        #                     int((4.372E-3 * ply**2) + (1 * ply) + 2400.166))
+
+        if ply < 30:
+            return (2363, 2384)
+        else:
+            return (2346, 2357)
 
 def main(argv):
     try:
