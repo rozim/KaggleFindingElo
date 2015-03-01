@@ -35,7 +35,9 @@ def main(argv):
     all_w_draw = []
     all_b_draw = []
     all_w_gm_draw = []
-    all_b_gm_draw = [] 
+    all_b_gm_draw = []
+    all_w_draw_length = collections.defaultdict(list)
+    all_b_draw_length = collections.defaultdict(list)
     for line in sys.stdin.read().splitlines():
         ar = line.split(',')
         w = int(ar[0])
@@ -56,6 +58,8 @@ def main(argv):
         elif result == '1/2-1/2':
             all_w_draw.append(w)
             all_b_draw.append(b)
+            all_w_draw_length[(ply / 10) * 10].append(w)
+            all_b_draw_length[(ply / 10) * 10].append(b) 
             if ply < 30:
                 all_w_gm_draw.append(w)
                 all_b_gm_draw.append(b)                
@@ -71,11 +75,27 @@ def main(argv):
     Report("W, Draw", all_w_draw)
     Report("B, Draw", all_b_draw)
     Report("W, GM Draw", all_w_gm_draw)
-    Report("B, GM Draw", all_b_gm_draw)                
+    Report("B, GM Draw", all_b_gm_draw)
 
+
+    w_vector = []
+    b_vector = []    
+    for length in sorted(all_w_draw_length.keys()):
+        if len(all_w_draw_length[length]) + len(all_b_draw_length[length]) < 100:
+            continue
+        Report("W, GM Draw length %d" % length, all_w_draw_length[length])
+        Report("B, GM Draw length %d" % length, all_b_draw_length[length])
+
+        w_vector.append((length, numpy.mean(all_w_draw_length[length])))
+        b_vector.append((length, numpy.mean(all_b_draw_length[length])))
+
+    print
+    print 'White,Black mean rating by draw length'
+    for i, ent in enumerate(w_vector):
+        print "%d %.0f %.0f" % (ent[0], ent[1], b_vector[i][1])
     
-              
-
+      
+        
 
 if __name__ == '__main__':
     main(sys.argv)

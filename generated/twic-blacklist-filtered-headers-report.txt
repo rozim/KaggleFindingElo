@@ -86,3 +86,515 @@ Median :  2414.0
 Mean   :  2384.5
 Dev    :  179.3
 
+#  W, GM Draw length 0
+N      :  3257
+Min    :  1372
+Max    :  2838
+Median :  2321.0
+Mean   :  2312.4
+Dev    :  195.8
+
+#  B, GM Draw length 0
+N      :  3257
+Min    :  1471
+Max    :  2815
+Median :  2335.0
+Mean   :  2323.5
+Dev    :  194.7
+
+#  W, GM Draw length 10
+N      :  18961
+Min    :  1311
+Max    :  2771
+Median :  2382.0
+Mean   :  2355.6
+Dev    :  166.5
+
+#  B, GM Draw length 10
+N      :  18961
+Min    :  1222
+Max    :  2785
+Median :  2402.0
+Mean   :  2376.9
+Dev    :  170.9
+
+#  W, GM Draw length 20
+N      :  36073
+Min    :  1222
+Max    :  2851
+Median :  2403.0
+Mean   :  2371.7
+Dev    :  177.6
+
+#  B, GM Draw length 20
+N      :  36073
+Min    :  1222
+Max    :  2849
+Median :  2425.0
+Mean   :  2393.9
+Dev    :  180.8
+
+#  W, GM Draw length 30
+N      :  39950
+Min    :  1213
+Max    :  2870
+Median :  2393.0
+Mean   :  2359.6
+Dev    :  201.7
+
+#  B, GM Draw length 30
+N      :  39950
+Min    :  1185
+Max    :  2877
+Median :  2412.0
+Mean   :  2377.9
+Dev    :  201.7
+
+#  W, GM Draw length 40
+N      :  43281
+Min    :  1185
+Max    :  2851
+Median :  2385.0
+Mean   :  2350.9
+Dev    :  213.3
+
+#  B, GM Draw length 40
+N      :  43281
+Min    :  1260
+Max    :  2872
+Median :  2400.0
+Mean   :  2364.8
+Dev    :  214.7
+
+#  W, GM Draw length 50
+N      :  41657
+Min    :  1219
+Max    :  2851
+Median :  2377.0
+Mean   :  2345.0
+Dev    :  219.7
+
+#  B, GM Draw length 50
+N      :  41657
+Min    :  1227
+Max    :  2881
+Median :  2388.0
+Mean   :  2356.1
+Dev    :  219.8
+
+#  W, GM Draw length 60
+N      :  45225
+Min    :  1158
+Max    :  2881
+Median :  2373.0
+Mean   :  2343.3
+Dev    :  223.3
+
+#  B, GM Draw length 60
+N      :  45225
+Min    :  1158
+Max    :  2877
+Median :  2385.0
+Mean   :  2354.0
+Dev    :  223.7
+
+#  W, GM Draw length 70
+N      :  37769
+Min    :  1210
+Max    :  2872
+Median :  2365.0
+Mean   :  2338.4
+Dev    :  223.5
+
+#  B, GM Draw length 70
+N      :  37769
+Min    :  1230
+Max    :  2881
+Median :  2378.0
+Mean   :  2348.3
+Dev    :  223.4
+
+#  W, GM Draw length 80
+N      :  46493
+Min    :  1162
+Max    :  2881
+Median :  2367.0
+Mean   :  2341.1
+Dev    :  221.7
+
+#  B, GM Draw length 80
+N      :  46493
+Min    :  1248
+Max    :  2881
+Median :  2377.0
+Mean   :  2348.3
+Dev    :  222.1
+
+#  W, GM Draw length 90
+N      :  34322
+Min    :  1185
+Max    :  2881
+Median :  2356.0
+Mean   :  2332.1
+Dev    :  221.6
+
+#  B, GM Draw length 90
+N      :  34322
+Min    :  1137
+Max    :  2863
+Median :  2367.0
+Mean   :  2342.4
+Dev    :  217.4
+
+#  W, GM Draw length 100
+N      :  28462
+Min    :  1265
+Max    :  2881
+Median :  2357.0
+Mean   :  2332.8
+Dev    :  219.4
+
+#  B, GM Draw length 100
+N      :  28462
+Min    :  1246
+Max    :  2881
+Median :  2363.0
+Mean   :  2339.6
+Dev    :  217.4
+
+#  W, GM Draw length 110
+N      :  23687
+Min    :  1300
+Max    :  2868
+Median :  2359.0
+Mean   :  2336.3
+Dev    :  217.5
+
+#  B, GM Draw length 110
+N      :  23687
+Min    :  1190
+Max    :  2881
+Median :  2363.0
+Mean   :  2341.2
+Dev    :  216.4
+
+#  W, GM Draw length 120
+N      :  17680
+Min    :  1181
+Max    :  2881
+Median :  2356.0
+Mean   :  2336.4
+Dev    :  214.6
+
+#  B, GM Draw length 120
+N      :  17680
+Min    :  1114
+Max    :  2881
+Median :  2364.0
+Mean   :  2341.8
+Dev    :  212.6
+
+#  W, GM Draw length 130
+N      :  12813
+Min    :  1165
+Max    :  2870
+Median :  2356.0
+Mean   :  2337.5
+Dev    :  215.6
+
+#  B, GM Draw length 130
+N      :  12813
+Min    :  1265
+Max    :  2881
+Median :  2368.0
+Mean   :  2344.1
+Dev    :  213.4
+
+#  W, GM Draw length 140
+N      :  8960
+Min    :  1193
+Max    :  2881
+Median :  2364.0
+Mean   :  2341.4
+Dev    :  214.8
+
+#  B, GM Draw length 140
+N      :  8960
+Min    :  1293
+Max    :  2849
+Median :  2369.0
+Mean   :  2346.6
+Dev    :  210.0
+
+#  W, GM Draw length 150
+N      :  6168
+Min    :  1360
+Max    :  2838
+Median :  2367.0
+Mean   :  2345.6
+Dev    :  212.1
+
+#  B, GM Draw length 150
+N      :  6168
+Min    :  1362
+Max    :  2838
+Median :  2373.0
+Mean   :  2348.7
+Dev    :  208.1
+
+#  W, GM Draw length 160
+N      :  4051
+Min    :  1410
+Max    :  2877
+Median :  2377.0
+Mean   :  2351.5
+Dev    :  211.8
+
+#  B, GM Draw length 160
+N      :  4051
+Min    :  1379
+Max    :  2872
+Median :  2377.0
+Mean   :  2354.1
+Dev    :  211.6
+
+#  W, GM Draw length 170
+N      :  2755
+Min    :  1435
+Max    :  2815
+Median :  2382.0
+Mean   :  2355.6
+Dev    :  213.5
+
+#  B, GM Draw length 170
+N      :  2755
+Min    :  1345
+Max    :  2847
+Median :  2392.0
+Mean   :  2368.7
+Dev    :  205.5
+
+#  W, GM Draw length 180
+N      :  1784
+Min    :  1479
+Max    :  2813
+Median :  2386.0
+Mean   :  2360.3
+Dev    :  216.2
+
+#  B, GM Draw length 180
+N      :  1784
+Min    :  1382
+Max    :  2813
+Median :  2392.0
+Mean   :  2368.2
+Dev    :  209.2
+
+#  W, GM Draw length 190
+N      :  1297
+Min    :  1450
+Max    :  2803
+Median :  2392.0
+Mean   :  2369.3
+Dev    :  204.9
+
+#  B, GM Draw length 190
+N      :  1297
+Min    :  1576
+Max    :  2820
+Median :  2399.0
+Mean   :  2373.6
+Dev    :  203.2
+
+#  W, GM Draw length 200
+N      :  1046
+Min    :  1528
+Max    :  2808
+Median :  2394.0
+Mean   :  2372.0
+Dev    :  203.9
+
+#  B, GM Draw length 200
+N      :  1046
+Min    :  1568
+Max    :  2881
+Median :  2406.5
+Mean   :  2381.5
+Dev    :  196.1
+
+#  W, GM Draw length 210
+N      :  738
+Min    :  1556
+Max    :  2826
+Median :  2413.5
+Mean   :  2381.2
+Dev    :  201.9
+
+#  B, GM Draw length 210
+N      :  738
+Min    :  1605
+Max    :  2788
+Median :  2395.0
+Mean   :  2375.2
+Dev    :  194.5
+
+#  W, GM Draw length 220
+N      :  526
+Min    :  1735
+Max    :  2769
+Median :  2392.0
+Mean   :  2381.0
+Dev    :  195.7
+
+#  B, GM Draw length 220
+N      :  526
+Min    :  1751
+Max    :  2790
+Median :  2406.5
+Mean   :  2389.8
+Dev    :  191.3
+
+#  W, GM Draw length 230
+N      :  393
+Min    :  1752
+Max    :  2786
+Median :  2400.0
+Mean   :  2380.8
+Dev    :  191.2
+
+#  B, GM Draw length 230
+N      :  393
+Min    :  1683
+Max    :  2779
+Median :  2417.0
+Mean   :  2391.2
+Dev    :  190.0
+
+#  W, GM Draw length 240
+N      :  261
+Min    :  1904
+Max    :  2863
+Median :  2426.0
+Mean   :  2403.0
+Dev    :  192.7
+
+#  B, GM Draw length 240
+N      :  261
+Min    :  1783
+Max    :  2801
+Median :  2427.0
+Mean   :  2400.3
+Dev    :  187.6
+
+#  W, GM Draw length 250
+N      :  201
+Min    :  1849
+Max    :  2801
+Median :  2452.0
+Mean   :  2418.7
+Dev    :  192.4
+
+#  B, GM Draw length 250
+N      :  201
+Min    :  1867
+Max    :  2767
+Median :  2454.0
+Mean   :  2416.2
+Dev    :  190.4
+
+#  W, GM Draw length 260
+N      :  141
+Min    :  1837
+Max    :  2799
+Median :  2407.0
+Mean   :  2398.6
+Dev    :  188.8
+
+#  B, GM Draw length 260
+N      :  141
+Min    :  1659
+Max    :  2730
+Median :  2447.0
+Mean   :  2408.9
+Dev    :  182.9
+
+#  W, GM Draw length 270
+N      :  105
+Min    :  1922
+Max    :  2782
+Median :  2460.0
+Mean   :  2439.8
+Dev    :  188.5
+
+#  B, GM Draw length 270
+N      :  105
+Min    :  1763
+Max    :  2791
+Median :  2454.0
+Mean   :  2447.4
+Dev    :  191.2
+
+#  W, GM Draw length 280
+N      :  67
+Min    :  1658
+Max    :  2675
+Median :  2446.0
+Mean   :  2407.7
+Dev    :  195.4
+
+#  B, GM Draw length 280
+N      :  67
+Min    :  1755
+Max    :  2674
+Median :  2390.0
+Mean   :  2379.8
+Dev    :  190.9
+
+#  W, GM Draw length 290
+N      :  61
+Min    :  2036
+Max    :  2731
+Median :  2454.0
+Mean   :  2427.3
+Dev    :  202.5
+
+#  B, GM Draw length 290
+N      :  61
+Min    :  1995
+Max    :  2788
+Median :  2479.0
+Mean   :  2441.5
+Dev    :  196.4
+
+
+White,Black mean rating by draw length
+0 2312 2323
+10 2356 2377
+20 2372 2394
+30 2360 2378
+40 2351 2365
+50 2345 2356
+60 2343 2354
+70 2338 2348
+80 2341 2348
+90 2332 2342
+100 2333 2340
+110 2336 2341
+120 2336 2342
+130 2338 2344
+140 2341 2347
+150 2346 2349
+160 2351 2354
+170 2356 2369
+180 2360 2368
+190 2369 2374
+200 2372 2382
+210 2381 2375
+220 2381 2390
+230 2381 2391
+240 2403 2400
+250 2419 2416
+260 2399 2409
+270 2440 2447
+280 2408 2380
+290 2427 2441

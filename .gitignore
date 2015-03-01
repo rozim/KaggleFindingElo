@@ -73,3 +73,4 @@ diffed
 position_frequency
 pgn_header_histogram
 pgn_headers_to_csv
+*.cache
