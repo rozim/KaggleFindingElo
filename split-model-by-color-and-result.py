@@ -9,21 +9,29 @@ FLAGS = gflags.FLAGS
 gflags.DEFINE_string('in_model', 'model.xjson', 'Output of generate-model.py')
 
 def ProcessModel(f):
-    fm = {
-        'w1.0': file('w_win.xjson', 'w'),
-        'b1.0': file('b_win.xjson', 'w'),
-        'w-1.0': file('w_lose.xjson', 'w'),
-        'b-1.0': file('b_lose.xjson', 'w'),
-        'w0.0': file('w_draw.xjson', 'w'),
-        'b0.0': file('b_draw.xjson', 'w')
+    fm_train = {
+        'w1.0': file('w_win_train.xjson', 'w'),
+        'b1.0': file('b_win_train.xjson', 'w'),
+        'w-1.0': file('w_lose_train.xjson', 'w'),
+        'b-1.0': file('b_lose_train.xjson', 'w'),
+        'w0.0': file('w_draw_train.xjson', 'w'),
+        'b0.0': file('b_draw_train.xjson', 'w')
         }
+    fm_test = {
+        'w1.0': file('w_win_test.xjson', 'w'),
+        'b1.0': file('b_win_test.xjson', 'w'),
+        'w-1.0': file('w_lose_test.xjson', 'w'),
+        'b-1.0': file('b_lose_test.xjson', 'w'),
+        'w0.0': file('w_draw_test.xjson', 'w'),
+        'b0.0': file('b_draw_test.xjson', 'w')
+        }    
     for row, line in enumerate(f.readlines()):
         if line[0] != '{':
             continue
+        fm = fm_train
         if row >= 25000:
-            break
+            fm = fm_test
         obj = cjson.decode(line)
-        #print row, obj        
         result = obj['result'] # 1.0, 0.0, -1.0
         co = obj['$g_co'] # w, b        
         key = "%s%.1f" % (co, result)
