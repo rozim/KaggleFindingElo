@@ -4,44 +4,32 @@ import sys
 import cjson
 import gflags
 import collections
-import numpy
 
 FLAGS = gflags.FLAGS
 gflags.DEFINE_string('in_model', 'model.xjson', 'Output of generate-model.py')
-gflags.DEFINE_string('field', '', '')
-gflags.DEFINE_integer('limit', 100, '')
 
 def ProcessModel(f):
-    study = collections.defaultdict(list)
-    rev_study = collections.defaultdict(list)    
+    fm = {
+        'w1.0': file('w_win.xjson', 'w'),
+        'b1.0': file('b_win.xjson', 'w'),
+        'w-1.0': file('w_lose.xjson', 'w'),
+        'b-1.0': file('b_lose.xjson', 'w'),
+        'w0.0': file('w_draw.xjson', 'w'),
+        'b0.0': file('b_draw.xjson', 'w')
+        }
     for row, line in enumerate(f.readlines()):
         if line[0] != '{':
             continue
-        if row > FLAGS.limit:
+        if row >= 25000:
             break
-
         obj = cjson.decode(line)
         #print row, obj        
-        rating = obj['$g_co_rating']
-        #print rating
-        bucket = (rating / 100) * 100
-        study[bucket].append(obj[FLAGS.field])
-        rev_study[int(obj[FLAGS.field])].append(bucket)
-    return study, rev_study
+        result = obj['result'] # 1.0, 0.0, -1.0
+        co = obj['$g_co'] # w, b        
+        key = "%s%.1f" % (co, result)
+        fm[key].write(line)
+        
 
-def Report(study):
-    print 'Bucket| #      | Min  | Max  |Median| Mean |  Dev'
-    for bucket in sorted(study.keys()):
-        ents = study[bucket]
-        if len(ents) < 10:
-            continue        
-        print "%4d  | %6d | %4.0f | %4.0f | %4.0f | %4.0f | %4.0f" % (bucket,
-                          len(ents),
-                          numpy.min(ents),
-                          numpy.max(ents),
-                          numpy.median(ents),
-                          numpy.mean(ents),
-                          numpy.std(ents))
 def main(argv):
     try:
       argv = FLAGS(argv)  # parse flags
@@ -49,15 +37,7 @@ def main(argv):
       print '%s\\nUsage: %s ARGS\\n%s' % (e, sys.argv[0], FLAGS)
       sys.exit(1)
 
-    assert FLAGS.field != ''
-    (study, rev_study) = ProcessModel(file(FLAGS.in_model))
-
-    Report(study)
-    print
-    Report(rev_study)
-
-                          
-                          
+    ProcessModel(file(FLAGS.in_model))
 
 if __name__ == '__main__':
     main(sys.argv)        
