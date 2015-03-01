@@ -32,7 +32,7 @@ void quit() {
 
 int main(int argc, char * argv[]) {
   polyglot_init();
-  int bad = 0;
+  int bad = 0, bad1 = 0, bad2 = 0, bad3 = 0;
   int good = 0;
   while (*++argv) {
     pgn_t pgn[1];
@@ -60,11 +60,23 @@ int main(int argc, char * argv[]) {
                ply);
         good++;
       } else {
+        if (!(w > 1000 && b > 1000 && w < 3000 && b < 3000)) {
+          if (w == 0) {
+            bad3++;
+          }
+          if (b == 0) {
+            bad3++;
+          }
+          bad1++;
+        }
+        if (!(r == "1-0" || r == "0-1" || r == "1/2-1/2")) {
+          bad2++;
+        }
         bad++;
       }
     }
     pgn_close(pgn);
   }
-  fprintf(stderr, "Bad: %d\n", bad);
+  fprintf(stderr, "Bad: %d  bad_elo=%d  no_rat%d   no_elo=%d\n", bad, bad1, bad2, bad3);
   fprintf(stderr, "Good: %d\n", good);
 }
