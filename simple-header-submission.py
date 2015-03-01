@@ -15,10 +15,11 @@ def Predict(ply, result):
     elif result == '0-1':
         return (2202, 2335)
     elif result == '1/2-1/2':
-        if ply < 30:
-            return (2363, 2384)
-        else:
-            return (2346, 2357)
+        #X:: (0.0022 * ply**2) + (-0.3426 * ply) + 2352.3218
+        #Y:: (0.0023 * ply**2) + (-0.4363 * ply) + 2369.6024
+
+        return (int((0.0022 * ply**2) + (-0.3426 * ply) + 2352.3218),
+                int(((0.0023 * ply**2) + (-0.4363 * ply) + 2369.6024)))
 
 def main(argv):
     try:
