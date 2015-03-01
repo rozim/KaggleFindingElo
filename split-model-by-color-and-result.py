@@ -28,10 +28,12 @@ def ProcessModel(f):
     for row, line in enumerate(f.readlines()):
         if line[0] != '{':
             continue
-        fm = fm_train
-        if row >= 25000:
-            fm = fm_test
+
         obj = cjson.decode(line)
+        fm = fm_train        
+        if obj['$g_co_rating'] == 0:
+            fm = fm_test
+
         result = obj['result'] # 1.0, 0.0, -1.0
         co = obj['$g_co'] # w, b        
         key = "%s%.1f" % (co, result)
