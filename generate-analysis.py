@@ -7,10 +7,14 @@ try:
     import cjson
     def encode(obj):
       return cjson.encode(obj)
+    def decode(obj):
+      return cjson.decode(obj)    
 except ImportError:
   import json
   def encode(obj):
     return json.dumps(obj)
+  def decode(obj):
+    return json.loads(obj)  
   
 import sys
 import os.path
@@ -83,7 +87,7 @@ def main(argv):
         with file(fn) as f:
             for line in f.readlines():
                 res = AnalyzeFromLine(p, line.strip())
-                out.write(dumps(res))
+                out.write(encode(res))
                 out.write('\n\n')
                 positions += 1
                 if positions % 100 == 0:
