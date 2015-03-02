@@ -83,7 +83,7 @@ def main(argv):
         with file(fn) as f:
             for line in f.readlines():
                 res = AnalyzeFromLine(p, line.strip())
-                out.write(encode(res))
+                out.write(dumps(res))
                 out.write('\n\n')
                 positions += 1
                 if positions % 100 == 0:
