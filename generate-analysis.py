@@ -1,11 +1,27 @@
 #!/usr/bin/python
 
 from chess_util import *
-import time
-import gflags
-import sys
-import os.path
+
 import cjson
+import gflags
+import os.path
+import sys
+import time
+
+try:
+    import cjson
+    def encode(obj):
+      return cjson.encode(obj)
+    def decode(obj):
+      return cjson.decode(obj)    
+except ImportError:
+  import json
+  def encode(obj):
+    return json.dumps(obj)
+  def decode(obj):
+    return json.loads(obj)  
+  
+
 
 FLAGS = gflags.FLAGS
   
@@ -75,7 +91,7 @@ def main(argv):
         with file(fn) as f:
             for line in f.readlines():
                 res = AnalyzeFromLine(p, line.strip())
-                out.write(cjson.encode(res))
+                out.write(encode(res))
                 out.write('\n\n')
                 positions += 1
                 if positions % 100 == 0:

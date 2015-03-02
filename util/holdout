@@ -1,0 +1,29 @@
+#!/usr/bin/python                                                                                                                                     #
+
+# Divide a file into a holdout set (90%) and a training set (10%).
+# These splits are shuffled too.
+
+import sys
+import random
+import gflags
+FLAGS = gflags.FLAGS
+
+gflags.DEFINE_string('input', '', '')
+gflags.DEFINE_string('train', '', '90%')
+gflags.DEFINE_string('test', '', '10%')
+
+def main(argv):
+    try:
+      argv = FLAGS(argv)  # parse flags
+    except gflags.FlagsError, e:
+      print '%s\\nUsage: %s ARGS\\n%s' % (e, sys.argv[0], FLAGS)
+      sys.exit(1)
+
+    all = file(FLAGS.input).readlines()
+    random.shuffle(all)
+    pct90 = int(len(all) * 0.9)
+    file(FLAGS.train, 'w').write(''.join(all[0:pct90]))
+    file(FLAGS.test, 'w').write(''.join(all[pct90:]))        
+
+if __name__ == '__main__':
+    main(sys.argv)        
