@@ -1,18 +1,10 @@
 
 
-# passes=10000
-# b_draw_train_game_ply.vw       average loss = 98.2142 h
-# b_win_train_game_ply.vw       average loss = 97.8827 h
-# w_draw_train_game_ply.vw       average loss = 100.312 h
-# w_win_train_game_ply.vw       average loss = 97.777 h
-# b_lose_train_game_ply.vw       average loss = 108.223 h
-# w_lose_train_game_ply.vw       average loss = 111.379 h
-# 22m
+passes=10000
 
-passes=100000
-
-for data in b_draw_train_game_ply.vw b_win_train_game_ply.vw w_draw_train_game_ply.vw w_win_train_game_ply.vw b_lose_train_game_ply.vw w_lose_train_game_ply.vw
-do
+for data in b_draw_train.vw b_win_train.vw w_draw_train.vw w_win_train.vw b_lose_train.vw w_lose_train.vw
+do 
+    (
     base=`basename ${data} .vw`
     rm -f ${base}.cache ${base}.readable ${base}.model ${base}.out ${base}.err ${base}-invert.out$ ${base}-invert.err ${base}.invert
     vw --loss_function=quantile \
@@ -31,8 +23,8 @@ do
     if [ ! -s ${base}-invert.out ]; then
         rm -f ${base}-invert.out
     fi
-    echo ${data} "     " `grep 'average loss' ${base}.err`
-
+    printf "%20s | %s\\n" ${data} "`grep 'average loss' ${base}.err`"
+    ) &
 done
 
 echo waiting
@@ -41,7 +33,7 @@ do
     wait
 done
 
-for data in b_draw_train_game_ply.vw b_win_train_game_ply.vw w_draw_train_game_ply.vw w_win_train_game_ply.vw b_lose_train_game_ply.vw w_lose_train_game_ply.vw
+for data in b_draw_train.vw b_win_train.vw w_draw_train.vw w_win_train.vw b_lose_train.vw w_lose_train.vw
 do
     base=`basename ${data} .vw`
     xbase=`echo $base | sed -e s/train/test/`
