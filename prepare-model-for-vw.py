@@ -11,6 +11,7 @@ gflags.DEFINE_string('in_model', 'model.xjson', 'Output of generate-model.py')
 gflags.DEFINE_string('field', '', '')
 gflags.DEFINE_integer('limit', 100, '')
 gflags.DEFINE_bool('extra', False, '')
+# TBD: regularize to signoid
 
 def ProcessModel(f):
     for row, line in enumerate(f.readlines()):
@@ -20,19 +21,30 @@ def ProcessModel(f):
             break
         obj = cjson.decode(line)
         if FLAGS.extra:
-            val = obj[FLAGS.field]
-            field = FLAGS.field
-            print "%4d '%s_%s| %s:%.1f %s:%.1f %s:%.2f %s:%.2f" % (
+
+            #field = FLAGS.field
+            emit = "%4d '%s_%s|" % (
                 obj['$g_co_rating'],
                 obj['$g_co'],
-                obj['$g_event'],
-                field,
-                val,
-                field + '_pow2', val ** 2,
-                field + '_sqrt' , val ** 0.5,
-                field + '_log', math.log(1 + val))
+                obj['$g_event'])
+            ar = FLAGS.field.split(',')
+            for field in ar:
+                val = obj[field] 
+                chunk = " %s:%.1f %s:%.1f %s:%.2f %s:%.2f" % (
+                    field, val,
+                    field + '_pow2', val ** 2,
+                    field + '_sqrt' , val ** 0.5,
+                    field + '_log', math.log(1 + val))
+                emit += chunk
+            print emit
         else:
-            print "%4d '%s_%s| %s:%.1f" % (obj['$g_co_rating'], obj['$g_co'], obj['$g_event'], FLAGS.field, obj[FLAGS.field])
+            ar = FLAGS.field.split(',')
+            emit = "%4d '%s_%s|" % (obj['$g_co_rating'], obj['$g_co'], obj['$g_event'])
+            for field in ar:
+                val = obj[field]             
+                chunk =  " %s:%.1f" % (field, val)
+                emit += chunk
+            print emit
                                                   
 
 def main(argv):
