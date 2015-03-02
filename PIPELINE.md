@@ -25,6 +25,10 @@ time ./study-headers.py < generated/twic-blacklist-filtered-headers.csv > genera
 
 Sun Mar  1 13:50:36 PST 2015
 
+# 0
+./generate-model.py
+
+
 # 1a.
 #   in  = model.xjson
 #   out = {w,b}_{win,lose,draw}.xjson
@@ -37,3 +41,11 @@ Sun Mar  1 13:50:36 PST 2015
 #   in =  {w,b}_{win,lose,draw}.vw
 #   out = {w,b}_{win,lose,draw}.{err,model,readable}
 ./run-vowpal6.sh 
+
+#
+# Sun Mar  1 14:31:58 PST 2015
+
+ ./generate-model.py --limit=50000 generated/game2json/ > model5.xjson
+./splitter.sh
+./run-vowpal6.sh 
+./form-submission6.py > models/9/submission9.csv

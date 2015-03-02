@@ -3,9 +3,10 @@ rm -f *.cache *.readable *.model *.predictions
 
 # TBD: --compressed  
 
-train=delta_avg_train.vw
-test=delta_avg_test.vw
-passes=200
+prefix=$1
+train=${prefix}_train.vw
+test=${prefix}_test.vw
+passes=250
 
 vw --loss_function=quantile  \
     --compressed \
