@@ -3,13 +3,9 @@
 from chess_util import *
 import time
 import gflags
-try:
-    import cjson as json
-except ImportError:
-  import json
-  
 import sys
 import os.path
+import cjson
 
 FLAGS = gflags.FLAGS
   
@@ -18,7 +14,7 @@ gflags.DEFINE_integer('hash', 128, 'Hash table size')
 gflags.DEFINE_integer('multipv', 1, 'Moves to search')
 gflags.DEFINE_string('output', '', 'Output file')
 gflags.DEFINE_string('done', '', 'Done file')
-gflags.DEFINE_string('engine', '/home/dspencer/Stockfish/src/stockfish', '')
+gflags.DEFINE_string('engine', '/usr/local/bin/stockfish', '')
 
 def Analyze(p, fen, moves):
     t1 = time.time()
