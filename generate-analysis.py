@@ -2,7 +2,6 @@
 
 from chess_util import *
 
-import cjson
 import gflags
 import os.path
 import sys
