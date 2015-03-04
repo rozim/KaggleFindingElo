@@ -263,9 +263,9 @@ def main(argv):
       print '%s\\nUsage: %s ARGS\\n%s' % (e, sys.argv[0], FLAGS)
       sys.exit(1)
 
-    db2 = leveldb.LevelDB(FLAGS.analysis2)
-    db3 = leveldb.LevelDB(FLAGS.analysis3)    
-    db13 = leveldb.LevelDB(FLAGS.analysis13)
+    db2 = leveldb.LevelDB(FLAGS.analysis2, max_open_files=100)
+    db3 = leveldb.LevelDB(FLAGS.analysis3, max_open_files=100)    
+    db13 = leveldb.LevelDB(FLAGS.analysis13, max_open_files=100)
 
     if len(argv[1:]) == 0:
         print 'Need *.json or (generated/game2json/#####.json) dir (generated/game2json) arg'
