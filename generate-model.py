@@ -14,7 +14,9 @@ from collections import namedtuple
 
 FLAGS = gflags.FLAGS
 
-gflags.DEFINE_string('analysis1', 'd1.leveldb', ("""Analysis database.
+gflags.DEFINE_string('analysis2', 'd2.leveldb', ("""Analysis database.
+                                                Key = 'simple FEN' """ ))
+gflags.DEFINE_string('analysis3', 'd3.leveldb', ("""Analysis database.
                                                 Key = 'simple FEN' """ ))
 gflags.DEFINE_string('analysis13', 'd13.leveldb', ("""Analysis database.
                                                 Key = 'simple FEN' """ ))
@@ -100,12 +102,15 @@ GameInfo = namedtuple('GameInfo', ['event',
                                    'result',
                                    'is_mate',
                                    'co_elo',
-                                   'co_deltas_d1',
+                                   'co_deltas_d2',
+                                   'co_deltas_d3',                                   
                                    'co_deltas_d13',
-                                   'co_scores_d1',
+                                   'co_scores_d2',
+                                   'co_scores_d3',                                   
                                    'co_scores_d13',
                                    'co_result',
-                                   'first_loss_d1',
+                                   'first_loss_d2',
+                                   'first_loss_d3',                                   
                                    'first_loss_d13'
                                    ])
 
@@ -167,23 +172,29 @@ def CalculateFirstLoss(deltas):
             first_loss_300 = ply
     return (first_loss_100, first_loss_200, first_loss_300)
 
-def StudyGame(db1, db13, opening_positions, fn):
+def StudyGame(db2, db3, db13, opening_positions, fn):
     with file(fn) as f:
         game = Game(f)
 
-        mega_d1 = list(GenerateAnalysis(db1, game))
+        mega_d2 = list(GenerateAnalysis(db2, game))
+        mega_d3 = list(GenerateAnalysis(db3, game))        
         mega_d13 = list(GenerateAnalysis(db13, game))
-        (deltas_d1, scores_d1) = CalculateDeltasAndScores(mega_d1)
+        (deltas_d2, scores_d2) = CalculateDeltasAndScores(mega_d2)
+        (deltas_d3, scores_d3) = CalculateDeltasAndScores(mega_d3)        
         (deltas_d13, scores_d13) = CalculateDeltasAndScores(mega_d13)
-        first_loss_d1 = [CalculateFirstLoss(deltas_d1[0]), CalculateFirstLoss(deltas_d1[1])]
+        first_loss_d2 = [CalculateFirstLoss(deltas_d2[0]), CalculateFirstLoss(deltas_d2[1])]
+        first_loss_d3 = [CalculateFirstLoss(deltas_d3[0]), CalculateFirstLoss(deltas_d3[1])]        
         first_loss_d13 = [CalculateFirstLoss(deltas_d13[0]), CalculateFirstLoss(deltas_d13[1])]
 
         return GameInfo(game_ply = game.game_ply,
-                        first_loss_d1 = first_loss_d1,
+                        first_loss_d2 = first_loss_d2,
+                        first_loss_d3 = first_loss_d3,                        
                         first_loss_d13 = first_loss_d13,
-                        co_deltas_d1 = deltas_d1,
+                        co_deltas_d2 = deltas_d2,
+                        co_deltas_d3 = deltas_d3,                        
                         co_deltas_d13 = deltas_d13,
-                        co_scores_d1 = scores_d1,
+                        co_scores_d2 = scores_d2,
+                        co_scores_d3 = scores_d3,                        
                         co_scores_d13 = scores_d13,
                         event = game.event,
                         is_mate = game.is_mate,
@@ -198,12 +209,12 @@ def StudyGame(db1, db13, opening_positions, fn):
 
 
 
-def ProcessArgs(db1, db13, opening_positions, limit, argv):
+def ProcessArgs(db2, db3, db13, opening_positions, limit, argv):
     global files
 
     for event in range(1, limit + 1):
         fn = 'generated/game2json/%05d.json' % event
-        yield StudyGame(db1, db13, opening_positions, fn)
+        yield StudyGame(db2, db3, db13, opening_positions, fn)
         files += 1
         if files >= limit:
             break
@@ -252,7 +263,8 @@ def main(argv):
       print '%s\\nUsage: %s ARGS\\n%s' % (e, sys.argv[0], FLAGS)
       sys.exit(1)
 
-    db1 = leveldb.LevelDB(FLAGS.analysis1)
+    db2 = leveldb.LevelDB(FLAGS.analysis2)
+    db3 = leveldb.LevelDB(FLAGS.analysis3)    
     db13 = leveldb.LevelDB(FLAGS.analysis13)
 
     if len(argv[1:]) == 0:
@@ -261,20 +273,23 @@ def main(argv):
 
     opening_positions = ReadOpeningPositions('generated/position-frequency.csv')
 
-    for gi_num, gi in enumerate(ProcessArgs(db1, db13, opening_positions, FLAGS.limit, argv[1:])):
+    for gi_num, gi in enumerate(ProcessArgs(db2, db3, db13, opening_positions, FLAGS.limit, argv[1:])):
         (draw_ply, i_played_mate, i_was_mated) = ProcessDrawAndMate(gi)
 
         for co in [0, 1]:
-            (delta_median_d1, delta_stddev_d1, delta_avg_d1) = ProcessDeltas(gi, co, gi.co_deltas_d1[co])
+            (delta_median_d2, delta_stddev_d2, delta_avg_d2) = ProcessDeltas(gi, co, gi.co_deltas_d2[co])
+            (delta_median_d3, delta_stddev_d3, delta_avg_d3) = ProcessDeltas(gi, co, gi.co_deltas_d3[co])            
             (delta_median_d13, delta_stddev_d13, delta_avg_d13) = ProcessDeltas(gi, co, gi.co_deltas_d13[co])
 
             standard = {
                 '$g_event': gi.event,
                 '$g_co_rating': gi.co_elo[co],
                 '$g_co': ["w", "b"][co],
-                '$g_co_deltas_d1': gi.co_deltas_d1[co],
+                '$g_co_deltas_d2': gi.co_deltas_d2[co],
+                '$g_co_deltas_d3': gi.co_deltas_d3[co],                
                 '$g_co_deltas_d13': gi.co_deltas_d13[co],
-                '$g_co_scores_d1': gi.co_scores_d1[co],
+                '$g_co_scores_d2': gi.co_scores_d2[co],
+                '$g_co_scores_d3': gi.co_scores_d3[co],                
                 '$g_co_scores_d13': gi.co_scores_d13[co],
 
                 'color_value': [1, -1][co],
@@ -283,20 +298,30 @@ def main(argv):
                 'draw_ply': draw_ply,
                 'i_played_mate': i_played_mate[co],
                 'i_was_mated': i_was_mated[co],
-                'delta_max_d1': safe_max(gi.co_deltas_d1[co]),
+                'delta_max_d2': safe_max(gi.co_deltas_d2[co]),
+                'delta_max_d3': safe_max(gi.co_deltas_d3[co]),                
                 'delta_max_d13': safe_max(gi.co_deltas_d13[co]),
-                'delta_avg_d1': delta_avg_d1,
-                'delta_median_d1': delta_median_d1,
+                'delta_avg_d2': delta_avg_d2,
+                'delta_avg_d3': delta_avg_d3,
+                'delta_avg_d13': delta_avg_d13,
+                
+                'delta_median_d2': delta_median_d2,
+                'delta_median_d3': delta_median_d3,                
                 'delta_avg_d13': delta_avg_d13,
                 'delta_median_d13': delta_median_d13,
-                'delta_stddev_d1': delta_stddev_d1,
                 'delta_stddev_d13': delta_stddev_d13,
-                'first_loss_100_d1': gi.first_loss_d1[co][0],
-                'first_loss_200_d1': gi.first_loss_d1[co][1],
-                'first_loss_300_d1': gi.first_loss_d1[co][2],
+                
+                'first_loss_100_d2': gi.first_loss_d2[co][0],
+                'first_loss_200_d2': gi.first_loss_d2[co][1],
+                'first_loss_300_d2': gi.first_loss_d2[co][2],
+                
+                'first_loss_100_d3': gi.first_loss_d3[co][0],
+                'first_loss_200_d3': gi.first_loss_d3[co][1],
+                'first_loss_300_d3': gi.first_loss_d3[co][2],
+                
                 'first_loss_100_d13': gi.first_loss_d13[co][0],
                 'first_loss_200_d13': gi.first_loss_d13[co][1],
-                'first_loss_300_d13': gi.first_loss_d13[co][2]
+                'first_loss_300_d13': gi.first_loss_d13[co][2],                
             }
             print cjson.encode(standard)
 
@@ -306,7 +331,4 @@ if __name__ == '__main__':
     main(sys.argv)
 
 
-        #for ply, co, pos, analysis in mega_d1:
-        #simple_pos = chess_util.SimplifyFen(pos.fen).split(' ')[0]
-        #if simple_pos in opening_positions:
-        #opening.add(simple_pos)
+
