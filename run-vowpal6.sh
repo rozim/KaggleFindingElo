@@ -1,6 +1,6 @@
 
 
-passes=10000
+passes=2000
 
 for data in b_draw_train.vw b_win_train.vw w_draw_train.vw w_win_train.vw b_lose_train.vw w_lose_train.vw
 do 
