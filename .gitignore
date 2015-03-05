@@ -74,3 +74,12 @@ position_frequency
 pgn_header_histogram
 pgn_headers_to_csv
 *.cache
+*.ignore
+*.model
+*.readable
+*.predictions
+*.xjson
+*.invert
+*.vw
+shh?
+tmp?
