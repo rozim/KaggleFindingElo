@@ -13,6 +13,7 @@ FLAGS = gflags.FLAGS
 gflags.DEFINE_string('field', '', '')
 gflags.DEFINE_integer('limit', 100, '')
 gflags.DEFINE_integer('n_estimators', 10, '')
+gflags.DEFINE_bool('extra', False, '')
 
 def ProcessModel(f):
     for row, line in enumerate(f.readlines()):
@@ -22,7 +23,18 @@ def ProcessModel(f):
             break
         obj = cjson.decode(line)
         ar = FLAGS.field.split(',')
-        yield obj['$g_event'], [obj[field] for field in ar], obj['$g_co_rating']
+        if FLAGS.extra:
+            prelim = [obj[field] for field in ar]
+            vec = []
+            for ent in prelim:
+                vec.append(ent)
+                vec.append(ent ** 2)
+                vec.append(ent ** 0.5)
+                vec.append(math.log(1.0 + ent))
+            yield obj['$g_event'], vec, obj['$g_co_rating']                
+            pass
+        else:
+            yield obj['$g_event'], [obj[field] for field in ar], obj['$g_co_rating']
 
 def ReadAndBreakUp(fn):
 
@@ -41,10 +53,11 @@ def Evaluate(train, test):
     r = sklearn.ensemble.RandomForestRegressor(n_estimators = FLAGS.n_estimators, min_samples_leaf = 10, min_samples_split = 10)
 
     r.fit(train_x, train_y)
+    
     predictions = {}
     for i, x in enumerate(test_x):
         predictions[ev[i]] = r.predict(x)
-    return predictions
+    return predictions, r.score(train_x, train_y)    
 
 def main(argv):
     try:
@@ -54,15 +67,19 @@ def main(argv):
       sys.exit(1)
 
     w_predictions = {}
-    b_predictions = {}    
+    b_predictions = {}
+    scores = []
     for what in ['b_draw', 'b_lose', 'b_win', 'w_draw', 'w_lose', 'w_win']:
-        print '#', what
-        p = Evaluate(ReadAndBreakUp(what + '_train.xjson'),
-                     ReadAndBreakUp(what + '_test.xjson'))
+
+        (p, score) = Evaluate(ReadAndBreakUp(what + '_train.xjson'),
+                              ReadAndBreakUp(what + '_test.xjson'))
+        scores.append(score)
         if what[0] == 'w':
             w_predictions = dict(w_predictions.items() + p.items())
         else:
-            b_predictions = dict(b_predictions.items() + p.items())            
+            b_predictions = dict(b_predictions.items() + p.items())
+        print '%8s: %.4f' % (what, score)
+    print 'Avg: %.4f' % (sum(scores) / float(len(scores)))
 
     f = file('submission.csv', 'w')
     f.write('Event,WhiteElo,BlackElo\n')
