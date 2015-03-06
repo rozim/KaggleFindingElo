@@ -6,6 +6,7 @@ import cjson
 import gflags
 import collections
 import sklearn.ensemble
+import sklearn.grid_search
 import random
 
 FLAGS = gflags.FLAGS
@@ -53,18 +54,40 @@ def Evaluate(train, test):
     test_x = [ent[1] for ent in test]
     test_y = [ent[2] for ent in test]
     
-    r = sklearn.ensemble.RandomForestRegressor(n_estimators = FLAGS.n_estimators,
-                                               min_samples_leaf = FLAGS.min_samples_leaf,
-                                               min_samples_split = FLAGS.min_samples_split,
-                                               max_features = FLAGS.max_features)
+    r = sklearn.ensemble.RandomForestRegressor()
+    #r = sklearn.ensemble.RandomForestRegressor(n_estimators = FLAGS.n_estimators,
+    #min_samples_leaf = FLAGS.min_samples_leaf,
+    #min_samples_split = FLAGS.min_samples_split,
+    #max_features = FLAGS.max_features)    
 
-
-    r.fit(train_x, train_y)
+    #'bootstrap': [True, False],
+    #'oob_score': [True, False]    
+    grid = sklearn.grid_search.GridSearchCV(r,
+                                            {'n_estimators': [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024],
+                                             'max_depth': [2, 3],
+                                             'max_features': ['auto', 'sqrt', 'log2', 0.9, 0.8, 0.7, 0.6, 0.5],
+                                             'min_samples_leaf': [1, 2, 4],
+                                             'min_samples_split': [1, 2, 4]},
+                                            verbose = 1)
+    grid.fit(train_x, train_y)
+    print
+    print 'grid: ', grid
+    print    
+    print 'gp: ', grid.get_params()
+    print    
+    print 'best est: ', grid.best_estimator_
+    print    
+    print 'best score: ', grid.best_score_
+    print
+    print 'best params: ', grid.best_params_
+    print    
+    print 'grid scores: ', grid.grid_scores_
+    print    
     
     predictions = {}
     for i, x in enumerate(test_x):
-        predictions[ev[i]] = r.predict(x)
-    return predictions, r.score(train_x, train_y)    
+        predictions[ev[i]] = grid.predict(x)
+    return predictions, grid.score(train_x, train_y)    
 
 def main(argv):
     try:
@@ -85,11 +108,11 @@ def main(argv):
             w_predictions = dict(w_predictions.items() + p.items())
         else:
             b_predictions = dict(b_predictions.items() + p.items())
-        print '%8s: %.4f' % (what, score)
+        print 'WHAT: %8s: %.4f' % (what, score)
     print 'Avg: %.4f' % (sum(scores) / float(len(scores)))
     # score to beat: 0.4947 for n=10000 10 10 auto
 
-    f = file('submission.csv', 'w')
+    f = file('submission-grid.csv', 'w')
     f.write('Event,WhiteElo,BlackElo\n')
     for n in sorted(w_predictions.keys()):
         f.write('%s,%.0f,%.0f\n' % (n, w_predictions[n], b_predictions[n]))
