@@ -33,7 +33,7 @@ def ParseScore(ar):
     else:
         return -10000 - n
 
-p = subprocess.Popen('/home/dspencer/Stockfish/src/stockfish',
+p = subprocess.Popen('/usr/local/bin/stockfish',
                      stderr=file('stderr.txt', 'w'),
                      stdin=subprocess.PIPE,               
                      stdout=subprocess.PIPE)
@@ -44,12 +44,9 @@ print 'uci: ', SendCommandAndWaitFor(p, 'uci', 'uciok')
 print 'so: ', SendCommand(p, 'setoption name Clear Hash value on')
 print 'so: ', SendCommand(p, 'setoption name Hash value 128')
 print 'Searching: '
-SendCommand(p, 'position fen 8/p3q2k/1p2p1p1/r2bQ3/3P2R1/8/6P1/5R1K w - - 0 1')
-SendCommand(p, 'position fen 2k4r/ppp2p2/2b2B2/7p/6pP/2P1q1bP/PP3N2/R4QK1 b - - 0 1')
-SendCommand(p, 'position fen K7/5q2/k7/8/8/8/8/8 w - - 0 1')
-lines = SendCommandAndWaitFor(p, 'go depth 10', 'bestmove')
 
-
+SendCommand(p, 'position fen nbqkbnr/ppp2ppp/8/8/2Bp4/4P3/PP3PPP/RNBQK1NR w KQkq - 0 5')
+lines = SendCommandAndWaitFor(p, 'go depth 1', 'bestmove')
 
 for line in lines:
 

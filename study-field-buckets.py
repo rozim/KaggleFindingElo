@@ -26,6 +26,8 @@ def ProcessModel(f):
         rating = obj['$g_co_rating']
         #print rating
         bucket = (rating / 100) * 100
+        #if rating == 2658 and obj[FLAGS.field] < 10:
+        #print 'DBG', bucket, '!', obj['$g_event'], "!", obj[FLAGS.field]
         study[bucket].append(obj[FLAGS.field])
         rev_study[int(obj[FLAGS.field])].append(rating)
     return study, rev_study

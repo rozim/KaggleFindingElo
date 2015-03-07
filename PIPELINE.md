@@ -53,3 +53,7 @@ Sun Mar  1 13:50:36 PST 2015
 # Thu Mar  5 00:05:07 PST 2015
 # random forest
 time ./random-forest-mega.py --n_estimators=500 --limit=25000 --field=game_ply,delta_avg_d2,delta_avg_d3,delta_avg_d13,delta_median_d2,delta_median_d3,delta_median_d13,delta_stddev_d2,delta_stddev_d3,delta_stddev_d13,delta_max_d2,delta_max_d3,delta_max_d13,first_loss_100_d13,first_loss_200_d13,first_loss_300_d13,first_loss_100_d2,first_loss_200_d2,first_loss_300_d2,first_loss_100_d3,first_loss_200_d3,first_loss_300_d3,i_was_mated,i_played_mate,draw_ply 
+
+Fri Mar  6 08:46:16 PST 2015
+
+                 nice time ./random-forest-mega-grid.py --extra --limit=25000 --field=game_ply,delta_avg_d2,delta_avg_d3,delta_avg_d13,delta_median_d2,delta_median_d3,delta_median_d13,delta_stddev_d13,delta_max_d2,delta_max_d3,delta_max_d13,first_loss_100_d13,first_loss_200_d13,first_loss_300_d13,first_loss_100_d2,first_loss_200_d2,first_loss_300_d2,first_loss_100_d3,first_loss_200_d3,first_loss_300_d3,i_was_mated,i_played_mate,draw_ply --min_samples_leaf=10 --min_samples_split=5 --max_features=auto >&rfg.shh
