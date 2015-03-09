@@ -1,5 +1,4 @@
 #!/usr/bin/python
-import numpy
 import math
 import sys
 import cjson
@@ -8,6 +7,7 @@ import collections
 import sklearn.ensemble
 import random
 import time
+import re
 
 FLAGS = gflags.FLAGS
 
@@ -58,9 +58,6 @@ def ReadAndBreakUp(fn):
     return all
 
 def Evaluate(train, test, pretty):
-    train = numpy.array(train)
-    
-    
     train_x = [ent[1] for ent in train]
     train_y = [ent[2] for ent in train]
     ev = [ent[0] for ent in test]
@@ -70,12 +67,12 @@ def Evaluate(train, test, pretty):
     max_depth = None
     if FLAGS.max_depth > 0:
         max_depth = FLAGS.max_depth
-    if FLAGS.max_features.find('.'):
+    if FLAGS.max_features.find('.') > 0:
         max_features = float(FLAGS.max_features)
     elif re.match("^[0-9]+$", FLAGS.max_features):
         max_features = int(FLAGS.max_features)
     else:
-        max_features = FLAGS.max_feature
+        max_features = FLAGS.max_features
     r = sklearn.ensemble.RandomForestRegressor(n_estimators = FLAGS.n_estimators,
                                                max_features = max_features,
                                                max_depth = max_depth,
@@ -95,8 +92,7 @@ def Evaluate(train, test, pretty):
     for ent in sorted(ar):
         if ent[0] > 0.0:
             print "%.4f : %s" % (ent[0], ent[1])
-    print
-    print 'OOB: ', r.oob_score
+
 
     return predictions, r.score(train_x, train_y)    
 
