@@ -1,17 +1,15 @@
 
 
-for ne in 10000 15000 20000 7500
+for ne in 100 200 400 800 1600 3200 6400 12800
 do
   for v1 in 1 
   do
     for v2 in 1 
     do
-        for v3 in auto sqrt log2
+        for v3 in log2
         do
             echo XXX $v1 $v2 $v3 $ne
-            rm -f submission.csv
             time ./random-forest-mega.py --extra --n_estimators=${ne} --limit=25000 --field=game_ply,delta_avg_d2,delta_avg_d3,delta_avg_d13,delta_median_d2,delta_median_d3,delta_median_d13,delta_stddev_d13,delta_max_d2,delta_max_d3,delta_max_d13,first_loss_100_d13,first_loss_200_d13,first_loss_300_d13,first_loss_100_d2,first_loss_200_d2,first_loss_300_d2,first_loss_100_d3,first_loss_200_d3,first_loss_300_d3,i_was_mated,i_played_mate,draw_ply  --min_samples_leaf=$v1 --min_samples_split=$v2 --max_features=$v3
-            mv submission.csv submission_${ne}_${v3}.csv
         done
     done
   done
