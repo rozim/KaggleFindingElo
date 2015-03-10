@@ -14,12 +14,8 @@ FLAGS = gflags.FLAGS
 gflags.DEFINE_string('csv', 'submission.csv', '')
 gflags.DEFINE_string('field', '', '')
 gflags.DEFINE_integer('limit', 100, '')
-gflags.DEFINE_integer('max_depth', -1, '')
-gflags.DEFINE_integer('n_estimators', 10, '')
 gflags.DEFINE_bool('extra', False, '')
-gflags.DEFINE_integer('min_samples_leaf', 10, '')
-gflags.DEFINE_integer('min_samples_split', 10, '')
-gflags.DEFINE_string('max_features', 'auto', '')
+gflags.DEFINE_integer('n_estimators', 10, '')
 
 def MakePretty():
     vec = []
@@ -38,7 +34,6 @@ def ProcessModel(f):
             break
         obj = cjson.decode(line)
         ar = FLAGS.field.split(',')
-
         if FLAGS.extra:
             prelim = [obj[field] for field in ar]
             vec = []
@@ -65,25 +60,15 @@ def Evaluate(train, test, pretty):
     test_x = [ent[1] for ent in test]
     test_y = [ent[2] for ent in test]
 
-    max_depth = None
-    if FLAGS.max_depth > 0:
-        max_depth = FLAGS.max_depth
-    if FLAGS.max_features.find('.') > 0:
-        max_features = float(FLAGS.max_features)
-    elif re.match("^[0-9]+$", FLAGS.max_features):
-        max_features = int(FLAGS.max_features)
-    else:
-        max_features = FLAGS.max_features
-    r = sklearn.ensemble.RandomForestRegressor(n_estimators = FLAGS.n_estimators,
-                                               max_features = max_features,
-                                               max_depth = max_depth,
-                                               min_samples_leaf = FLAGS.min_samples_leaf,
-                                               min_samples_split = FLAGS.min_samples_split)
+    r = sklearn.ensemble.AdaBoostRegressor(
+        base_estimator = sklearn.ensemble.RandomForestRegressor(n_estimators = FLAGS.n_estimators),
+        n_estimators = FLAGS.n_estimators)
 
     r.fit(train_x, train_y)
     
     predictions = {}
     for i, x in enumerate(test_x):
+        print 'predict', x
         predictions[ev[i]] = r.predict(x)
 
     ar = []
