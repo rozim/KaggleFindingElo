@@ -1,25 +1,27 @@
 #!/usr/bin/python
-import math
-import sys
 import cjson
-import gflags
 import collections
-import sklearn.ensemble
+import gflags
+import math
 import random
-import time
 import re
+import sklearn.ensemble
+import sys
+import time
 
 FLAGS = gflags.FLAGS
 
 gflags.DEFINE_string('csv', 'submission.csv', '')
-gflags.DEFINE_string('field', '', '')
+gflags.DEFINE_string('field', 'delta_avg_d3,delta_avg_d13,delta_max_d13,delta_median_d13,delta_stddev_d13,first_loss_100_d13,first_loss_200_d13,first_loss_300_d13,delta_avg_d13,delta_max_d19,delta_median_d19,delta_stddev_d19,first_loss_100_d19,first_loss_200_d19,first_loss_300_d19,game_ply,i_played_mate,i_was_mated', '')
 gflags.DEFINE_integer('limit', 100, '')
-gflags.DEFINE_integer('max_depth', -1, '')
+gflags.DEFINE_integer('max_depth', -1, '4 may help instead of default')
 gflags.DEFINE_integer('n_estimators', 10, '')
 gflags.DEFINE_bool('extra', False, '')
 gflags.DEFINE_integer('min_samples_leaf', 10, '')
 gflags.DEFINE_integer('min_samples_split', 10, '')
 gflags.DEFINE_string('max_features', 'auto', '')
+gflags.DEFINE_integer('selftest', 1, '')
+gflags.DEFINE_string('what', 'b_draw,b_lose,b_win,w_draw,w_lose,w_win', '')
 
 def MakePretty():
     vec = []
@@ -68,12 +70,14 @@ def Evaluate(train, test, pretty):
     max_depth = None
     if FLAGS.max_depth > 0:
         max_depth = FLAGS.max_depth
+        
     if FLAGS.max_features.find('.') > 0:
         max_features = float(FLAGS.max_features)
     elif re.match("^[0-9]+$", FLAGS.max_features):
         max_features = int(FLAGS.max_features)
     else:
         max_features = FLAGS.max_features
+        
     r = sklearn.ensemble.RandomForestRegressor(n_estimators = FLAGS.n_estimators,
                                                max_features = max_features,
                                                max_depth = max_depth,
@@ -97,6 +101,46 @@ def Evaluate(train, test, pretty):
 
     return predictions, r.score(train_x, train_y)    
 
+def ParseMaxDepth():
+    if FLAGS.max_depth > 0:
+        return FLAGS.max_depth
+    else:
+        return None
+
+def ParseMaxFeatures():    
+    if FLAGS.max_features.find('.') > 0:
+        return float(FLAGS.max_features)
+    elif re.match("^[0-9]+$", FLAGS.max_features):
+        return int(FLAGS.max_features)
+    else:
+        return FLAGS.max_features
+    
+# Ugh, name is wrong.
+def SelfTest(train, pretty):
+    random.shuffle(train)
+    where = int(len(train) * 0.9)
+    train90 = train[0 : where]
+    train10 = train[where + 1 : ]
+    train90_x = [ent[1] for ent in train90]
+    train90_y = [ent[2] for ent in train90]
+    train10_x = [ent[1] for ent in train10]
+    train10_y = [ent[2] for ent in train10]    
+        
+    r = sklearn.ensemble.RandomForestRegressor(n_estimators = FLAGS.n_estimators,
+                                               max_features = ParseMaxFeatures(),
+                                               max_depth = ParseMaxDepth(),
+                                               min_samples_leaf = FLAGS.min_samples_leaf,
+                                               min_samples_split = FLAGS.min_samples_split)
+
+    r.fit(train90_x, train90_y)
+
+    deltas = []
+    for x, y in zip(train10_x, train10_y):
+        predict = r.predict(x)[0]
+        deltas.append(abs(predict - y))
+
+    return (sum(deltas) / len(deltas)), r.score(train10_x, train10_y), r.score(train90_x, train90_y) 
+
 def main(argv):
     try:
       argv = FLAGS(argv)  # parse flags
@@ -105,14 +149,27 @@ def main(argv):
       sys.exit(1)
 
     pretty = MakePretty()
+    if FLAGS.selftest > 0:
+        cols = []
+        for what in FLAGS.what.split(','):
+            for i in range(FLAGS.selftest):
+                t1 = time.time()
+                res, ev10, ev90 = SelfTest(ReadAndBreakUp(what + '_train.xjson'), pretty)
+                cols.append((res, ev10, ev90))
+                print '%10s | %.1f %.4f %.4f | %.1fs' % (what, res, ev10, ev90, time.time() - t1)
+        print 'Score: %.1f' % (sum(abs(ent[0]) for ent in cols) / len(cols))
+        print 'Ev10:  %.4f' % (sum(abs(ent[1]) for ent in cols) / len(cols))
+        print 'Ev90:  %.4f' % (sum(abs(ent[2]) for ent in cols) / len(cols) )       
+        sys.exit(0)
+        
     w_predictions = {}
     b_predictions = {}
     scores = []
-    for what in ['b_draw', 'b_lose', 'b_win', 'w_draw', 'w_lose', 'w_win']:
+    for what in FLAGS.what.split(','):
         t1 = time.time()
         (p, score) = Evaluate(ReadAndBreakUp(what + '_train.xjson'),
                               ReadAndBreakUp(what + '_test.xjson'),
-                              pretty)
+                              pretty)        
         scores.append(score)
         if what[0] == 'w':
             w_predictions = dict(w_predictions.items() + p.items())

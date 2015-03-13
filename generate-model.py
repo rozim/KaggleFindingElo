@@ -23,10 +23,22 @@ gflags.DEFINE_string('analysis13', 'd13.leveldb', ("""Analysis database.
 gflags.DEFINE_string('analysis19', 'd19.leveldb', ("""Analysis database.
                                                 Key = 'simple FEN' """ ))
 
+gflags.DEFINE_string('game_stages', 'generated/game_stages.csv', '')
+
 gflags.DEFINE_string('model_dir', '.', '')
 gflags.DEFINE_integer('limit', 1000, '')
 
 files = 0
+
+game_stages = {} # [event] = (mg ply, eg ply)
+
+# return dict of key=event, value= tuple (start of middle game ply, end game ply)
+def ReadGameStages():
+    res = {}
+    for line in file(FLAGS.game_stages).read().splitlines():
+        ar = line.split(',')
+        res[ar[0]] = (int(ar[1]), int(ar[2]))
+    return res
 
 def safe_max(ar):
     if len(ar) == 0:
@@ -105,8 +117,13 @@ GameInfo = namedtuple('GameInfo', ['event',
                                    'is_mate',
                                    'co_elo',
                                    'co_deltas_d2',
-                                   'co_deltas_d3',                                   
+                                   'co_deltas_d3',
+                                   
                                    'co_deltas_d13',
+                                   'co_deltas_op_d13'
+                                   'co_deltas_mg_d13',
+                                   'co_deltas_eg_d13',
+                                   
                                    'co_deltas_d19',                                   
                                    'co_scores_d2',
                                    'co_scores_d3',                                   
@@ -133,8 +150,6 @@ def GenerateAnalysis(db, game):
         analysis = GameAnalysis(cjson.decode(raw))
         yield ply, co, pos, analysis
 
-
-
 def FindBestLine(analysis):
     move_map = {}
     best_line = None
@@ -147,24 +162,40 @@ def FindBestLine(analysis):
         move_map[line.pv[0]] = line.score
     return (best_line, move_map)
 
-def CalculateDeltasAndScores(mega):
+def CalculateDeltasAndScores(mega, stages):
+    print 'st', stages
+    
     deltas = [[], []]
+    deltas_opening = [[], []]    
+    deltas_midgame = [[], []]
+    deltas_endgame = [[], []] 
     scores = [[], []]
     for ply, co, pos, analysis in mega:
         (best_line, move_map) = FindBestLine(analysis)
         best_move =  best_line.pv[0]
         scores[co].append([move_map[best_move], move_map[pos.move]])
+        
+        if ply <= stages[0]:
+            delta2 = deltas_opening
+        elif ply <= stages[1]:
+            delta2 = deltas_midgame
+        else:
+            delta2 = deltas_endgame
+            
         if pos.move == best_move:
             deltas[co].append(0)
+            delta2[co].append(0)            
         else:
             delta = abs(move_map[best_move] - move_map[pos.move])
             if delta == 0:
                 # Regan gives a correction of -0.03 if an equal move was chosen
                 # but which wasn't the 1st rank.
                 deltas[co].append(3)
+                delta2[co].append(3)                
             else:
                 deltas[co].append(max(3, delta))
-    return deltas, scores
+                delta2[co].append(max(3, delta))                
+    return deltas, deltas_opening, deltas_midgame, deltas_endgame, scores
 
 def CalculateFirstLoss(deltas):
     (first_loss_100, first_loss_200, first_loss_300) = (0, 0, 0)
@@ -178,17 +209,22 @@ def CalculateFirstLoss(deltas):
     return (first_loss_100, first_loss_200, first_loss_300)
 
 def StudyGame(db2, db3, db13, db19, opening_positions, fn):
+    global game_stages
+    
     with file(fn) as f:
+        print 'fn', fn
         game = Game(f)
-
+        stages = game_stages[game.event]
+        print 'ev: ', game.event, ' stages', stages
         mega_d2 = list(GenerateAnalysis(db2, game))
         mega_d3 = list(GenerateAnalysis(db3, game))        
         mega_d13 = list(GenerateAnalysis(db13, game))
         mega_d19 = list(GenerateAnalysis(db19, game))        
-        (deltas_d2, scores_d2) = CalculateDeltasAndScores(mega_d2)
-        (deltas_d3, scores_d3) = CalculateDeltasAndScores(mega_d3)        
-        (deltas_d13, scores_d13) = CalculateDeltasAndScores(mega_d13)
-        (deltas_d19, scores_d19) = CalculateDeltasAndScores(mega_d19) 
+        (deltas_d2, _, _, _, scores_d2) = CalculateDeltasAndScores(mega_d2, stages)
+        (deltas_d3, _, _, _, scores_d3) = CalculateDeltasAndScores(mega_d3, stages) 
+        (deltas_d13, deltas_op_d13, deltas_mg_d13, deltas_eg_d13, scores_d13) = CalculateDeltasAndScores(mega_d13, stages)
+        
+        (deltas_d19, _, _, _, scores_d19) = CalculateDeltasAndScores(mega_d19, stages) 
         first_loss_d2 = [CalculateFirstLoss(deltas_d2[0]), CalculateFirstLoss(deltas_d2[1])]
         first_loss_d3 = [CalculateFirstLoss(deltas_d3[0]), CalculateFirstLoss(deltas_d3[1])]        
         first_loss_d13 = [CalculateFirstLoss(deltas_d13[0]), CalculateFirstLoss(deltas_d13[1])]
@@ -200,8 +236,13 @@ def StudyGame(db2, db3, db13, db19, opening_positions, fn):
                         first_loss_d13 = first_loss_d13,
                         first_loss_d19 = first_loss_d19,                        
                         co_deltas_d2 = deltas_d2,
-                        co_deltas_d3 = deltas_d3,                        
+                        co_deltas_d3 = deltas_d3,
+                        
                         co_deltas_d13 = deltas_d13,
+                        co_deltas_op_d13 = deltas_op_d13,
+                        co_deltas_mg_d13 = deltas_mg_d13,
+                        co_deltas_eg_d13 = deltas_eg_d13,                         
+                        
                         co_deltas_d19 = deltas_d19,                        
                         co_scores_d2 = scores_d2,
                         co_scores_d3 = scores_d3,                        
@@ -267,12 +308,15 @@ def ProcessDeltas(gi, co, deltas):
     return (delta_median, delta_stddev, delta_avg)
 
 def main(argv):
-
+    global game_stages
+    
     try:
       argv = FLAGS(argv)  # parse flags
     except gflags.FlagsError, e:
       print '%s\\nUsage: %s ARGS\\n%s' % (e, sys.argv[0], FLAGS)
       sys.exit(1)
+
+    game_stages = ReadGameStages()
 
     db2 = leveldb.LevelDB(FLAGS.analysis2, max_open_files=100)
     db3 = leveldb.LevelDB(FLAGS.analysis3, max_open_files=100)    
@@ -292,6 +336,12 @@ def main(argv):
             (delta_median_d2, delta_stddev_d2, delta_avg_d2) = ProcessDeltas(gi, co, gi.co_deltas_d2[co])
             (delta_median_d3, delta_stddev_d3, delta_avg_d3) = ProcessDeltas(gi, co, gi.co_deltas_d3[co])            
             (delta_median_d13, delta_stddev_d13, delta_avg_d13) = ProcessDeltas(gi, co, gi.co_deltas_d13[co])
+            
+            (_, _, delta_avg_op_d13) = ProcessDeltas(gi, co, gi.co_deltas_op_d13[co])
+            (_, _, delta_avg_mg_d13) = ProcessDeltas(gi, co, gi.co_deltas_mg_d13[co])
+            (_, _, delta_avg_eg_d13) = ProcessDeltas(gi, co, gi.co_deltas_eg_d13[co])
+            
+            
             (delta_median_d19, delta_stddev_d19, delta_avg_d19) = ProcessDeltas(gi, co, gi.co_deltas_d19[co])            
 
             standard = {
@@ -319,7 +369,12 @@ def main(argv):
                 'delta_max_d19': safe_max(gi.co_deltas_d19[co]),                
                 'delta_avg_d2': delta_avg_d2,
                 'delta_avg_d3': delta_avg_d3,
+                
                 'delta_avg_d13': delta_avg_d13,
+                'delta_avg_op_d13': delta_avg_op_d13,
+                'delta_avg_mg_d13': delta_avg_mg_d13,
+                'delta_avg_eg_d13': delta_avg_eg_d13,
+                
                 'delta_avg_d19': delta_avg_d19,                
                 
                 'delta_median_d2': delta_median_d2,
