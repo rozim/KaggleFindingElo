@@ -41,8 +41,10 @@ def ProcessFile(db, fn):
                 del an['time']
             db.Put(fen, cjson.encode(obj))
         except cjson.DecodeError:
-            print 'ouch: ', ent
-            sys.exit(1)
+            sys.stderr.write('%s: ouch: %s\n' % (fn, ent))
+            sys.stderr.flush()
+            continue
+            #sys.exit(1)
 
 
 def main(argv):
