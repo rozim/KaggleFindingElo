@@ -21,6 +21,8 @@ gflags.DEFINE_integer('min_samples_leaf', 10, '')
 gflags.DEFINE_integer('min_samples_split', 10, '')
 gflags.DEFINE_string('max_features', 'auto', '')
 gflags.DEFINE_integer('selftest', 1, '')
+
+gflags.DEFINE_string('prefix', '', 'Something like model-d19_')
 gflags.DEFINE_string('what', 'b_draw,b_lose,b_win,w_draw,w_lose,w_win', '')
 
 def MakePretty():
@@ -118,9 +120,10 @@ def ParseMaxFeatures():
 # Ugh, name is wrong.
 def SelfTest(train, pretty):
     random.shuffle(train)
-    where = int(len(train) * 0.9)
+    where = int(len(train) * 0.9) # split point
     train90 = train[0 : where]
     train10 = train[where + 1 : ]
+    # tbd: use zip(*)
     train90_x = [ent[1] for ent in train90]
     train90_y = [ent[2] for ent in train90]
     train10_x = [ent[1] for ent in train10]
@@ -139,7 +142,11 @@ def SelfTest(train, pretty):
         predict = r.predict(x)[0]
         deltas.append(abs(predict - y))
 
-    return (sum(deltas) / len(deltas)), r.score(train10_x, train10_y), r.score(train90_x, train90_y) 
+    return ((sum(deltas) / len(deltas)),
+            r.score(train10_x, train10_y),
+            r.score(train90_x, train90_y),
+            len(train10_x),
+            len(train90_x))
 
 def main(argv):
     try:
@@ -147,6 +154,20 @@ def main(argv):
     except gflags.FlagsError, e:
       print '%s\\nUsage: %s ARGS\\n%s' % (e, sys.argv[0], FLAGS)
       sys.exit(1)
+      
+    print 'CSV: ', FLAGS.csv
+    print 'Field: ', FLAGS.field
+    print 'Limit: ', FLAGS.limit
+    print 'Depth: ', FLAGS.max_depth
+    print 'Estimators: ', FLAGS.n_estimators
+    print 'Extra: ', FLAGS.extra
+    print 'Min samples leaf: ', FLAGS.min_samples_leaf
+    print 'Min samples split: ', FLAGS.min_samples_split
+    print 'Max features: ', FLAGS.max_features
+    print 'Selftest: ', FLAGS.selftest
+    print 'Prefix: ', FLAGS.prefix    
+    print 'What: ', FLAGS.what
+    print ''
 
     pretty = MakePretty()
     if FLAGS.selftest > 0:
@@ -154,10 +175,17 @@ def main(argv):
         for what in FLAGS.what.split(','):
             for i in range(FLAGS.selftest):
                 t1 = time.time()
-                res, ev10, ev90 = SelfTest(ReadAndBreakUp(what + '_train.xjson'), pretty)
-                cols.append((res, ev10, ev90))
-                print '%10s | %.1f %.4f %.4f | %.1fs' % (what, res, ev10, ev90, time.time() - t1)
-        print 'Score: %.1f' % (sum(abs(ent[0]) for ent in cols) / len(cols))
+                res, ev10, ev90, eval_size, train_size = SelfTest(ReadAndBreakUp(FLAGS.prefix + what + '_train.xjson'), pretty)
+                cols.append((res, ev10, ev90, eval_size))
+                print '%10s | %.1f %.4f %.4f | %.1fs (%d %d)' % (what, res, ev10, ev90, time.time() - t1, eval_size, train_size)
+
+        # Properly weigh the score but it seems to always be the same.
+        top = bot = 0
+        for ent in cols:
+            top += abs(ent[0]) * eval_size
+            bot += eval_size
+        print 'Score: %.4f' % (sum(abs(ent[0]) for ent in cols) / len(cols))            
+        print 'Score: %.4f' % (float(top) / bot)
         print 'Ev10:  %.4f' % (sum(abs(ent[1]) for ent in cols) / len(cols))
         print 'Ev90:  %.4f' % (sum(abs(ent[2]) for ent in cols) / len(cols) )       
         sys.exit(0)
