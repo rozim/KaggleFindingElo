@@ -67,5 +67,13 @@ def main(argv):
         os.remove(fn)
     ProcessModel(file(FLAGS.in_model))
 
+    base = FLAGS.in_model.split('.')[0]
+    for fn in FILES:
+        base2 = fn.split('.')[0]
+        dest = '%s_%s.xjson' % (base, base2)        
+        print "mv %s %s" % (fn, dest)
+        os.rename(fn, dest)
+
+
 if __name__ == '__main__':
     main(sys.argv)        
