@@ -1,5 +1,6 @@
 #!/usr/bin/python
 
+import os
 import sys
 import cjson
 import gflags
@@ -7,6 +8,21 @@ import collections
 
 FLAGS = gflags.FLAGS
 gflags.DEFINE_string('in_model', 'model.xjson', 'Output of generate-model.py')
+
+FILES = [
+    'w_win_train.xjson',
+    'b_win_train.xjson',
+    'w_lose_train.xjson',
+    'b_lose_train.xjson',
+    'w_draw_train.xjson',
+    'b_draw_train.xjson',
+    'w_win_test.xjson',
+    'b_win_test.xjson',
+    'w_lose_test.xjson',
+    'b_lose_test.xjson',
+    'w_draw_test.xjson',
+    'b_draw_test.xjson'
+    ]
 
 def ProcessModel(f):
     fm_train = {
@@ -47,6 +63,8 @@ def main(argv):
       print '%s\\nUsage: %s ARGS\\n%s' % (e, sys.argv[0], FLAGS)
       sys.exit(1)
 
+    for fn in FILES:
+        os.remove(fn)
     ProcessModel(file(FLAGS.in_model))
 
 if __name__ == '__main__':
