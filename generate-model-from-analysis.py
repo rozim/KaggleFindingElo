@@ -297,20 +297,13 @@ def main(argv):
         print 'Need *.json or (generated/game2json/#####.json) dir (generated/game2json) arg'
         sys.exit(2)
 
-    print "ARGV: ", argv[1:]
     for gi_num, gi in enumerate(ProcessArgs(db, FLAGS.limit, argv[1:])):
         if FLAGS.debug:
             print
             print "##### gi_num: ", gi_num, " gi: ", gi
             print
         for co in [0, 1]:
-            alt_stages = []
-            for which in [0, 1, 2, 3, 4]:
-                if len(gi.alt_stages[co][which]) == 0:
-                    alt_stages.append(0)
-                else:
-                    alt_stages.append(numpy.median([min(300, delta) for delta in gi.alt_stages[co][which]]))
-            print alt_stages
+
             (_, _, delta_avg_op) = ProcessDeltas(gi, co, gi.co_deltas_op[co])
             (_, _, delta_avg_mg) = ProcessDeltas(gi, co, gi.co_deltas_mg[co])
             (_, _, delta_avg_eg) = ProcessDeltas(gi, co, gi.co_deltas_eg[co])
@@ -343,6 +336,13 @@ def main(argv):
                 'first_loss_200': gi.first_loss[co][1],
                 'first_loss_300': gi.first_loss[co][2],
             }
+
+            for which in [0, 1, 2, 3, 4]:
+                key = 'alt_stages_%d' % which
+                if len(gi.alt_stages[co][which]) == 0:
+                    standard[key] = 0
+                else:
+                    standard[key] = numpy.mean([min(300, delta) for delta in gi.alt_stages[co][which]])
 
             if FLAGS.verbose:
                 standard['$g_co_deltas'] = gi.co_deltas[co]
