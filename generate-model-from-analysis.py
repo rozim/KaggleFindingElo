@@ -54,18 +54,6 @@ def avg(ar):
         return 0
     return sum(ar) / float(len(ar))
 
-ParseResult = {
-    '1-0': 1.0,
-    '0-1': -1.0,
-    '1/2-1/2': 0.0
-    }
-
-ParseResultFlip = {
-    '1-0': -1.0,
-    '0-1': 1.0,
-    '1/2-1/2': 0.0
-    }
-
 class Position(object):
     def __init__(self, mp):
         self._map = mp
@@ -84,7 +72,6 @@ class Game(object):
     event = property(lambda me: me._map['event'])
     black_elo = property(lambda me: me._map.get('black_elo', 0))
     white_elo = property(lambda me: me._map.get('white_elo', 0))
-    result = property(lambda me: me._map['result'])
 
 class GameAnalysis(object):
     def __init__(self, mp):
@@ -113,8 +100,6 @@ class Analysis(object):
 GameInfo = namedtuple('GameInfo', ['event',
                                    'white_elo',
                                    'black_elo',
-                                   'co_result',
-                                   'result',
                                    'co_elo',
                                   
                                    'co_deltas_op',
@@ -246,11 +231,8 @@ def StudyGame(db, fn):
                         event = game.event,
                         white_elo = game.white_elo,
                         black_elo = game.black_elo,
-                        result = ParseResult[game.result],
                         co_elo = [game.white_elo,
-                                  game.black_elo],
-                        co_result = [ParseResult[game.result],
-                                     ParseResultFlip[game.result]])
+                                  game.black_elo])
 
 
 def ProcessArgs(db, limit, argv):
@@ -313,7 +295,6 @@ def main(argv):
                 '$g_co_scores': gi.co_scores[co],
 
                 'color_value': [1, -1][co],
-                'result': gi.co_result[co],
                 'delta_max': safe_max(gi.co_deltas[co]),
 
                 'delta_avg': delta_avg,
