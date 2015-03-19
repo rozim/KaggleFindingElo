@@ -29,6 +29,7 @@ gflags.DEFINE_string('game_stages', 'generated/game_stages.csv', '')
 gflags.DEFINE_string('model_dir', '.', '')
 gflags.DEFINE_integer('limit', 1000, '')
 
+gflags.DEFINE_string('key_prefix', '', 'Something like d19_ to keep track of the analysis this came from')
 gflags.DEFINE_bool('debug', False, '')
 gflags.DEFINE_bool('verbose', False, 'More verbose data in output such as raw arrays')
 
@@ -294,8 +295,8 @@ def main(argv):
                 '$g_co': ["w", "b"][co],
 
                 'color_value': [1, -1][co],
+                
                 'delta_max': safe_max(gi.co_deltas[co]),
-
                 'delta_avg': delta_avg,
                 'delta_avg_op': delta_avg_op,
                 'delta_avg_mg': delta_avg_mg,
@@ -319,6 +320,16 @@ def main(argv):
             if FLAGS.verbose:
                 standard['$g_co_deltas'] = gi.co_deltas[co]
                 standard['$g_co_scores'] = gi.co_scores[co]
+                
+            if FLAGS.key_prefix != '':
+                standard2 = {}
+                for n, v in standard.iteritems():
+                    if n[0] == '$':
+                        standard2[n] = v
+                    else:
+                        standard2[FLAGS.key_prefix + n] = v
+                standard = standard2
+                
             if FLAGS.debug:
                 for n in sorted(standard.keys()):
                     print n, standard[n]
