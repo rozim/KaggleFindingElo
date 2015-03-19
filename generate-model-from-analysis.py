@@ -30,6 +30,7 @@ gflags.DEFINE_string('model_dir', '.', '')
 gflags.DEFINE_integer('limit', 1000, '')
 
 gflags.DEFINE_bool('debug', False, '')
+gflags.DEFINE_bool('verbose', False, 'More verbose data in output such as raw arrays')
 
 files = 0
 
@@ -291,8 +292,6 @@ def main(argv):
                 '$g_event': gi.event,
                 '$g_co_rating': gi.co_elo[co],
                 '$g_co': ["w", "b"][co],
-                '$g_co_deltas': gi.co_deltas[co],
-                '$g_co_scores': gi.co_scores[co],
 
                 'color_value': [1, -1][co],
                 'delta_max': safe_max(gi.co_deltas[co]),
@@ -316,6 +315,10 @@ def main(argv):
                 'first_loss_200': gi.first_loss[co][1],
                 'first_loss_300': gi.first_loss[co][2],
             }
+
+            if FLAGS.verbose:
+                standard['$g_co_deltas'] = gi.co_deltas[co]
+                standard['$g_co_scores'] = gi.co_scores[co]
             if FLAGS.debug:
                 for n in sorted(standard.keys()):
                     print n, standard[n]
