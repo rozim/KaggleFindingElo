@@ -84,7 +84,6 @@ class Game(object):
     event = property(lambda me: me._map['event'])
     black_elo = property(lambda me: me._map.get('black_elo', 0))
     white_elo = property(lambda me: me._map.get('white_elo', 0))
-    game_ply = property(lambda me: me._map['game_ply'])
     result = property(lambda me: me._map['result'])
 
 class GameAnalysis(object):
@@ -117,7 +116,6 @@ GameInfo = namedtuple('GameInfo', ['event',
                                    'co_result',
                                    'result',
                                    'co_elo',
-                                   'game_ply',
                                   
                                    'co_deltas_op',
                                    'co_deltas_mg',
@@ -236,8 +234,7 @@ def StudyGame(db, fn):
 
         first_loss = [CalculateFirstLoss(deltas[0]), CalculateFirstLoss(deltas[1])]
 
-        return GameInfo(game_ply = game.game_ply,
-                        final_score = final_score,
+        return GameInfo(final_score = final_score,
                         co_ply_ahead_50 = co_ply_ahead_50,                        
                         co_ply_ahead_100 = co_ply_ahead_100,
                         first_loss = first_loss,
@@ -316,7 +313,6 @@ def main(argv):
                 '$g_co_scores': gi.co_scores[co],
 
                 'color_value': [1, -1][co],
-                'game_ply': gi.game_ply,
                 'result': gi.co_result[co],
                 'delta_max': safe_max(gi.co_deltas[co]),
 
