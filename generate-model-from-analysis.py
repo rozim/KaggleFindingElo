@@ -334,8 +334,8 @@ def main(argv):
                 
                 'final_score': gi.final_score,
 
-                'co_ply_ahead_50': gi.co_ply_ahead_50,
-                'co_ply_ahead_100': gi.co_ply_ahead_100,
+                'ply_ahead_50': gi.co_ply_ahead_50[co],
+                'ply_ahead_100': gi.co_ply_ahead_100[co],
                 
                 'first_loss_100': gi.first_loss[co][0],
                 'first_loss_200': gi.first_loss[co][1],
