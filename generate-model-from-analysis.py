@@ -112,7 +112,9 @@ GameInfo = namedtuple('GameInfo', ['event',
                                    'first_loss',
                                    'final_score',
                                    'co_ply_ahead_50',
-                                   'co_ply_ahead_100', 
+                                   'co_ply_ahead_100',
+
+                                   'alt_stages'
                                    ])
 
 # yields ply, co, position, analysis
@@ -161,15 +163,9 @@ def CalculateDeltasAndScores(game, mega, stages):
         if FLAGS.debug:
             print 'DBG: ',co, game.event, best_move, ply, pos.move, move_map[best_move], move_map[pos.move]        
 
-        
-
         if co_ply_ahead_50[co] == 0 and move_map[pos.move] >= 50:
-            if FLAGS.debug:
-                print 'DBG [50]: ',co,  game.event, best_move, ply, pos.move, move_map[best_move], move_map[pos.move]
             co_ply_ahead_50[co] = ply
         if co_ply_ahead_100[co] == 0 and move_map[pos.move] >= 100:
-            if FLAGS.debug:
-                print 'DBG [100]: ', co, game.event, best_move, ply, pos.move, move_map[best_move], move_map[pos.move]
             co_ply_ahead_100[co] = ply 
         scores[co].append([move_map[best_move], move_map[pos.move]])
 
@@ -184,7 +180,7 @@ def CalculateDeltasAndScores(game, mega, stages):
             deltas[co].append(0)
             delta2[co].append(0)
         else:
-            delta = abs(move_map[best_move] - move_map[pos.move])
+            delta = move_map[best_move] - move_map[pos.move]
             if delta == 0:
                 # Regan gives a correction of -0.03 if an equal move was chosen
                 # but which wasn't the 1st rank.
@@ -193,7 +189,19 @@ def CalculateDeltasAndScores(game, mega, stages):
             else:
                 deltas[co].append(max(3, delta))
                 delta2[co].append(max(3, delta))
+    if FLAGS.debug:
+        print 'Scores[0]: ', scores[0]
+        print 'Deltas[0]: ', deltas[0]        
+        print 'Scores[1]: ', scores[1]
+        print 'Deltas[1]: ', deltas[1]                
     return deltas, deltas_opening, deltas_midgame, deltas_endgame, scores, final_score, co_ply_ahead_50, co_ply_ahead_100
+
+def CalculateAltStages(deltas):
+    res = [ {}, {} ]
+    for co in [0, 1]:
+        for block in [0, 1, 2, 3, 4]:
+            res[co][block] = deltas[co][block * 10 : (1 + block) * 10]
+    return res
 
 def CalculateFirstLoss(deltas):
     (first_loss_100, first_loss_200, first_loss_300) = (0, 0, 0)
@@ -219,10 +227,13 @@ def StudyGame(db, fn):
 
         (deltas, deltas_op, deltas_mg, deltas_eg, scores, final_score, co_ply_ahead_50, co_ply_ahead_100) = CalculateDeltasAndScores(game, mega, stages)
 
+        alt_stages = CalculateAltStages(deltas)
+        
         first_loss = [CalculateFirstLoss(deltas[0]), CalculateFirstLoss(deltas[1])]
 
         return GameInfo(final_score = final_score,
-                        co_ply_ahead_50 = co_ply_ahead_50,                        
+                        alt_stages = alt_stages,
+                        co_ply_ahead_50 = co_ply_ahead_50, 
                         co_ply_ahead_100 = co_ply_ahead_100,
                         first_loss = first_loss,
                         co_deltas_op = deltas_op,
@@ -240,12 +251,16 @@ def StudyGame(db, fn):
 def ProcessArgs(db, limit, argv):
     global files
 
-    for event in range(1, limit + 1):
-        fn = 'generated/game2json/%05d.json' % event
-        yield StudyGame(db, fn)
-        files += 1
-        if files >= limit:
-            break
+    if argv != "":
+        print 'a', argv[0]
+        yield StudyGame(db, argv[0])
+    else:
+        for event in range(1, limit + 1):
+            fn = 'generated/game2json/%05d.json' % event
+            yield StudyGame(db, fn)
+            files += 1
+            if files >= limit:
+                break
 
 
 def ReadOpeningPositions(fn):
@@ -282,8 +297,20 @@ def main(argv):
         print 'Need *.json or (generated/game2json/#####.json) dir (generated/game2json) arg'
         sys.exit(2)
 
+    print "ARGV: ", argv[1:]
     for gi_num, gi in enumerate(ProcessArgs(db, FLAGS.limit, argv[1:])):
+        if FLAGS.debug:
+            print
+            print "##### gi_num: ", gi_num, " gi: ", gi
+            print
         for co in [0, 1]:
+            alt_stages = []
+            for which in [0, 1, 2, 3, 4]:
+                if len(gi.alt_stages[co][which]) == 0:
+                    alt_stages.append(0)
+                else:
+                    alt_stages.append(numpy.median([min(300, delta) for delta in gi.alt_stages[co][which]]))
+            print alt_stages
             (_, _, delta_avg_op) = ProcessDeltas(gi, co, gi.co_deltas_op[co])
             (_, _, delta_avg_mg) = ProcessDeltas(gi, co, gi.co_deltas_mg[co])
             (_, _, delta_avg_eg) = ProcessDeltas(gi, co, gi.co_deltas_eg[co])
