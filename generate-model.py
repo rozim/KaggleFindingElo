@@ -83,7 +83,6 @@ class Game(object):
     game_ply = property(lambda me: me._map['game_ply'])
     result = property(lambda me: me._map['result'])
     is_mate = property(lambda me: me._map['is_mate'])
-    is_stalemate = property(lambda me: me._map['is_stalemate'])
 
 class GameAnalysis(object):
     def __init__(self, mp):
