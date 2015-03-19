@@ -49,8 +49,10 @@ def ProcessModel(f):
             for ent in prelim:
                 vec.append(ent)
                 vec.append(ent ** 2)
-                vec.append(ent ** 0.5)
-                vec.append(math.log(1.0 + ent))
+                if field != 'final_score':
+                    # Ugh, could be negative
+                    vec.append(ent ** 0.5)
+                    vec.append(math.log(1.0 + ent))
             yield obj['$g_event'], vec, obj['$g_co_rating']                
             pass
         else:
