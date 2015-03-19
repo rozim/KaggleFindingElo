@@ -64,7 +64,11 @@ def main(argv):
       sys.exit(1)
 
     for fn in FILES:
-        os.remove(fn)
+        try:
+            os.remove(fn)
+        except OSError:
+            pass
+        
     ProcessModel(file(FLAGS.in_model))
 
     base = FLAGS.in_model.split('.')[0]
