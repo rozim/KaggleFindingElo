@@ -64,6 +64,18 @@ def avg(ar):
         return 0
     return sum(ar) / float(len(ar))
 
+ParseResult = {
+    '1-0': 1.0,
+    '0-1': -1.0,
+    '1/2-1/2': 0.0
+    }
+
+ParseResultFlip = {
+    '1-0': -1.0,
+    '0-1': 1.0,
+    '1/2-1/2': 0.0
+    }
+
 class Position(object):
     def __init__(self, mp):
         self._map = mp
@@ -82,6 +94,7 @@ class Game(object):
     event = property(lambda me: me._map['event'])
     black_elo = property(lambda me: me._map.get('black_elo', 0))
     white_elo = property(lambda me: me._map.get('white_elo', 0))
+    result = property(lambda me: me._map['result'])    
 
 class GameAnalysis(object):
     def __init__(self, mp):
@@ -111,6 +124,8 @@ GameInfo = namedtuple('GameInfo', ['event',
                                    'white_elo',
                                    'black_elo',
                                    'co_elo',
+                                   'result',
+                                   'co_result',
 
                                    'raw_scores',
                                    'co_deltas_op',
@@ -312,6 +327,9 @@ def StudyGame(db, fn):
         first_loss = [CalculateFirstLoss(deltas[0]), CalculateFirstLoss(deltas[1])]
 
         return GameInfo(final_score = final_score,
+                        result = ParseResult[game.result],
+                        co_result = [ParseResult[game.result],
+                                     ParseResultFlip[game.result]],
                         complexity = complexity,
                         ranks = ranks,
                         raw_scores = raw_scores,
@@ -389,16 +407,21 @@ def main(argv):
             (_, _, delta_avg_eg) = ProcessDeltas(gi, co, gi.co_deltas_eg[co])
             (delta_median, delta_stddev, delta_avg) = ProcessDeltas(gi, co, gi.co_deltas[co])
 
-            num_ranks = float(len(gi.ranks[co]))
+            num_ranks = max(1.0, float(len(gi.ranks[co])))
             pct_best = sum(r == 1 for r in gi.ranks[co]) / num_ranks
             pct_best2 = sum((r == 1 or r == 2) for r in gi.ranks[co]) / num_ranks
-            pct_best3 = sum((r == 1 or r == 2 or r == 3) for r in gi.ranks[co]) / num_ranks 
+            pct_best3 = sum((r == 1 or r == 2 or r == 3) for r in gi.ranks[co]) / num_ranks
 
+            if len(gi.raw_scores[co]) == 0:
+                gi.raw_scores[co] = [0]
+            if len(gi.complexity[co]) == 0:
+                gi.complexity[co] = [0]
 
             standard = {
                 '$g_event': gi.event,
                 '$g_co_rating': gi.co_elo[co],
                 '$g_co': ["w", "b"][co],
+                'result': gi.co_result[co],
 
                 'color_value': [1, -1][co],
                 
@@ -457,7 +480,7 @@ def main(argv):
             if FLAGS.key_prefix != '':
                 standard2 = {}
                 for n, v in standard.iteritems():
-                    if n[0] == '$':
+                    if n[0] == '$' or n == 'result' or n == 'color_value':
                         standard2[n] = v
                     else:
                         standard2[FLAGS.key_prefix + n] = v
@@ -471,6 +494,7 @@ def main(argv):
                 print cjson.encode(standard)
 
 if __name__ == '__main__':
+    numpy.seterr(all = 'raise')
     main(sys.argv)
 
 
