@@ -4,8 +4,7 @@
 # TBD: w+b, w-b
 # TBD: percentile
 
-# TBD: alt_scores, mean of score in each block
-
+# DONE: alt_scores, mean of score in each block
 # DONE: final score
 # DONE: index of 1st move where ahead X (100)
 # DONE debug final_score
@@ -110,7 +109,8 @@ GameInfo = namedtuple('GameInfo', ['event',
                                    'white_elo',
                                    'black_elo',
                                    'co_elo',
-                                  
+
+                                   'raw_scores',
                                    'co_deltas_op',
                                    'co_deltas_mg',
                                    'co_deltas_eg',
@@ -153,6 +153,7 @@ def FindBestLine(analysis):
 def CalculateDeltasAndScores(game, mega, stages):
     #print 'st', stages
 
+    raw_scores = [[], []]
     deltas = [[], []]
     deltas_opening = [[], []]
     deltas_midgame = [[], []]
@@ -167,6 +168,7 @@ def CalculateDeltasAndScores(game, mega, stages):
         
         best_move =  best_line.pv[0]
         final_score = kColorMul[co] * move_map[best_move]
+        raw_scores[co].append(final_score)
         if FLAGS.debug:
             print
             print 'Analysis: ply=', ply, ' co=', co
@@ -209,7 +211,7 @@ def CalculateDeltasAndScores(game, mega, stages):
         print 'Scores[1]: ', scores[1]
         print 'Deltas[1]: ', deltas[1]
 
-    return deltas, deltas_opening, deltas_midgame, deltas_endgame, scores, final_score, co_ply_ahead_50, co_ply_ahead_100
+    return raw_scores, deltas, deltas_opening, deltas_midgame, deltas_endgame, scores, final_score, co_ply_ahead_50, co_ply_ahead_100
 
 def CalculateAltStages(deltas):
     res = [ {}, {} ]
@@ -240,13 +242,14 @@ def StudyGame(db, fn):
 
         mega = list(GenerateAnalysis(db, game))
 
-        (deltas, deltas_op, deltas_mg, deltas_eg, scores, final_score, co_ply_ahead_50, co_ply_ahead_100) = CalculateDeltasAndScores(game, mega, stages)
+        (raw_scores, deltas, deltas_op, deltas_mg, deltas_eg, scores, final_score, co_ply_ahead_50, co_ply_ahead_100) = CalculateDeltasAndScores(game, mega, stages)
 
         alt_stages = CalculateAltStages(deltas)
         
         first_loss = [CalculateFirstLoss(deltas[0]), CalculateFirstLoss(deltas[1])]
 
         return GameInfo(final_score = final_score,
+                        raw_scores = raw_scores,
                         alt_stages = alt_stages,
                         co_ply_ahead_50 = co_ply_ahead_50, 
                         co_ply_ahead_100 = co_ply_ahead_100,
@@ -316,6 +319,8 @@ def main(argv):
         if FLAGS.debug:
             print
             print "##### gi_num: ", gi_num, " gi: ", gi
+            print gi.raw_scores[0]
+            print gi.raw_scores[1]            
             print
         for co in [0, 1]:
 
@@ -358,6 +363,14 @@ def main(argv):
                     standard[key] = 0
                 else:
                     standard[key] = numpy.mean([min(300, delta) for delta in gi.alt_stages[co][which]])
+
+            for which in [0, 1, 2, 3, 4]:
+                key = 'alt_raw_%d' % which
+                slice = gi.raw_scores[co][which * 10 : (which + 1) * 10]
+                if len(slice) == 0:
+                    standard[key] = 0
+                else:
+                    standard[key] = numpy.mean(slice)
 
             if FLAGS.verbose:
                 standard['$g_co_deltas'] = gi.co_deltas[co]
