@@ -1,6 +1,8 @@
 #!/usr/bin/python
 
 
+
+# TBD: d7m5
 # TBD: w+b, w-b
 # TBD: percentile
 
@@ -8,6 +10,7 @@
 # DONE: final score
 # DONE: index of 1st move where ahead X (100)
 # DONE debug final_score
+# DONE mean/median/dev raw score
 
 import chess_util
 import cjson
@@ -343,6 +346,9 @@ def main(argv):
                 'delta_stddev': delta_stddev,
                 
                 'final_score': gi.final_score,
+                'raw_score_mean': numpy.mean(gi.raw_scores[co]),
+                'raw_score_median': numpy.median(gi.raw_scores[co]),
+                'raw_score_stddev': numpy.std(gi.raw_scores[co]),                
 
                 'ply_ahead_50': gi.co_ply_ahead_50[co],
                 'ply_ahead_100': gi.co_ply_ahead_100[co],
