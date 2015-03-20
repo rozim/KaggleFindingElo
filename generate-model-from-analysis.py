@@ -269,8 +269,7 @@ def StudyGame(db, fn):
 def ProcessArgs(db, limit, argv):
     global files
 
-    if argv != "":
-        print 'a', argv[0]
+    if len(argv) > 0:
         yield StudyGame(db, argv[0])
     else:
         for event in range(1, limit + 1):
@@ -310,10 +309,6 @@ def main(argv):
     game_stages = ReadGameStages()
 
     db = leveldb.LevelDB(FLAGS.analysis, max_open_files=100)
-
-    if len(argv[1:]) == 0:
-        print 'Need *.json or (generated/game2json/#####.json) dir (generated/game2json) arg'
-        sys.exit(2)
 
     for gi_num, gi in enumerate(ProcessArgs(db, FLAGS.limit, argv[1:])):
         if FLAGS.debug:
