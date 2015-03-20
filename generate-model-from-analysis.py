@@ -125,7 +125,8 @@ GameInfo = namedtuple('GameInfo', ['event',
 
                                    'alt_stages',
 
-                                   'complexity'
+                                   'complexity',
+                                   'ranks'
                                    ])
 
 # yields ply, co, position, analysis
@@ -140,6 +141,8 @@ def GenerateAnalysis(db, game):
                 obj = cjson.decode(raw)
                 for n in sorted(obj.keys()):
                     print 'raw: ', n, obj[n]
+                for ent in obj['analysis']:
+                    print '\t', ent
         except KeyError:
             continue
         simple_pos = simple.split(' ')[0]
@@ -187,6 +190,24 @@ def CalculateComplexity(game, mega):
         else:
             complexity[co].append(numpy.mean(running))
     return complexity
+
+def CalculateBestRankHere(game, pos, analysis):
+    found_depth = False
+    for line in analysis.analysis:
+        if line.depth != analysis.depth:
+            if found_depth:
+                return 0
+            continue
+        found_depth = True
+        if line.pv[0] == pos.move:
+            return line.multipv
+    return 0
+
+def CalculateBestRankAgreement(game, mega):
+    br = [[], []]
+    for ply, co, pos, analysis in mega:
+        br[co].append(CalculateBestRankHere(game, pos, analysis))
+    return br
 
 def CalculateDeltasAndScores(game, mega, stages):
     #print 'st', stages
@@ -281,6 +302,8 @@ def StudyGame(db, fn):
         mega = list(GenerateAnalysis(db, game))
 
         complexity = CalculateComplexity(game, mega)
+
+        ranks = CalculateBestRankAgreement(game, mega)
         
         (raw_scores, deltas, deltas_op, deltas_mg, deltas_eg, scores, final_score, co_ply_ahead_50, co_ply_ahead_100) = CalculateDeltasAndScores(game, mega, stages)
 
@@ -290,6 +313,7 @@ def StudyGame(db, fn):
 
         return GameInfo(final_score = final_score,
                         complexity = complexity,
+                        ranks = ranks,
                         raw_scores = raw_scores,
                         alt_stages = alt_stages,
                         co_ply_ahead_50 = co_ply_ahead_50, 
@@ -365,6 +389,12 @@ def main(argv):
             (_, _, delta_avg_eg) = ProcessDeltas(gi, co, gi.co_deltas_eg[co])
             (delta_median, delta_stddev, delta_avg) = ProcessDeltas(gi, co, gi.co_deltas[co])
 
+            num_ranks = float(len(gi.ranks[co]))
+            pct_best = sum(r == 1 for r in gi.ranks[co]) / num_ranks
+            pct_best2 = sum((r == 1 or r == 2) for r in gi.ranks[co]) / num_ranks
+            pct_best3 = sum((r == 1 or r == 2 or r == 3) for r in gi.ranks[co]) / num_ranks 
+
+
             standard = {
                 '$g_event': gi.event,
                 '$g_co_rating': gi.co_elo[co],
@@ -395,7 +425,11 @@ def main(argv):
                 'first_loss_200': gi.first_loss[co][1],
                 'first_loss_300': gi.first_loss[co][2],
 
-                'complexity': numpy.mean(gi.complexity[co])
+                'complexity': numpy.mean(gi.complexity[co]),
+
+                'pct_best': pct_best,
+                'pct_best2': pct_best2,
+                'pct_best3': pct_best3,                 
             }
 
             for which in [0, 1, 2, 3, 4]:
