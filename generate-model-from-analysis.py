@@ -319,8 +319,8 @@ def main(argv):
         if FLAGS.debug:
             print
             print "##### gi_num: ", gi_num, " gi: ", gi
-            print gi.raw_scores[0]
-            print gi.raw_scores[1]            
+            #print gi.raw_scores[0]
+            #print gi.raw_scores[1]            
             print
         for co in [0, 1]:
 
@@ -366,11 +366,14 @@ def main(argv):
 
             for which in [0, 1, 2, 3, 4]:
                 key = 'alt_raw_%d' % which
+                key2 = 'alt_raw_stddev_%d' % which 
                 slice = gi.raw_scores[co][which * 10 : (which + 1) * 10]
                 if len(slice) == 0:
                     standard[key] = 0
+                    standard[key2] = 0                    
                 else:
                     standard[key] = numpy.mean(slice)
+                    standard[key2] = numpy.std(slice) 
 
             if FLAGS.verbose:
                 standard['$g_co_deltas'] = gi.co_deltas[co]
