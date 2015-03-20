@@ -4,8 +4,11 @@
 # TBD: w+b, w-b
 # TBD: percentile
 
+# TBD: alt_scores, mean of score in each block
+
 # DONE: final score
 # DONE: index of 1st move where ahead X (100)
+# DONE debug final_score
 
 import chess_util
 import cjson
@@ -33,6 +36,10 @@ gflags.DEFINE_string('key_prefix', '', 'Something like d19_ to keep track of the
 gflags.DEFINE_bool('debug', False, '')
 gflags.DEFINE_bool('verbose', False, 'More verbose data in output such as raw arrays')
 
+# White/Black multiplier to convert scores back to white-based scores
+kColorMul = { 0: 1,
+              1: -1}
+    
 files = 0
 
 game_stages = {} # [event] = (mg ply, eg ply)
@@ -155,10 +162,17 @@ def CalculateDeltasAndScores(game, mega, stages):
     co_ply_ahead_50 = [0, 0]
     co_ply_ahead_100 = [0, 0]
     for ply, co, pos, analysis in mega:
+
         (best_line, move_map) = FindBestLine(analysis)
         
         best_move =  best_line.pv[0]
-        final_score = move_map[best_move]
+        final_score = kColorMul[co] * move_map[best_move]
+        if FLAGS.debug:
+            print
+            print 'Analysis: ply=', ply, ' co=', co
+            for a in analysis.analysis:
+                print '\t', a.multipv, a.depth, a.score, a.pv
+            print 'final: ', final_score
         
         if FLAGS.debug:
             print 'DBG: ',co, game.event, best_move, ply, pos.move, move_map[best_move], move_map[pos.move]        
@@ -193,7 +207,8 @@ def CalculateDeltasAndScores(game, mega, stages):
         print 'Scores[0]: ', scores[0]
         print 'Deltas[0]: ', deltas[0]        
         print 'Scores[1]: ', scores[1]
-        print 'Deltas[1]: ', deltas[1]                
+        print 'Deltas[1]: ', deltas[1]
+
     return deltas, deltas_opening, deltas_midgame, deltas_endgame, scores, final_score, co_ply_ahead_50, co_ply_ahead_100
 
 def CalculateAltStages(deltas):
