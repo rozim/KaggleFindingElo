@@ -1,8 +1,7 @@
 #!/usr/bin/python
 
-
-
 # TBD: d7m5
+# TBD: complexity
 # TBD: w+b, w-b
 # TBD: percentile
 
@@ -124,7 +123,9 @@ GameInfo = namedtuple('GameInfo', ['event',
                                    'co_ply_ahead_50',
                                    'co_ply_ahead_100',
 
-                                   'alt_stages'
+                                   'alt_stages',
+
+                                   'complexity'
                                    ])
 
 # yields ply, co, position, analysis
@@ -135,6 +136,10 @@ def GenerateAnalysis(db, game):
 
         try:
             raw = db.Get(simple)
+            if False:
+                obj = cjson.decode(raw)
+                for n in sorted(obj.keys()):
+                    print 'raw: ', n, obj[n]
         except KeyError:
             continue
         simple_pos = simple.split(' ')[0]
@@ -152,6 +157,36 @@ def FindBestLine(analysis):
             best_line = line
         move_map[line.pv[0]] = line.score
     return (best_line, move_map)
+
+def CalculateComplexity(game, mega):
+    complexity = [[], []]
+    for ply, co, pos, analysis in mega:
+        #(best_line, move_map) = FindBestLine(analysis) # wasteful redundant call
+        # line: type Analysis
+        #print 'XXX ply=', ply, 'ad=', analysis.depth
+        lastd = 0
+        lastm = None
+        lasts = 0
+        running = []
+        for line in analysis.analysis:
+            if line.multipv != 1:
+                continue
+            if line.depth <= lastd:
+                continue # we are looping onto a block that is not the best move
+            lastd = line.depth
+            if lastm is not None and line.pv[0] != lastm:
+                running.append(abs(lasts - line.score))
+            lastm = line.pv[0]
+            lasts = line.score
+            #if line.pv[0] != best_line.pv[0]:
+            #continue
+            #print 'a: d=', line.depth, 'm', line.multipv, 's', line.score, line.pv[0]
+        #print '\t', running
+        if len(running) == 0:
+            complexity[co].append(0)
+        else:
+            complexity[co].append(numpy.mean(running))
+    return complexity
 
 def CalculateDeltasAndScores(game, mega, stages):
     #print 'st', stages
@@ -245,6 +280,8 @@ def StudyGame(db, fn):
 
         mega = list(GenerateAnalysis(db, game))
 
+        complexity = CalculateComplexity(game, mega)
+        
         (raw_scores, deltas, deltas_op, deltas_mg, deltas_eg, scores, final_score, co_ply_ahead_50, co_ply_ahead_100) = CalculateDeltasAndScores(game, mega, stages)
 
         alt_stages = CalculateAltStages(deltas)
@@ -252,6 +289,7 @@ def StudyGame(db, fn):
         first_loss = [CalculateFirstLoss(deltas[0]), CalculateFirstLoss(deltas[1])]
 
         return GameInfo(final_score = final_score,
+                        complexity = complexity,
                         raw_scores = raw_scores,
                         alt_stages = alt_stages,
                         co_ply_ahead_50 = co_ply_ahead_50, 
@@ -356,6 +394,8 @@ def main(argv):
                 'first_loss_100': gi.first_loss[co][0],
                 'first_loss_200': gi.first_loss[co][1],
                 'first_loss_300': gi.first_loss[co][2],
+
+                'complexity': numpy.mean(gi.complexity[co])
             }
 
             for which in [0, 1, 2, 3, 4]:
