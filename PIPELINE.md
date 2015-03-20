@@ -61,3 +61,19 @@ Fri Mar  6 08:46:16 PST 2015
 Sun Mar  8 23:18:43 PDT 2015
 
 time ./random-forest-mega.py --extra --field=delta_avg_d3,delta_avg_d13,delta_max_d13,delta_median_d13,delta_stddev_d13,first_loss_100_d13,first_loss_200_d13,first_loss_300_d13,delta_avg_d13,delta_max_d19,delta_median_d19,delta_stddev_d19,first_loss_100_d19,first_loss_200_d19,first_loss_300_d19,game_ply,i_played_mate,i_was_mated  --n_estimators=5000 --limit=25000  --csv=s5k.csv > rf.out 2> rf.err &
+
+Wed Mar 18 17:55:39 PDT 2015
+
+nohup nice time ./generate-model-from-analysis.py --analysis=d19.leveldb --limit=50000 generated/game2json/ > model-d19b.xjson 
+nohup nice time ./generate-model-static.py --limit=50000 generated/game2json/ > model-static.xjson 
+
+time ./random-forest-mega.py --extra --prefix=model-d19_ --field=first_loss_300,first_loss_200,first_loss_100 --n_estimators=10 --limit=10000 --self=10  --csv=foo.csv
+./split-model-by-color-and-result.py  --in_model=model-d13.xjson
+
+
+# add key prefix and --verbose defaults to false
+./generate-model-from-analysis.py --analysis=d13.leveldb --limit=50000 --key_prefix=d13_ generated/game2json/ > model-d13c.xjson
+
+
+# no dir arg
+./generate-model-from-analysis.py --analysis=d19.leveldb --limit=50000  --key_prefix=d19_  > model-d19.xjson 
