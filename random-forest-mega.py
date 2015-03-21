@@ -33,14 +33,19 @@ kIsStaticField = set([
         'i_played_mate',
         'game_ply'])
 
+def abs(n):
+    if n < 0:
+        return -n
+    return n
 
 def MakePretty():
     vec = []
     for ent in FLAGS.field.split(','):
         vec.append(ent)
-        vec.append(ent + '_sq')
-        vec.append(ent + '_sqrt')
-        vec.append(ent + '_log')
+        if FLAGS.extra:
+            vec.append(ent + '_sq')
+            vec.append(ent + '_sqrt')
+            vec.append(ent + '_log')
     return vec
 
 def ReadStatic():
@@ -63,23 +68,17 @@ def ProcessModel(f, static):
                 obj[field] = static[obj['$g_event']][obj['$g_co']][field]
 
         if FLAGS.extra:
-            prelim = [obj[field] for field in ar]
+            prelim = [(field, obj[field]) for field in ar]
+            #for n, v in obj.iteritems():
+            #print '\t', n, v
+            #print 'prelim: ', prelim
             vec = []
-            for ent in prelim:
+            for field, ent in prelim:
+                #print 'add', field, ent                
                 vec.append(ent)
                 vec.append(ent ** 2)
-                if field.endswith('_final_score'):
-                    # Ugh, could be negative
-                    try:
-                        vec.append(ent ** 0.5)
-                        vec.append(math.log(1.0 + ent))
-                    except ValueError, ve:
-                        print 'ouch: ', ve
-                        print 'field: ', ent, field
-                        print 'add to if whitelist above'
-                        for n, v in obj.iteritems():
-                            print n, v
-                        sys.exit(1)
+                vec.append(abs(ent) ** 0.5)
+                vec.append(math.log(1.0 + abs(ent)))
             yield obj['$g_event'], vec, obj['$g_co_rating']                
             pass
         else:
@@ -128,9 +127,8 @@ def Evaluate(train, test, pretty):
         ar.append((v, p))
 
     for ent in sorted(ar):
-        if ent[0] > 0.0:
-            print "%.4f : %s" % (ent[0], ent[1])
-
+        #if ent[0] > 0.0:
+        print "%.4f : %s" % (ent[0], ent[1])
 
     return predictions, r.score(train_x, train_y)    
 
@@ -143,12 +141,12 @@ def EvaluateGrid(train, test, pretty):
 
     r = None
     grid = sklearn.grid_search.RandomizedSearchCV(sklearn.ensemble.RandomForestRegressor(),
-                                                  {'n_estimators': [1, 10, 100],
+                                                  {'n_estimators': [100],
                                                    'max_depth': [None, 1, 2, 3, 4],
                                                    'max_features': ['auto', 'sqrt', 'log2', 0.9, 0.8, 0.7, 0.6, 0.5],
-                                                   'min_samples_leaf': [1, 2, 4, 8],
-                                                   'min_samples_split': [1, 2, 4, 8],
-                                                   #'max_leaf_nodes': [None, 1, 10, 100, 1000],
+                                                   'min_samples_leaf': [2, 4, 8, 16, 32, 64, 128],
+                                                   'min_samples_split': [8, 16, 32, 64, 128, 256, 512, 1024],
+                                                   'max_leaf_nodes': [None, 10, 100, 1000],
                                                    },
                                                   n_iter = FLAGS.grid,
                                                   refit = True,
