@@ -34,6 +34,13 @@ def MakePretty():
         vec.append(ent + '_log')
     return vec
 
+def ReadStatic():
+    m = collections.defaultdict(dict)
+    for line in file('model-static.xjson').readlines():
+        obj = cjson.decode(line)
+        m[obj['$g_event']][obj['$g_co']] = obj
+    return m
+
 def ProcessModel(f):
     for row, line in enumerate(f.readlines()):
         if line[0] != '{':
@@ -150,6 +157,7 @@ def SelfTest(train, pretty):
             len(train10_x),
             len(train90_x))
 
+
 def main(argv):
     try:
       argv = FLAGS(argv)  # parse flags
@@ -171,6 +179,11 @@ def main(argv):
     print 'What: ', FLAGS.what
     print ''
 
+    # is_stalemate: [0,1]
+    # i_was_mated, i_played_mate [ply]
+    # result: [+1, -1]
+    # game_ply [ply]
+    static = ReadStatic()
     pretty = MakePretty()
     if FLAGS.selftest > 0:
         cols = []
@@ -213,7 +226,7 @@ def main(argv):
     f.write('Event,WhiteElo,BlackElo\n')
     for n in sorted(w_predictions.keys()):
         f.write('%s,%.0f,%.0f\n' % (n, w_predictions[n], b_predictions[n]))
-    
 
+        
 if __name__ == '__main__':
     main(sys.argv)        
