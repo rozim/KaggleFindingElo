@@ -6,6 +6,7 @@ import math
 import random
 import re
 import sklearn.ensemble
+import sklearn.grid_search
 import sys
 import time
 
@@ -15,8 +16,9 @@ gflags.DEFINE_string('csv', 'submission.csv', '')
 gflags.DEFINE_string('field', 'delta_avg_d3,delta_avg_d13,delta_max_d13,delta_median_d13,delta_stddev_d13,first_loss_100_d13,first_loss_200_d13,first_loss_300_d13,delta_avg_d13,delta_max_d19,delta_median_d19,delta_stddev_d19,first_loss_100_d19,first_loss_200_d19,first_loss_300_d19,game_ply,i_played_mate,i_was_mated', '')
 gflags.DEFINE_integer('limit', 100, '')
 gflags.DEFINE_integer('max_depth', -1, '4 may help instead of default')
-gflags.DEFINE_integer('n_estimators', 10, '')
+gflags.DEFINE_integer('n_estimators', 12, '')
 gflags.DEFINE_bool('extra', False, '')
+gflags.DEFINE_integer('grid', 0, 'Iterations to use on Random Grid Search')
 gflags.DEFINE_integer('min_samples_leaf', 10, '')
 gflags.DEFINE_integer('min_samples_split', 10, '')
 gflags.DEFINE_string('max_features', 'auto', '')
@@ -90,6 +92,8 @@ def ReadAndBreakUp(fn, static):
     return all
 
 def Evaluate(train, test, pretty):
+    if FLAGS.grid > 0:
+        return EvaluateGrid(train, test, pretty)
     train_x = [ent[1] for ent in train]
     train_y = [ent[2] for ent in train]
     ev = [ent[0] for ent in test]
@@ -129,6 +133,57 @@ def Evaluate(train, test, pretty):
 
 
     return predictions, r.score(train_x, train_y)    
+
+def EvaluateGrid(train, test, pretty):
+    train_x = [ent[1] for ent in train]
+    train_y = [ent[2] for ent in train]
+    ev = [ent[0] for ent in test]
+    test_x = [ent[1] for ent in test]
+    test_y = [ent[2] for ent in test]
+
+    r = None
+    grid = sklearn.grid_search.RandomizedSearchCV(sklearn.ensemble.RandomForestRegressor(),
+                                                  {'n_estimators': [1, 10, 100],
+                                                   'max_depth': [None, 1, 2, 3, 4],
+                                                   'max_features': ['auto', 'sqrt', 'log2', 0.9, 0.8, 0.7, 0.6, 0.5],
+                                                   'min_samples_leaf': [1, 2, 4, 8],
+                                                   'min_samples_split': [1, 2, 4, 8],
+                                                   #'max_leaf_nodes': [None, 1, 10, 100, 1000],
+                                                   },
+                                                  n_iter = FLAGS.grid,
+                                                  refit = True,
+                                                  verbose = 2)
+
+    grid.fit(train_x, train_y)
+    print
+    print 'grid: ', grid
+    print    
+    print 'gp: ', grid.get_params()
+    print    
+    print 'best est: ', grid.best_estimator_
+    print    
+    print 'best score: ', grid.best_score_
+    print
+    print 'best params: ', grid.best_params_
+    print    
+    print 'grid scores: ', grid.grid_scores_
+    print
+    
+    predictions = {}
+    for i, x in enumerate(test_x):
+        predictions[ev[i]] = grid.predict(x)
+
+#    ar = []
+#    for p, v in zip(pretty, grid.feature_importances_):
+#        ar.append((v, p))
+#
+#    for ent in sorted(ar):
+#        if ent[0] > 0.0:
+#            print "%.4f : %s" % (ent[0], ent[1])
+
+
+    return predictions, grid.score(train_x, train_y)    
+
 
 def ParseMaxDepth():
     if FLAGS.max_depth > 0:
