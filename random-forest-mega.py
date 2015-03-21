@@ -25,6 +25,13 @@ gflags.DEFINE_integer('selftest', 1, '')
 gflags.DEFINE_string('prefix', '', 'Something like model-d19_')
 gflags.DEFINE_string('what', 'b_draw,b_lose,b_win,w_draw,w_lose,w_win', '')
 
+kIsStaticField = set([
+        'is_stalemate',
+        'i_was_mated',
+        'i_played_mate',
+        'game_ply'])
+
+
 def MakePretty():
     vec = []
     for ent in FLAGS.field.split(','):
@@ -41,7 +48,7 @@ def ReadStatic():
         m[obj['$g_event']][obj['$g_co']] = obj
     return m
 
-def ProcessModel(f):
+def ProcessModel(f, static):
     for row, line in enumerate(f.readlines()):
         if line[0] != '{':
             continue
@@ -49,6 +56,9 @@ def ProcessModel(f):
             break
         obj = cjson.decode(line)
         ar = FLAGS.field.split(',')
+        for field in ar:
+            if field in kIsStaticField:
+                obj[field] = static[obj['$g_event']][obj['$g_co']][field]
 
         if FLAGS.extra:
             prelim = [obj[field] for field in ar]
@@ -65,9 +75,9 @@ def ProcessModel(f):
         else:
             yield obj['$g_event'], [obj[field] for field in ar], obj['$g_co_rating']
 
-def ReadAndBreakUp(fn):
+def ReadAndBreakUp(fn, static):
     all = []
-    for ev, x, y in ProcessModel(file(fn)):
+    for ev, x, y in ProcessModel(file(fn), static):
         all.append([ev, x, y])
     return all
 
@@ -190,7 +200,7 @@ def main(argv):
         for what in FLAGS.what.split(','):
             for i in range(FLAGS.selftest):
                 t1 = time.time()
-                res, ev10, ev90, eval_size, train_size = SelfTest(ReadAndBreakUp(FLAGS.prefix + what + '_train.xjson'), pretty)
+                res, ev10, ev90, eval_size, train_size = SelfTest(ReadAndBreakUp(FLAGS.prefix + what + '_train.xjson', static), pretty)
                 cols.append((res, ev10, ev90, eval_size))
                 print '%10s | %.1f %.4f %.4f | %.1fs (%d %d)' % (what, res, ev10, ev90, time.time() - t1, eval_size, train_size)
 
