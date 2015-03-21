@@ -66,10 +66,18 @@ def ProcessModel(f, static):
             for ent in prelim:
                 vec.append(ent)
                 vec.append(ent ** 2)
-                if field != 'final_score':
+                if field.endswith('_final_score'):
                     # Ugh, could be negative
-                    vec.append(ent ** 0.5)
-                    vec.append(math.log(1.0 + ent))
+                    try:
+                        vec.append(ent ** 0.5)
+                        vec.append(math.log(1.0 + ent))
+                    except ValueError, ve:
+                        print 'ouch: ', ve
+                        print 'field: ', ent, field
+                        print 'add to if whitelist above'
+                        for n, v in obj.iteritems():
+                            print n, v
+                        sys.exit(1)
             yield obj['$g_event'], vec, obj['$g_co_rating']                
             pass
         else:
@@ -220,8 +228,8 @@ def main(argv):
     scores = []
     for what in FLAGS.what.split(','):
         t1 = time.time()
-        (p, score) = Evaluate(ReadAndBreakUp(what + '_train.xjson'),
-                              ReadAndBreakUp(what + '_test.xjson'),
+        (p, score) = Evaluate(ReadAndBreakUp(FLAGS.prefix + what + '_train.xjson', static),
+                              ReadAndBreakUp(FLAGS.prefix + what + '_test.xjson', static),
                               pretty)        
         scores.append(score)
         if what[0] == 'w':
