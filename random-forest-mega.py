@@ -139,14 +139,13 @@ def EvaluateGrid(train, test, pretty):
     test_x = [ent[1] for ent in test]
     test_y = [ent[2] for ent in test]
 
-    r = None
     grid = sklearn.grid_search.RandomizedSearchCV(sklearn.ensemble.RandomForestRegressor(),
-                                                  {'n_estimators': [100],
-                                                   'max_depth': [None, 1, 2, 3, 4],
-                                                   'max_features': ['auto', 'sqrt', 'log2', 0.9, 0.8, 0.7, 0.6, 0.5],
-                                                   'min_samples_leaf': [2, 4, 8, 16, 32, 64, 128],
-                                                   'min_samples_split': [8, 16, 32, 64, 128, 256, 512, 1024],
-                                                   'max_leaf_nodes': [None, 10, 100, 1000],
+                                                  {'n_estimators': [1000],
+                                                   'max_depth': [None],
+                                                   'max_features': ['auto', 0.9, 0.8, 0.7, 0.6, 0.5],
+                                                   'min_samples_leaf': [3, 4, 5, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30],
+                                                   'min_samples_split': [8, 16, 32, 48, 64, 96, 128, 256],
+                                                   'max_leaf_nodes': [None, 100, 250, 500, 750, 800, 900, 1000, 1250, 1500, 2000],
                                                    },
                                                   n_iter = FLAGS.grid,
                                                   refit = True,
@@ -163,9 +162,11 @@ def EvaluateGrid(train, test, pretty):
     print 'best score: ', grid.best_score_
     print
     print 'best params: ', grid.best_params_
-    print    
-    print 'grid scores: ', grid.grid_scores_
     print
+    print 'grid scores: ',     
+    for ent in grid.grid_scores_:
+        print '\t', ent
+    print '---'
     
     predictions = {}
     for i, x in enumerate(test_x):
