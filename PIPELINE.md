@@ -77,3 +77,57 @@ time ./random-forest-mega.py --extra --prefix=model-d19_ --field=first_loss_300,
 
 # no dir arg
 ./generate-model-from-analysis.py --analysis=d19.leveldb --limit=50000  --key_prefix=d19_  > model-d19.xjson 
+
+./split-model-by-color-and-result.py  --in_model=model-d13.xjson
+./split-model-by-color-and-result.py  --in_model=model-d19.xjson
+
+Schema
+$g_co
+$g_co_rating
+$g_event
+color_value
+result
+
+d19_alt_raw_0
+d19_alt_raw_1
+d19_alt_raw_2
+d19_alt_raw_3
+d19_alt_raw_4
+d19_alt_raw_stddev_0
+d19_alt_raw_stddev_1
+d19_alt_raw_stddev_2
+d19_alt_raw_stddev_3
+d19_alt_raw_stddev_4
+d19_alt_stages_0
+d19_alt_stages_1
+d19_alt_stages_2
+d19_alt_stages_3
+d19_alt_stages_4
+d19_complexity
+d19_delta_avg
+d19_delta_avg_eg
+d19_delta_avg_mg
+d19_delta_avg_op
+d19_delta_max
+d19_delta_median
+d19_delta_stddev
+d19_final_score
+d19_first_loss_100
+d19_first_loss_200
+d19_first_loss_300
+d19_pct_best
+d19_pct_best2
+d19_pct_best3
+d19_ply_ahead_100
+d19_ply_ahead_50
+d19_raw_score_mean
+d19_raw_score_median
+d19_raw_score_stddev
+
+Methodology
+DONE - get some submission in at least as a sanity check
+- random grid search
+- better submission
+- later try to fold in d7m5
+
+time ./random-forest-mega.py --prefix=model-d19_ --field=d19_alt_raw_0,d19_alt_raw_1,d19_alt_raw_2,d19_alt_raw_3,d19_alt_raw_4,d19_alt_raw_stddev_0,d19_alt_raw_stddev_1,d19_alt_raw_stddev_2,d19_alt_raw_stddev_3,d19_alt_raw_stddev_4,d19_alt_stages_0,d19_alt_stages_1,d19_alt_stages_2,d19_alt_stages_3,d19_alt_stages_4,d19_complexity,d19_delta_avg,d19_delta_avg_eg,d19_delta_avg_mg,d19_delta_avg_op,d19_delta_max,d19_delta_median,d19_delta_stddev,d19_final_score,d19_first_loss_100,d19_first_loss_200,d19_first_loss_300,d19_pct_best,d19_pct_best2,d19_pct_best3,d19_ply_ahead_100,d19_ply_ahead_50,d19_raw_score_mean,d19_raw_score_median,d19_raw_score_stddev,game_ply,i_was_mated,i_played_mate  --limit=25000 --self=0 --grid=100 --csv=model17d.csv > shh5

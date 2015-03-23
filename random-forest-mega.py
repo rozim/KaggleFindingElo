@@ -56,7 +56,7 @@ def ReadStatic():
         m[obj['$g_event']][obj['$g_co']] = obj
     return m
 
-def ProcessModel(f, static):
+def ProcessModel(f, static, depth_prefix):
     for row, line in enumerate(f.readlines()):
         if line[0] != '{':
             continue
@@ -64,32 +64,67 @@ def ProcessModel(f, static):
             break
         obj = cjson.decode(line)
         ar = FLAGS.field.split(',')
-        for field in ar:
-            if field in kIsStaticField:
-                obj[field] = static[obj['$g_event']][obj['$g_co']][field]
+        if not static is None:
+            for field in ar:
+                if field in kIsStaticField:
+                    obj[field] = static[obj['$g_event']][obj['$g_co']][field]
 
         if FLAGS.extra:
-            prelim = [(field, obj[field]) for field in ar]
-            #for n, v in obj.iteritems():
-            #print '\t', n, v
-            #print 'prelim: ', prelim
+            prelim = [(field, obj[field]) for field in ar if field.startswith(depth_prefix)]
             vec = []
             for field, ent in prelim:
-                #print 'add', field, ent                
                 vec.append(ent)
                 vec.append(ent ** 2)
                 vec.append(abs(ent) ** 0.5)
                 vec.append(math.log(1.0 + abs(ent)))
             yield obj['$g_event'], vec, obj['$g_co_rating']                
-            pass
         else:
-            yield obj['$g_event'], [obj[field] for field in ar], obj['$g_co_rating']
+            yield obj['$g_event'], [obj[field] for field in ar if field.startswith(depth_prefix)], obj['$g_co_rating']
 
 def ReadAndBreakUp(fn, static):
+    print 'obs now **'
+    sys.exit(1)
     all = []
-    for ev, x, y in ProcessModel(file(fn), static):
-        all.append([ev, x, y])
+    # Get (event, feature_vector, target)
+    for event, x, y in ProcessModel(file(fn), static):
+        all.append([event, x, y])
     return all
+
+def ReadAndBreakUpMulti(prefixes, suffix, static):
+    e_to_xs = collections.defaultdict(list)
+    e_to_y = {}
+
+    for i, prefix in enumerate(prefixes.split(',')):
+
+        # Get (event, feature_vector, target)
+        depth_prefix = prefix.split('-')[1]
+        all = []
+        use_static = None
+        if i == 0:
+            use_static = static
+        for event, x, y in ProcessModel(file(prefix + suffix), use_static, depth_prefix):
+            #if event == '1':
+            #print event, x, y, prefix, depth_prefix
+            if len(x) == 0:
+                continue
+            e_to_xs[event].append(x)
+            e_to_y[event] = y
+            #if event == '1':
+            #print 'tick1: event=', event, 'x=', x, 'y=', y, 'p=', prefix, 'dp=', depth_prefix
+
+
+    all = []
+    for event, xs in e_to_xs.iteritems():
+        y = e_to_y[event]
+        x = []
+        for xx in xs:
+            x += xx
+        all.append([event, x, y])
+        #if event == '1':
+        #print event, x, y
+
+    return all
+            
 
 def Evaluate(train, test, pretty):
     if FLAGS.grid > 0:
@@ -264,7 +299,7 @@ def main(argv):
         for what in FLAGS.what.split(','):
             for i in range(FLAGS.selftest):
                 t1 = time.time()
-                res, ev10, ev90, eval_size, train_size = SelfTest(ReadAndBreakUp(FLAGS.prefix + what + '_train.xjson', static), pretty)
+                res, ev10, ev90, eval_size, train_size = SelfTest(ReadAndBreakUpMulti(FLAGS.prefix, what + '_train.xjson', static), pretty)
                 cols.append((res, ev10, ev90, eval_size))
                 print '%10s | %.1f %.4f %.4f | %.1fs (%d %d)' % (what, res, ev10, ev90, time.time() - t1, eval_size, train_size)
 
@@ -284,15 +319,15 @@ def main(argv):
     scores = []
     for what in FLAGS.what.split(','):
         t1 = time.time()
-        (p, score) = Evaluate(ReadAndBreakUp(FLAGS.prefix + what + '_train.xjson', static),
-                              ReadAndBreakUp(FLAGS.prefix + what + '_test.xjson', static),
+        (p, score) = Evaluate(ReadAndBreakUpMulti(FLAGS.prefix, what + '_train.xjson', static),
+                              ReadAndBreakUpMulti(FLAGS.prefix, what + '_test.xjson', static),
                               pretty)        
         scores.append(score)
         if what[0] == 'w':
             w_predictions = dict(w_predictions.items() + p.items())
         else:
             b_predictions = dict(b_predictions.items() + p.items())
-        print '%8s: %.4f (%.1fs)' % (what, score, time.time() - t1)
+        print 'WHAT: %8s: %.4f (%.1fs)' % (what, score, time.time() - t1)
     print 'Avg: %.4f' % (sum(scores) / float(len(scores)))
     # score to beat: 0.4947 for n=10000 10 10 auto
 

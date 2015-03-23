@@ -1,0 +1,10 @@
+time ./random-forest-mega.py --extra \
+--prefix=model-d19_,model-d13_,model-d7_ \
+--field=d19_alt_raw_0,d19_alt_raw_1,d19_alt_raw_2,d19_alt_raw_3,d19_alt_raw_4,d19_alt_raw_stddev_0,d19_alt_raw_stddev_1,d19_alt_raw_stddev_2,d19_alt_raw_stddev_3,d19_alt_raw_stddev_4,d19_alt_stages_0,d19_alt_stages_1,d19_alt_stages_2,d19_alt_stages_3,d19_alt_stages_4,d19_complexity,d19_delta_avg,d19_delta_avg_eg,d19_delta_avg_mg,d19_delta_avg_op,d19_delta_max,d19_delta_median,d19_delta_stddev,d19_final_score,d19_first_loss_100,d19_first_loss_200,d19_first_loss_300,d19_pct_best,d19_pct_best2,d19_pct_best3,d19_ply_ahead_100,d19_ply_ahead_50,d19_raw_score_mean,d19_raw_score_median,d19_raw_score_stddev,game_ply,i_was_mated,i_played_mate,d13_alt_raw_0,d13_alt_raw_1,d13_alt_raw_2,d13_alt_raw_3,d13_alt_raw_4,d13_alt_raw_stddev_0,d13_alt_raw_stddev_1,d13_alt_raw_stddev_2,d13_alt_raw_stddev_3,d13_alt_raw_stddev_4,d13_alt_stages_0,d13_alt_stages_1,d13_alt_stages_2,d13_alt_stages_3,d13_alt_stages_4,d13_complexity,d13_delta_avg,d13_delta_avg_eg,d13_delta_avg_mg,d13_delta_avg_op,d13_delta_max,d13_delta_median,d13_delta_stddev,d13_final_score,d13_first_loss_100,d13_first_loss_200,d13_first_loss_300,d13_pct_best,d13_pct_best2,d13_pct_best3,d13_ply_ahead_100,d13_ply_ahead_50,d13_raw_score_mean,d13_raw_score_median,d13_raw_score_stddev,d7_alt_raw_0,d7_alt_raw_1,d7_alt_raw_2,d7_alt_raw_3,d7_alt_raw_4,d7_alt_raw_stddev_0,d7_alt_raw_stddev_1,d7_alt_raw_stddev_2,d7_alt_raw_stddev_3,d7_alt_raw_stddev_4,d7_alt_stages_0,d7_alt_stages_1,d7_alt_stages_2,d7_alt_stages_3,d7_alt_stages_4,d7_complexity,d7_delta_avg,d7_delta_avg_eg,d7_delta_avg_mg,d7_delta_avg_op,d7_delta_max,d7_delta_median,d7_delta_stddev,d7_final_score,d7_first_loss_100,d7_first_loss_200,d7_first_loss_300,d7_pct_best,d7_pct_best2,d7_pct_best3,d7_ply_ahead_100,d7_ply_ahead_50,d7_raw_score_mean,d7_raw_score_median,d7_raw_score_stddev,d7_pct_best,d7_pct_best2,d7_pct_best3 \
+--limit=25000  --n_estimators=100  --csv=model18-100.csv --selftest=0
+
+You made the top ten by improving your score by 0.54798. 
+You just moved up 1 position on the leaderboard.
+
+------------------------------------------------------------
+
