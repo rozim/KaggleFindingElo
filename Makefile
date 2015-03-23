@@ -9,10 +9,13 @@ LDFLAGS += ${POLYGLOT}/polyglot.a
 
 OBJ = pgn_utils.o string_utils.o
 
-first : filter_pgn position_frequency pgn_header_histogram pgn_headers_to_csv game_stages
+first : filter_pgn position_frequency pgn_header_histogram pgn_headers_to_csv game_stages pawn_formations
 
 filter_pgn : filter_pgn.o ${OBJ}
 	${CXX} ${LDFLAGS} filter_pgn.o ${OBJ} ${POLYGLOT}/polyglot.a -o ${@}
+
+pawn_formations : pawn_formations.o ${OBJ}
+	${CXX} ${LDFLAGS} pawn_formations.o ${OBJ} ${POLYGLOT}/polyglot.a -o ${@}
 
 position_frequency : position_frequency.o ${OBJ}
 	${CXX} ${LDFLAGS} position_frequency.o ${OBJ} ${POLYGLOT}/polyglot.a -o ${@}
