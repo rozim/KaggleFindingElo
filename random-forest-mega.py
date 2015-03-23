@@ -20,8 +20,9 @@ gflags.DEFINE_integer('n_estimators', 12, '')
 gflags.DEFINE_bool('extra', False, '')
 gflags.DEFINE_integer('grid', 0, 'Iterations to use on Random Grid Search')
 gflags.DEFINE_integer('min_samples_leaf', 10, '')
-gflags.DEFINE_integer('min_samples_split', 10, '')
-gflags.DEFINE_string('max_features', 'auto', '')
+gflags.DEFINE_integer('min_samples_split', 32, '')
+gflags.DEFINE_integer('max_leaf_nodes', 1000, '')
+gflags.DEFINE_string('max_features', '0.5', '')
 gflags.DEFINE_integer('selftest', 1, '')
 
 gflags.DEFINE_string('prefix', '', 'Something like model-d19_')
@@ -113,6 +114,7 @@ def Evaluate(train, test, pretty):
     r = sklearn.ensemble.RandomForestRegressor(n_estimators = FLAGS.n_estimators,
                                                max_features = max_features,
                                                max_depth = max_depth,
+                                               max_leaf_nodes = FLAGS.max_leaf_nodes,
                                                min_samples_leaf = FLAGS.min_samples_leaf,
                                                min_samples_split = FLAGS.min_samples_split)
 
