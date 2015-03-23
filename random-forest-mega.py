@@ -12,6 +12,7 @@ import time
 
 FLAGS = gflags.FLAGS
 
+gflags.DEFINE_bool('pawns', False, 'use pawn pattens too')
 gflags.DEFINE_string('csv', 'submission.csv', '')
 gflags.DEFINE_string('field', 'delta_avg_d3,delta_avg_d13,delta_max_d13,delta_median_d13,delta_stddev_d13,first_loss_100_d13,first_loss_200_d13,first_loss_300_d13,delta_avg_d13,delta_max_d19,delta_median_d19,delta_stddev_d19,first_loss_100_d19,first_loss_200_d19,first_loss_300_d19,game_ply,i_played_mate,i_was_mated', '')
 gflags.DEFINE_integer('limit', 100, '')
@@ -266,7 +267,16 @@ def SelfTest(train, pretty):
             len(train10_x),
             len(train90_x))
 
-
+# def ReadPawnFormations():
+#     f = file('generated/pawn_formations.txt')
+#     m = {}
+#     for line in f.readlines():
+#         line = line.strip()
+#         event, rest = line.split(':')
+#         pawns = rest.split(',')
+#         m[event] = pawns
+#     return m
+        
 def main(argv):
     try:
       argv = FLAGS(argv)  # parse flags
@@ -294,6 +304,25 @@ def main(argv):
     # game_ply [ply]
     static = ReadStatic()
     pretty = MakePretty()
+    
+#     if FLAGS.pawns:
+#         pawns_to_index = {}
+#         last_index = len(pretty)
+#         pawns = ReadPawnFormations() # key=event, value=list<pat>
+#         already = set()
+#         for n, v in pawns.iteritems():
+#             for vv in v:
+#                 if vv not in already:
+#                     already.add(vv)
+#                     pawns_to_index[vv] = last_index
+#                     last_index += 1
+#     else:
+#         pawns = None
+#         pawns_to_index = {}
+#     for n, v in pawns_to_index.iteritems():
+#         print 'n: ', n, 'v: ', v
+#     sys.exit(1)
+        
     if FLAGS.selftest > 0:
         cols = []
         for what in FLAGS.what.split(','):
