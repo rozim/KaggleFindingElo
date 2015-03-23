@@ -177,7 +177,7 @@ def EvaluateGrid(train, test, pretty):
     test_y = [ent[2] for ent in test]
 
     grid = sklearn.grid_search.RandomizedSearchCV(sklearn.ensemble.RandomForestRegressor(),
-                                                  {'n_estimators': [1000],
+                                                  {'n_estimators': [100],
                                                    'max_depth': [None],
                                                    'max_features': ['auto', 0.9, 0.8, 0.7, 0.6, 0.5],
                                                    'min_samples_leaf': [3, 4, 5, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30],
